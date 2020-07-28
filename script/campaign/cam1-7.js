@@ -263,7 +263,7 @@ function eventStartLevel()
 		"artifactLocation": { tech: ["R-Wpn-Cannon3Mk1", "R-Wpn-RocketSlow-Damage03"] },
 	});
 
-	camCompleteRequiredResearch(NEW_PARADIGM_RESEARCH, NEW_PARADIGM);
+	camCompleteRequiredResearch(NEW_PARADIGM_RES, NEW_PARADIGM);
 	camCompleteRequiredResearch(SCAVENGER_RES, SCAV_7);
 
 	camUpgradeOnMapTemplates(cTempl.bloke, cTempl.blokeheavy, SCAV_7);

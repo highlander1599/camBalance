@@ -2,7 +2,6 @@
 include("script/campaign/libcampaign.js");
 include("script/campaign/templates.js");
 
-const SCAVS = 7;
 const SCAVENGER_RES = [
 	"R-Wpn-Flamer-Damage02", "R-Wpn-Flamer-Range01", "R-Wpn-Flamer-ROF01",
 	"R-Wpn-MG-Damage02", "R-Wpn-MG-ROF01",
@@ -75,12 +74,12 @@ function eventStartLevel()
 	startTransporterEntry(tent.x, tent.y, CAM_HUMAN_PLAYER);
 	setTransporterExit(text.x, text.y, CAM_HUMAN_PLAYER);
 
-	camCompleteRequiredResearch(SCAVENGER_RES, SCAVS);
+	camCompleteRequiredResearch(SCAVENGER_RES, SCAV_7);
 
-	camUpgradeOnMapTemplates(cTempl.bloke, cTempl.blokeheavy, SCAVS);
-	camUpgradeOnMapTemplates(cTempl.trike, cTempl.triketwin, SCAVS);
-	camUpgradeOnMapTemplates(cTempl.buggy, cTempl.buggytwin, SCAVS);
-	camUpgradeOnMapTemplates(cTempl.bjeep, cTempl.bjeeptwin, SCAVS);
+	camUpgradeOnMapTemplates(cTempl.bloke, cTempl.blokeheavy, SCAV_7);
+	camUpgradeOnMapTemplates(cTempl.trike, cTempl.triketwin, SCAV_7);
+	camUpgradeOnMapTemplates(cTempl.buggy, cTempl.buggytwin, SCAV_7);
+	camUpgradeOnMapTemplates(cTempl.bjeep, cTempl.bjeeptwin, SCAV_7);
 
 	camSetEnemyBases({
 		"NorthGroup": {

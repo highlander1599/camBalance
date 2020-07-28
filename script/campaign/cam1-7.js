@@ -266,10 +266,10 @@ function eventStartLevel()
 	camCompleteRequiredResearch(NEW_PARADIGM_RESEARCH, NEW_PARADIGM);
 	camCompleteRequiredResearch(SCAVENGER_RES, SCAV_7);
 
-	camUpgradeOnMapTemplates(cTempl.bloke, cTempl.blokeheavy, SCAVS);
-	camUpgradeOnMapTemplates(cTempl.trike, cTempl.trikeheavy, SCAVS);
-	camUpgradeOnMapTemplates(cTempl.buggy, cTempl.buggyheavy, SCAVS);
-	camUpgradeOnMapTemplates(cTempl.bjeep, cTempl.bjeepheavy, SCAVS);
+	camUpgradeOnMapTemplates(cTempl.bloke, cTempl.blokeheavy, SCAV_7);
+	camUpgradeOnMapTemplates(cTempl.trike, cTempl.trikeheavy, SCAV_7);
+	camUpgradeOnMapTemplates(cTempl.buggy, cTempl.buggyheavy, SCAV_7);
+	camUpgradeOnMapTemplates(cTempl.bjeep, cTempl.bjeepheavy, SCAV_7);
 
 	camSetEnemyBases({
 		"ScavMiddleGroup": {

@@ -60,12 +60,12 @@ function eventStartLevel()
 	startTransporterEntry(tent.x, tent.y, CAM_HUMAN_PLAYER);
 	setTransporterExit(text.x, text.y, CAM_HUMAN_PLAYER);
 
-	camCompleteRequiredResearch(SCAVENGER_RES, SCAVS);
+	camCompleteRequiredResearch(SCAVENGER_RES, SCAV_7);
 
-	camUpgradeOnMapTemplates(cTempl.bloke, cTempl.blokeheavy, SCAVS);
-	camUpgradeOnMapTemplates(cTempl.trike, cTempl.triketwin, SCAVS);
-	camUpgradeOnMapTemplates(cTempl.buggy, cTempl.buggytwin, SCAVS);
-	camUpgradeOnMapTemplates(cTempl.bjeep, cTempl.bjeeptwin, SCAVS);
+	camUpgradeOnMapTemplates(cTempl.bloke, cTempl.blokeheavy, SCAV_7);
+	camUpgradeOnMapTemplates(cTempl.trike, cTempl.triketwin, SCAV_7);
+	camUpgradeOnMapTemplates(cTempl.buggy, cTempl.buggytwin, SCAV_7);
+	camUpgradeOnMapTemplates(cTempl.bjeep, cTempl.bjeeptwin, SCAV_7);
 
 	//Get rid of the already existing crate and replace with another
 	camSafeRemoveObject("artifact1", false);

@@ -132,10 +132,10 @@ function eventStartLevel()
 	camCompleteRequiredResearch(SCAVENGER_RES, SCAV_7);
 	setAlliance(NEW_PARADIGM, SCAV_7, true);
 
-	camUpgradeOnMapTemplates(cTempl.bloke, cTempl.blokeheavy, SCAVS);
-	camUpgradeOnMapTemplates(cTempl.trike, cTempl.trikeheavy, SCAVS);
-	camUpgradeOnMapTemplates(cTempl.buggy, cTempl.buggyheavy, SCAVS);
-	camUpgradeOnMapTemplates(cTempl.bjeep, cTempl.bjeepheavy, SCAVS);
+	camUpgradeOnMapTemplates(cTempl.bloke, cTempl.blokeheavy, SCAV_7);
+	camUpgradeOnMapTemplates(cTempl.trike, cTempl.trikeheavy, SCAV_7);
+	camUpgradeOnMapTemplates(cTempl.buggy, cTempl.buggyheavy, SCAV_7);
+	camUpgradeOnMapTemplates(cTempl.bjeep, cTempl.bjeepheavy, SCAV_7);
 
 	camSetEnemyBases({
 		"SouthScavBaseGroup": {

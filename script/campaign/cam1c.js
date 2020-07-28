@@ -184,10 +184,10 @@ function eventStartLevel()
 	camCompleteRequiredResearch(NEW_PARADIGM_RES, NEW_PARADIGM);
 	camCompleteRequiredResearch(SCAVENGER_RES, SCAV_7);
 
-	camUpgradeOnMapTemplates(cTempl.bloke, cTempl.blokeheavy, 7);
-	camUpgradeOnMapTemplates(cTempl.trike, cTempl.trikeheavy, 7);
-	camUpgradeOnMapTemplates(cTempl.buggy, cTempl.buggyheavy, 7);
-	camUpgradeOnMapTemplates(cTempl.bjeep, cTempl.bjeepheavy, 7);
+	camUpgradeOnMapTemplates(cTempl.bloke, cTempl.blokeheavy, SCAV_7);
+	camUpgradeOnMapTemplates(cTempl.trike, cTempl.trikeheavy, SCAV_7);
+	camUpgradeOnMapTemplates(cTempl.buggy, cTempl.buggyheavy, SCAV_7);
+	camUpgradeOnMapTemplates(cTempl.bjeep, cTempl.bjeepheavy, SCAV_7);
 
 	camSetEnemyBases({
 		"ScavSouthDerrickGroup": {

@@ -9,9 +9,10 @@ const SCAVENGER_RES = [
 //Ambush player from scav base - triggered from middle path
 camAreaEvent("scavBaseTrigger", function()
 {
-	var ambushGroup = camMakeGroup(enumArea("eastScavs", SCAV_7, false));
-	camManageGroup(ambushGroup, CAM_ORDER_DEFEND, {
-		pos: camMakePos("artifactLocation")
+	var ambushGroup = camMakeGroup(enumArea("eastScavsNorth", SCAV_7, false));
+	camManageGroup(ambushGroup, CAM_ORDER_ATTACK, {
+		count: -1,
+		regroup: false
 	});
 });
 
@@ -38,6 +39,23 @@ function eventPickup(feature, droid)
 	if (droid.player === CAM_HUMAN_PLAYER && feature.stattype === ARTIFACT)
 	{
 		hackRemoveMessage("C1-1_OBJ1", PROX_MSG, CAM_HUMAN_PLAYER);
+	}
+}
+
+//Send the south-eastern scavs in the main base on an attack run when the front bunkers get destroyed.
+function checkFrontBunkers()
+{
+	if (getObject("frontBunkerLeft") === null && getObject("frontBunkerRight") === null)
+	{
+		var ambushGroup = camMakeGroup(enumArea("eastScavsSouth", SCAV_7, false));
+		camManageGroup(ambushGroup, CAM_ORDER_ATTACK, {
+			count: -1,
+			regroup: false
+		});
+	}
+	else
+	{
+		queue("checkFrontBunkers", camSecondsToMilliseconds(5));
 	}
 }
 
@@ -92,4 +110,5 @@ function eventStartLevel()
 	camPlayVideos("FLIGHT");
 	hackAddMessage("C1-1_OBJ1", PROX_MSG, CAM_HUMAN_PLAYER, true);
 
+	queue("checkFrontBunkers", camSecondsToMilliseconds(5));
 }

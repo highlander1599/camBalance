@@ -159,6 +159,8 @@ function setupNextMission()
 {
 	if (missileSilosDestroyed())
 	{
+		camSetExtraObjectiveMessage(_("Move all units into the valley"));
+
 		camPlayVideos(["labort.ogg", "MB3_1B_MSG", "MB3_1B_MSG2"]);
 
 		setScrollLimits(0, 0, 64, 64); //Reveal the whole map.
@@ -245,6 +247,8 @@ function unitsInValley()
 
 function eventStartLevel()
 {
+	camSetExtraObjectiveMessage(_("Destroy the missile silos"));
+
 	var startpos = getObject("startPosition");
 	var lz = getObject("landingZone");
 	var tent = getObject("transporterEntry");

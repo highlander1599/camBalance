@@ -19,26 +19,58 @@ camAreaEvent("scavBaseTrigger", function()
 //Moves west scavs units closer to the base - triggered from right path
 camAreaEvent("ambush1Trigger", function()
 {
-	var ambushGroup = camMakeGroup(enumArea("westScavs", SCAV_7, false));
-	camManageGroup(ambushGroup, CAM_ORDER_DEFEND, {
-		pos: camMakePos("ambush1")
-	});
+	camCallOnce("westScavAction");
 });
 
 //Sends some units towards player LZ - triggered from left path
 camAreaEvent("ambush2Trigger", function()
 {
+	camCallOnce("northwestScavAction");
+});
+
+camAreaEvent("factoryTrigger", function()
+{
+	camEnableFactory("scavFactory1");
+});
+
+function westScavAction()
+{
+	var ambushGroup = camMakeGroup(enumArea("westScavs", SCAV_7, false));
+	camManageGroup(ambushGroup, CAM_ORDER_DEFEND, {
+		pos: camMakePos("ambush1")
+	});
+}
+
+function northwestScavAction()
+{
 	var ambushGroup = camMakeGroup(enumArea("northWestScavs", SCAV_7, false));
 	camManageGroup(ambushGroup, CAM_ORDER_DEFEND, {
 		pos: camMakePos("ambush2")
 	});
-});
+}
 
 function eventPickup(feature, droid)
 {
 	if (droid.player === CAM_HUMAN_PLAYER && feature.stattype === ARTIFACT)
 	{
 		hackRemoveMessage("C1-1_OBJ1", PROX_MSG, CAM_HUMAN_PLAYER);
+	}
+}
+
+function eventAttacked(victim, attacker)
+{
+	if (victim.player === CAM_HUMAN_PLAYER)
+	{
+		return;
+	}
+	if (!victim)
+	{
+		return;
+	}
+
+	if (victim.type === STRUCTURE && victim.id === 146)
+	{
+		camCallOnce("westScavAction");
 	}
 }
 
@@ -101,12 +133,11 @@ function eventStartLevel()
 				count: -1,
 			},
 			groupSize: 4,
-			throttle: camChangeOnDiff(camSecondsToMilliseconds(24)),
+			throttle: camChangeOnDiff(camSecondsToMilliseconds(30)),
 			templates: [ cTempl.trikeheavy, cTempl.blokeheavy, cTempl.buggyheavy, cTempl.bjeepheavy ]
 		},
 	});
 
-	camEnableFactory("scavFactory1");
 	camPlayVideos("FLIGHT");
 	hackAddMessage("C1-1_OBJ1", PROX_MSG, CAM_HUMAN_PLAYER, true);
 

@@ -85,16 +85,20 @@
 	},
 	"area_9": {
 		"label": "eastScavsNorth",
-		"subscriber": 0,
 		"pos1": [3456, 896],
 		"pos2": [3968, 1536],
 		"subscriber": 0
 	},
 	"area_10": {
 		"label": "eastScavsSouth",
-		"subscriber": 0,
 		"pos1": [3200, 2048],
 		"pos2": [3712, 2560],
+		"subscriber": 0
+	},
+	"area_11": {
+		"label": "factoryTrigger",
+		"pos1": [1856, 4672],
+		"pos2": [2496, 4928],
 		"subscriber": 0
 	},
 

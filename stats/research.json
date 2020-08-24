@@ -5025,9 +5025,6 @@
         "keyTopic": 1,
         "msgName": "RES_W_CN_4A",
         "name": "Hyper Velocity Cannon",
-        "redComponents": [
-            "Cannon2A-TMk1"
-        ],
         "requiredResearch": [
 			"R-Wpn-Cannon3Mk1"
         ],

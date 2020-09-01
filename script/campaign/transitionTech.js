@@ -1,5 +1,6 @@
 //Contains the campaign transition technology definitions.
 
+//This array should give a player all the research from Alpha.
 const ALPHA_RESEARCH_NEW = [
 	// 1
 	"R-Wpn-MG1Mk1", "R-Vehicle-Body01", "R-Sys-Spade1Mk1", "R-Vehicle-Prop-Wheels",
@@ -59,72 +60,21 @@ const ALPHA_RESEARCH_NEW = [
 	"R-Vehicle-Prop-Hover", "R-Vehicle-Metals03", "R-Vehicle-Body12",
 ];
 
-//This array should give a player all the research from Alpha.
-const ALPHA_RESEARCH = [
-	"R-Wpn-MG1Mk1", "R-Vehicle-Body01",
-	"R-Sys-Spade1Mk1", "R-Vehicle-Prop-Wheels", "R-Wpn-Flamer-Damage03",
-	"R-Sys-Engineering01", "R-Sys-MobileRepairTurret01",
-	"R-Struc-PowerModuleMk1", "R-Wpn-MG2Mk1",
-	"R-Wpn-MG3Mk1", "R-Wpn-Cannon1Mk1", "R-Defense-WallUpgrade03",
-	"R-Struc-Factory-Upgrade03","R-Vehicle-Metals03", "R-Cyborg-Wpn-MG",
-	"R-Cyborg-Metals03",
-	"R-Struc-Materials03", "R-Struc-Research-Upgrade03",
-	"R-Struc-RprFac-Upgrade03", "R-Wpn-MG-ROF01",
-	"R-Wpn-Cannon-Damage03", "R-Wpn-Rocket05-MiniPod", "R-Wpn-Rocket-Damage03",
-	"R-Wpn-Flamer-ROF01", "R-Wpn-MG-Damage04",
-	"R-Wpn-Mortar-Damage03", "R-Wpn-Rocket-Accuracy02",
-	"R-Wpn-Rocket-ROF03", "R-Wpn-RocketSlow-Damage03",
-	"R-Wpn-RocketSlow-Accuracy01", "R-Vehicle-Engine03",
-	"R-Defense-MRL", "R-Comp-CommandTurret01",
-	"R-Cyborg-Wpn-Cannon", "R-Cyborg-Wpn-Flamer",
-	"R-Cyborg-Wpn-Rocket", "R-Defense-MortarPit", "R-Defense-Pillbox01",
-	"R-Defense-Pillbox04", "R-Defense-Pillbox05", "R-Defense-Pillbox06",
-	"R-Defense-TankTrap01", "R-Defense-Tower01", "R-Defense-Tower06",
-	"R-Defense-WallTower01", "R-Defense-WallTower02", "R-Defense-WallTower03",
-	"R-Defense-WallTower04", "R-Defense-WallTower06",
-	"R-Vehicle-Body11", "R-Vehicle-Body12", "R-Vehicle-Engine03",
-	"R-Vehicle-Prop-Tracks", "R-Vehicle-Prop-Hover", "R-Vehicle-Prop-Wheels",
-	"R-Wpn-Cannon-Accuracy01", "R-Wpn-Cannon3Mk1", "R-Wpn-Mortar-Acc01",
-	"R-Wpn-Mortar-ROF01", "R-Defense-HvyMor", "R-Wpn-Rocket03-HvAT",
-];
 
 //BETA 2-A
-const ALPHA_TECH = [
-	"MG1Mk1", "Cannon1Mk1", "Cannon2A-TMk1", "Cannon375mmMk1", "Flame1Mk1",
-	"MG2Mk1", "MG3Mk1", "Mortar1Mk1", "Mortar2Mk1", "Rocket-BB", "Rocket-LtA-T",
-	"Rocket-MRL", "Rocket-Pod", "Cannon1-VTOL", "MG1-VTOL", "MG2-VTOL",
-	"MG3-VTOL", "Rocket-VTOL-LtA-T", "Rocket-VTOL-Pod", "Rocket-VTOL-BB",
-	"CyborgFlamer01", "CyborgCannon", "CyborgChaingun", "CyborgRocket",
-	"CommandTurret1", "Body1REC", "Body5REC", "Body11ABT", "Body4ABT",
-	"Body8MBT", "Body12SUP", "CyborgLightBody", "HalfTrack", "hover01",
-	"tracked01", "wheeled01", "Spade1Mk1", "SensorTurret1Mk1",
-	"CommandBrain01",
-];
 
 const STRUCTS_ALPHA = [
-	"A0CommandCentre", "A0PowerGenerator", "A0ResourceExtractor",
-	"A0ResearchFacility", "A0LightFactory", "A0ComDroidControl",
-	"A0CyborgFactory", "A0FacMod1", "A0HardcreteMk1CWall",
-	"A0HardcreteMk1Wall", "A0PowMod1", "A0RepairCentre3",
-	"A0ResearchModule1", "A0TankTrap", "PillBox1", "PillBox4",
-	"PillBox5", "PillBox6", "TankTrapC", "WallTower01",
-	"WallTower03", "WallTower04", "WallTower06", "AASite-QuadMg1",
-	"Emplacement-MortarPit01", "Emplacement-MRL-pit",
+	"A0CommandCentre",
+	"A0PowerGenerator",
+	"A0ResourceExtractor",
+	"A0ResearchFacility",
+	"A0LightFactory",
 ];
 
 const PLAYER_RES_BETA = [
-	"R-Wpn-MG1Mk1", "R-Sys-Engineering01", "R-Cyborg-Legs01",
-	"R-Vehicle-Metals03", "R-Cyborg-Metals03", "R-Defense-WallUpgrade03",
-	"R-Struc-Factory-Upgrade03",
-	"R-Struc-Materials03", "R-Struc-Research-Upgrade03",
-	"R-Struc-RprFac-Upgrade03", "R-Wpn-MG-ROF01",
-	"R-Sys-MobileRepairTurret01", "R-Wpn-Cannon-Damage03",
-	"R-Wpn-Flamer-Damage03", "R-Wpn-Flamer-ROF01", "R-Wpn-MG-Damage04",
-	"R-Wpn-Mortar-Damage03", "R-Wpn-Rocket-Accuracy02",
-	"R-Wpn-Rocket-ROF03", "R-Wpn-RocketSlow-Accuracy01",
-	"R-Wpn-RocketSlow-Damage03", "R-Vehicle-Engine03",
-	"R-Wpn-AAGun03", "R-Defense-AASite-QuadMg1",
-	"R-Sys-Sensor-Tower02", "R-Defense-MRL",
+	"R-Wpn-AAGun03",
+	"R-Defense-AASite-QuadMg1",
+	"R-Sys-Sensor-Tower02",
 ];
 
 //GAMMA 3-A

@@ -143,7 +143,7 @@ function eventStartLevel()
 	changePlayerColour(TRANSPORT_TEAM, 0);
 
 	camCompleteRequiredResearch(COLLECTIVE_RES, THE_COLLECTIVE);
-	camCompleteRequiredResearch(ALPHA_RESEARCH, TRANSPORT_TEAM);
+	camCompleteRequiredResearch(ALPHA_RESEARCH_NEW, TRANSPORT_TEAM);
 	camCompleteRequiredResearch(PLAYER_RES_BETA, TRANSPORT_TEAM);
 
 	camSetEnemyBases({

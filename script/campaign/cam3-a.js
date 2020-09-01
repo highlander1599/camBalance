@@ -193,8 +193,8 @@ function cam3Setup()
 		enableStructure(STRUCTS_GAMMA[x], CAM_HUMAN_PLAYER);
 	}
 
-	camCompleteRequiredResearch(ALPHA_RESEARCH, CAM_HUMAN_PLAYER);
-	camCompleteRequiredResearch(ALPHA_RESEARCH, NEXUS);
+	camCompleteRequiredResearch(ALPHA_RESEARCH_NEW, CAM_HUMAN_PLAYER);
+	camCompleteRequiredResearch(ALPHA_RESEARCH_NEW, NEXUS);
 
 	camCompleteRequiredResearch(PLAYER_RES_GAMMA, CAM_HUMAN_PLAYER);
 	camCompleteRequiredResearch(NEXUS_RES, NEXUS);

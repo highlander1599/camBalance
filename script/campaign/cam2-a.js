@@ -202,19 +202,16 @@ function cam2Setup()
 		"R-Wpn-RocketSlow-Damage04", "R-Sys-Sensor-Upgrade01"
 	];
 
-	for (x = 0; x < ALPHA_TECH.length; ++x)
-	{
-		makeComponentAvailable(ALPHA_TECH[x], CAM_HUMAN_PLAYER);
-	}
-
 	for (x = 0; x < STRUCTS_ALPHA.length; ++x)
 	{
 		enableStructure(STRUCTS_ALPHA[x], CAM_HUMAN_PLAYER);
 	}
 
 	camCompleteRequiredResearch(PLAYER_RES_BETA, CAM_HUMAN_PLAYER);
+	camCompleteRequiredResearch(ALPHA_RESEARCH_NEW, THE_COLLECTIVE);
 	camCompleteRequiredResearch(COLLECTIVE_RES, THE_COLLECTIVE);
-	camCompleteRequiredResearch(ALPHA_RESEARCH, CAM_HUMAN_PLAYER);
+	camCompleteRequiredResearch(ALPHA_RESEARCH_NEW, CAM_HUMAN_PLAYER);
+
 	enableResearch("R-Wpn-Cannon-Damage04", CAM_HUMAN_PLAYER);
 	enableResearch("R-Wpn-Rocket-Damage04", CAM_HUMAN_PLAYER);
 	preDamageStuff();

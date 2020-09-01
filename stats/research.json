@@ -662,7 +662,7 @@
         "msgName": "RES_V_MET4",
         "name": "Dense Composite Alloys",
         "requiredResearch": [
-            "R-Vehicle-Body06",
+            "R-Vehicle-Body02",
 			"R-Vehicle-Metals03"
         ],
         "researchPoints": 7600,
@@ -691,7 +691,7 @@
         "imdName": "icmolql.pie",
         "name": "Dense Composite Alloys Mk2",
         "requiredResearch": [
-            "R-Vehicle-Body02",
+            "R-Vehicle-Body06",
             "R-Vehicle-Metals04"
         ],
         "researchPoints": 9600,
@@ -4285,9 +4285,6 @@
         "keyTopic": 1,
         "msgName": "RES_V_B02",
         "name": "Light Body - Leopard",
-        "requiredResearch": [
-			"R-Vehicle-Body06"
-        ],
         "researchPoints": 6000,
         "researchPower": 187,
         "resultComponents": [
@@ -4301,6 +4298,9 @@
         "keyTopic": 1,
         "msgName": "RES_V_B06",
         "name": "Medium Body - Panther",
+        "requiredResearch": [
+			"R-Vehicle-Body02"
+        ],
         "researchPoints": 7200,
         "researchPower": 225,
         "resultComponents": [
@@ -4315,7 +4315,7 @@
         "msgName": "RES_V_B09",
         "name": "Heavy Body - Tiger",
 		"requiredResearch": [
-			"R-Vehicle-Body02"
+			"R-Vehicle-Body06"
         ],
         "researchPoints": 8400,
         "researchPower": 262,
@@ -4876,7 +4876,8 @@
         "id": "R-Wpn-Cannon-Damage05",
         "name": "APFSDS Cannon Rounds Mk2",
         "requiredResearch": [
-            "R-Wpn-Cannon-Damage04"
+            "R-Wpn-Cannon-Damage04",
+            "R-Wpn-Cannon-ROF01"
         ],
         "researchPoints": 7200,
         "researchPower": 225,
@@ -4933,6 +4934,7 @@
     "R-Wpn-Cannon-ROF01": {
         "iconID": "IMAGE_RES_WEAPONTECH",
         "id": "R-Wpn-Cannon-ROF01",
+        "keyTopic": 1,
         "msgName": "RES_W_CN_ROF1",
         "name": "Cannon Autoloader",
         "requiredResearch": [
@@ -4962,10 +4964,10 @@
     "R-Wpn-Cannon-ROF02": {
         "iconID": "IMAGE_RES_WEAPONTECH",
         "id": "R-Wpn-Cannon-ROF02",
+        "keyTopic": 1,
         "name": "Cannon Autoloader Mk2",
         "requiredResearch": [
-            "R-Wpn-Cannon-ROF01",
-            "R-Struc-Factory-Upgrade04"
+            "R-Wpn-Cannon-ROF01"
         ],
         "researchPoints": 6000,
         "researchPower": 187,
@@ -5317,6 +5319,7 @@
     "R-Wpn-Howitzer-Damage02": {
         "iconID": "IMAGE_RES_WEAPONTECH",
         "id": "R-Wpn-Howitzer-Damage02",
+        "keyTopic": 1,
         "name": "HE Howitzer Shells Mk2",
         "requiredResearch": [
             "R-Wpn-Howitzer-Damage01"
@@ -5419,6 +5422,7 @@
     "R-Wpn-Howitzer-ROF02": {
         "iconID": "IMAGE_RES_WEAPONTECH",
         "id": "R-Wpn-Howitzer-ROF02",
+        "keyTopic": 1,
         "name": "Howitzer Autoloader Mk2",
         "requiredResearch": [
             "R-Wpn-Howitzer-Damage02",
@@ -5552,7 +5556,8 @@
         "id": "R-Wpn-MG-Damage06",
         "name": "Tungsten-Tipped MG Bullets Mk2",
         "requiredResearch": [
-            "R-Wpn-MG-Damage05"
+            "R-Wpn-MG-Damage05",
+            "R-Wpn-MG-ROF03"
         ],
         "researchPoints": 6800,
         "researchPower": 212,
@@ -5823,7 +5828,7 @@
         "id": "R-Wpn-Mortar-ROF02",
         "name": "Mortar Autoloader Mk2",
         "requiredResearch": [
-            "R-Wpn-Cannon-ROF02"
+            "R-Struc-Factory-Upgrade04"
         ],
         "researchPoints": 6000,
         "researchPower": 187,
@@ -5850,6 +5855,7 @@
     "R-Wpn-Mortar-ROF03": {
         "iconID": "IMAGE_RES_WEAPONTECH",
         "id": "R-Wpn-Mortar-ROF03",
+        "keyTopic": 1,
         "name": "Mortar Autoloader Mk3",
         "requiredResearch": [
 			"R-Wpn-Mortar-ROF02"
@@ -5932,7 +5938,8 @@
         "id": "R-Wpn-Rocket-Damage05",
         "name": "HEAP Mini-Rockets Mk2",
         "requiredResearch": [
-            "R-Wpn-Rocket-Damage04"
+            "R-Wpn-Rocket-Damage04",
+            "R-Wpn-RocketSlow-ROF01"
         ],
         "researchPoints": 6000,
         "researchPower": 187,
@@ -6027,7 +6034,7 @@
         "name": "HESH Rocket Warhead",
         "requiredResearch": [
             "R-Wpn-Rocket03-HvAT",
-            "R-Wpn-Rocket-Damage06",
+            "R-Wpn-Rocket-Damage04",
             "R-Wpn-RocketSlow-Damage03"
         ],
         "researchPoints": 6000,
@@ -6056,7 +6063,8 @@
         "id": "R-Wpn-RocketSlow-Damage05",
         "name": "HESH Rocket Warhead Mk2",
         "requiredResearch": [
-            "R-Wpn-RocketSlow-Damage04"
+            "R-Wpn-RocketSlow-Damage04",
+            "R-Wpn-RocketSlow-ROF01"
         ],
         "researchPoints": 8000,
         "researchPower": 250,
@@ -6083,6 +6091,7 @@
     "R-Wpn-RocketSlow-Damage06": {
         "iconID": "IMAGE_RES_WEAPONTECH",
         "id": "R-Wpn-RocketSlow-Damage06",
+        "keyTopic": 1,
         "name": "HESH Rocket Warhead Mk3",
         "requiredResearch": [
             "R-Wpn-RocketSlow-Damage05",

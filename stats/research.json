@@ -5893,8 +5893,7 @@
             "Mortar1Mk1"
         ],
         "requiredResearch": [
-			"R-Wpn-Mortar02Hvy",
-			"R-Wpn-Mortar-ROF03"
+			"R-Wpn-Mortar02Hvy"
         ],
         "researchPoints": 10000,
         "researchPower": 312,

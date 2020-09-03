@@ -113,6 +113,7 @@ function eventStartLevel()
 		"COCyborgFactory-Arti": { tech: "R-Wpn-Rocket07-Tank-Killer" },
 		"COCommandCenter": { tech: "R-Wpn-Mortar3" },
 		"uplink": { tech: "R-Sys-VTOLCBS-Tower01" },
+		"COMediumFactory": { tech: "R-Wpn-Cannon4AMk1" },
 	});
 
 	camCompleteRequiredResearch(COLLECTIVE_RES, THE_COLLECTIVE);

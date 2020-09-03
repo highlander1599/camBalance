@@ -110,7 +110,7 @@ function eventStartLevel()
 
 	camSetArtifacts({
 		"NuclearReactor": { tech: "R-Struc-Power-Upgrade01" },
-		"COMediumFactory": { tech: "R-Wpn-Cannon4AMk1" },
+		"COMediumFactory": { tech: "R-Wpn-Cannon-ROF02" },
 		"COCyborgFactoryL": { tech: "R-Wpn-MG4" },
 		"COTankKillerHardpoint": { tech: "R-Wpn-RocketSlow-ROF02" },
 	});

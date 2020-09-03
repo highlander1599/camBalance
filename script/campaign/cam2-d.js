@@ -99,6 +99,7 @@ function eventStartLevel()
 		"COResearchLab": { tech: "R-Struc-Research-Upgrade04" },
 		"COCommandRelay": { tech: "R-Wpn-Bomb02" },
 		"COHeavyFactory": { tech: "R-Wpn-Howitzer-Accuracy01" },
+		"COHowitzerEmplacement": { tech: "R-Wpn-Howitzer-Damage02" },
 	});
 
 	setAlliance(CAM_HUMAN_PLAYER, UPLINK, true);

@@ -3520,7 +3520,7 @@
         "resultStructures": [
             "Emplacement-Howitzer150"
         ],
-        "statID": "Emplacement-Howitzer105"
+        "statID": "Emplacement-Howitzer150"
     },
     "R-Defense-HvyMor": {
         "iconID": "IMAGE_RES_DEFENCE",
@@ -3540,7 +3540,7 @@
         "resultStructures": [
             "Emplacement-MortarPit02"
         ],
-        "statID": "Emplacement-MortarPit01"
+        "statID": "Emplacement-MortarPit02"
     },
     "R-Defense-IDFRocket": {
         "iconID": "IMAGE_RES_DEFENCE",
@@ -5050,7 +5050,8 @@
         "researchPoints": 9000,
         "researchPower": 281,
         "resultComponents": [
-            "Cannon5VulcanMk1"
+            "Cannon5VulcanMk1",
+            "Cannon5Vulcan-VTOL"
         ],
         "statID": "Cannon5VulcanMk1"
     },

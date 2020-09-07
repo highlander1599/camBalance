@@ -191,7 +191,6 @@ function cam3Setup()
 	camCompleteRequiredResearch(ALPHA_RESEARCH_NEW, NEXUS);
 
 	camCompleteRequiredResearch(BETA_RESEARCH_NEW, CAM_HUMAN_PLAYER);
-	camCompleteRequiredResearch(PLAYER_RES_GAMMA, CAM_HUMAN_PLAYER);
 	camCompleteRequiredResearch(NEXUS_RES, NEXUS);
 
 	enableResearch("R-Wpn-Howitzer03-Rot", CAM_HUMAN_PLAYER);

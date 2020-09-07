@@ -132,6 +132,7 @@ function eventStartLevel()
 		"COHeavyFacL-b1": { tech: "R-Wpn-MG-ROF03" },
 		"COCommandCenter": { tech: "R-Vehicle-Body02" }, //Leopard
 		"COCybFac-b4": { tech: "R-Wpn-Cannon-ROF01" },
+		"COBombardPit": { tech: "R-Wpn-Mortar-Damage04" },
 	});
 
 	camCompleteRequiredResearch(COLLECTIVE_RES, THE_COLLECTIVE);

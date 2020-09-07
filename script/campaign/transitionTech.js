@@ -41,7 +41,7 @@ const ALPHA_RESEARCH_NEW = [
 	// 8
 	"R-Vehicle-Metals01", "R-Vehicle-Metals02", "R-Wpn-MG-Damage04", "R-Wpn-Rocket02-MRL",
 	"R-Wpn-Rocket-Damage03", "R-Wpn-Mortar02Hvy", "R-Wpn-Mortar-Damage03", "R-Wpn-Cannon-Damage03",
-	"R-Wpn-RocketSlow-Damage02", "R-Vehicle-Body11", "R-Defense-MRL",
+	"R-Wpn-RocketSlow-Damage02", "R-Vehicle-Body11", "R-Defense-MRL", "R-Defense-HvyMor",
 
 	// 9
 	"R-Struc-Research-Upgrade01", "R-Struc-Research-Upgrade02", "R-Struc-Research-Upgrade03",
@@ -58,7 +58,7 @@ const ALPHA_RESEARCH_NEW = [
 	"R-Wpn-Cannon3Mk1", "R-Defense-WallTower04", "R-Wpn-RocketSlow-Damage03",
 
 	//12
-	"R-Vehicle-Prop-Hover", "R-Vehicle-Metals03", "R-Vehicle-Body12",
+	"R-Vehicle-Prop-Hover", "R-Vehicle-Metals03", "R-Vehicle-Body12", "R-Vehicle-Engine03",
 ];
 
 //Basic base structures.
@@ -76,8 +76,6 @@ const PLAYER_RES_BETA = [
 	"R-Wpn-AAGun03",
 	"R-Defense-AASite-QuadMg1",
 	"R-Sys-Sensor-Tower02",
-	"R-Vehicle-Engine03",
-	"R-Defense-HvyMor",
 ];
 
 //This array should give a player all the research from Beta.
@@ -97,6 +95,7 @@ const BETA_RESEARCH_NEW = [
 	"R-Wpn-RocketSlow-ROF01", "R-Defense-HvyFlamer", "R-Vehicle-Metals04",
 	"R-Wpn-Cannon-Damage05", "R-Wpn-MG-Damage06", "R-Wpn-Rocket-Damage05",
 	"R-Wpn-RocketSlow-Damage05", "R-Cyborg-Metals04", "R-Wpn-Flamer-Damage06",
+	"R-Wpn-Mortar-Damage04",
 
 	// 4
 	"R-Wpn-RocketSlow-Accuracy03", "R-Wpn-AAGun-Accuracy01", "R-Wpn-Mortar-Acc02",
@@ -108,7 +107,7 @@ const BETA_RESEARCH_NEW = [
 	"R-Wpn-Flamer-ROF03", "R-Wpn-Howitzer-Damage01", "R-Wpn-Howitzer-ROF01", "R-Wpn-Mortar-ROF02",
 	"R-Cyborg-Metals05", "R-Struc-Factory-Upgrade06", "R-Struc-VTOLPad", "R-Vehicle-Armor-Heat01",
 	"R-Wpn-Bomb-Accuracy01", "R-Wpn-Bomb03", "R-Cyborg-Armor-Heat01", "R-Struc-RprFac-Upgrade06",
-	"R-Sys-VTOLStrike-Tower01", "R-Sys-VTOLStrike-Turret01",
+	"R-Sys-VTOLStrike-Tower01", "R-Sys-VTOLStrike-Turret01", "R-Wpn-Mortar-Damage05",
 
 	// 6
 	"R-Struc-Power-Upgrade01", "R-Wpn-Cannon-ROF02", "R-Wpn-MG4", "R-Wpn-RocketSlow-ROF02",
@@ -119,13 +118,13 @@ const BETA_RESEARCH_NEW = [
 	// 7
 	"R-Wpn-Bomb02", "R-Wpn-Howitzer-Accuracy01", "R-Wpn-Howitzer-Damage02",
 	"R-Wpn-AAGun-Accuracy02", "R-Wpn-Howitzer-ROF02", "R-Struc-Research-Upgrade06",
-	"R-Struc-VTOLPad-Upgrade03",
+	"R-Struc-VTOLPad-Upgrade03", "R-Wpn-Bomb-Accuracy02",
 
 	// 8
 	"R-Sys-VTOLCBS-Tower01", "R-Wpn-Cannon4AMk1", "R-Wpn-Mortar3", "R-Wpn-Rocket07-Tank-Killer",
 	"R-Defense-Emplacement-HPVcannon", "R-Defense-HvyA-Trocket", "R-Defense-RotMor",
 	"R-Defense-WallTower-HPVcannon", "R-Defense-WallTower-HvyA-Trocket", "R-Sys-VTOLCBS-Turret01",
-	"R-Wpn-Mortar-ROF03",
+	"R-Wpn-Mortar-ROF03", "R-Wpn-Mortar-Damage06",
 
 	// 9
 	"R-Wpn-Cannon5", "R-Wpn-RocketSlow-Damage06", "R-Defense-Wall-VulcanCan",
@@ -137,12 +136,6 @@ const BETA_RESEARCH_NEW = [
 	"R-Wpn-Howitzer-ROF03", "R-Vehicle-Armor-Heat03", "R-Cyborg-Armor-Heat03",
 
 	// 11
-];
-
-//GAMMA 3-A bonus research
-const PLAYER_RES_GAMMA = [
-	"R-Wpn-Mortar-Damage06",
-	"R-Wpn-Bomb-Accuracy02",
 ];
 
 //This is used for giving allies in Gamma technology (3-b/3-2/3-c)

@@ -95,6 +95,7 @@ camAreaEvent("NPFactoryTrigger", function(droid)
 camAreaEvent("NPLZTrigger", function()
 {
 	sendNPTransport();
+	setTimer("sendNPTransport", camChangeOnDiff(camMinutesToMilliseconds(3)));
 });
 
 function sendNPTransport()
@@ -102,7 +103,7 @@ function sendNPTransport()
 	var tPos = getObject("NPTransportPos");
 	var nearbyDefense = enumRange(tPos.x, tPos.y, 6, NEW_PARADIGM, false);
 
-	if (nearbyDefense.length)
+	if (nearbyDefense.length > 0)
 	{
 		var list = getDroidsForNPLZ();
 		camSendReinforcement(NEW_PARADIGM, camMakePos("NPTransportPos"), list, CAM_REINFORCE_TRANSPORT, {
@@ -116,8 +117,10 @@ function sendNPTransport()
 				repair: 66,
 			},
 		});
-
-		queue("sendNPTransport", camChangeOnDiff(camMinutesToMilliseconds(3)));
+	}
+	else
+	{
+		removeTimer("sendNPTransport");
 	}
 }
 

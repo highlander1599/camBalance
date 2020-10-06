@@ -209,7 +209,7 @@ function eventStartLevel()
 				regroup: false,
 				count: -1,
 			},
-			templates: [cTempl.colagv, cTempl.commorv]
+			templates: [cTempl.colagv, cTempl.commorv, cTempl.commorvt]
 		},
 	});
 

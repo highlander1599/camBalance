@@ -31,8 +31,6 @@ function checkEnemyVtolArea()
 			camSafeRemoveObject(vtols[i], false);
 		}
 	}
-
-	queue("checkEnemyVtolArea", camSecondsToMilliseconds(1));
 }
 
 //Play last video sequence and destroy all droids on map.
@@ -84,7 +82,7 @@ function vtolAttack()
 	];
 	var vtolRemovePos = {"x": 127, "y": 64};
 
-	var list = [cTempl.commorv, cTempl.colcbv, cTempl.colagv, cTempl.comhvat];
+	var list = [cTempl.commorv, cTempl.colcbv, cTempl.colagv, cTempl.comhvat, cTempl.commorvt];
 	camSetVtolData(THE_COLLECTIVE, VTOL_POSITIONS, vtolRemovePos, list, camChangeOnDiff(camSecondsToMilliseconds(30)));
 }
 
@@ -97,8 +95,6 @@ function cyborgAttack()
 	camSendReinforcement(THE_COLLECTIVE, camMakePos(southCyborgAssembly), randomTemplates(list), CAM_REINFORCE_GROUND, {
 		data: { regroup: false, count: -1 }
 	});
-
-	queue("cyborgAttack", camChangeOnDiff(camMinutesToMilliseconds(4)));
 }
 
 //North road attacker consisting of powerful weaponry.
@@ -114,7 +110,6 @@ function tankAttack()
 	camSendReinforcement(THE_COLLECTIVE, camMakePos(northTankAssembly), randomTemplates(list), CAM_REINFORCE_GROUND, {
 		data: { regroup: false, count: -1, },
 	});
-	queue("tankAttack", camChangeOnDiff(camMinutesToMilliseconds(3)));
 }
 
 //NOTE: this is only called once from the library's eventMissionTimeout().
@@ -162,9 +157,8 @@ function eventStartLevel()
 	allowWin = false;
 	camPlayVideos(["MB2_DII_MSG", "MB2_DII_MSG2"]);
 
-	//These requeue themselves every so often.
 	vtolAttack();
-	cyborgAttack();
-	tankAttack();
-	checkEnemyVtolArea();
+	setTimer("cyborgAttack", camChangeOnDiff(camMinutesToMilliseconds(4)));
+	setTimer("tankAttack", camChangeOnDiff(camMinutesToMilliseconds(3)));
+	setTimer("checkEnemyVtolArea", camSecondsToMilliseconds(1));
 }

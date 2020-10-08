@@ -138,6 +138,11 @@ function eventStartLevel()
 
 	camCompleteRequiredResearch(COLLECTIVE_RES, THE_COLLECTIVE);
 
+	// New HMG Tiger Tracks units in first attack group
+	addDroid(THE_COLLECTIVE, 92, 59, "Heavy Machinegun Tiger Tracks", "Body9REC", "tracked01", "", "", "MG3Mk1");
+	addDroid(THE_COLLECTIVE, 96, 59, "Heavy Machinegun Tiger Tracks", "Body9REC", "tracked01", "", "", "MG3Mk1");
+	addDroid(THE_COLLECTIVE, 97, 59, "Heavy Machinegun Tiger Tracks", "Body9REC", "tracked01", "", "", "MG3Mk1");
+
 	camSetEnemyBases({
 		"CONorthBase": {
 			cleanup: "base1Cleanup",

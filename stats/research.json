@@ -7141,7 +7141,7 @@
         "msgName": "RES_W_AAD4",
         "name": "AA HEAP Flak",
         "requiredResearch": [
-            "R-Wpn-Cannon-Damage08",
+            "R-Wpn-Cannon-Damage07",
 			"R-Wpn-AAGun-Damage03"
         ],
         "researchPoints": 9600,
@@ -7170,7 +7170,8 @@
         "id": "R-Wpn-AAGun-Damage05",
         "name": "AA HEAP Flak Mk2",
         "requiredResearch": [
-            "R-Wpn-AAGun-Damage04"
+            "R-Wpn-AAGun-Damage04",
+            "R-Wpn-Cannon-Damage08"
         ],
         "researchPoints": 10800,
         "researchPower": 337,
@@ -7199,7 +7200,8 @@
         "id": "R-Wpn-AAGun-Damage06",
         "name": "AA HEAP Flak Mk3",
         "requiredResearch": [
-            "R-Wpn-AAGun-Damage05"
+            "R-Wpn-AAGun-Damage05",
+            "R-Wpn-Cannon-Damage09"
         ],
         "researchPoints": 12000,
         "researchPower": 375,
@@ -7258,7 +7260,8 @@
         "id": "R-Wpn-AAGun-ROF05",
         "name": "AA Chainfeed Loader Mk2",
         "requiredResearch": [
-            "R-Wpn-AAGun-ROF04"
+            "R-Wpn-AAGun-ROF04",
+            "R-Wpn-Cannon-ROF05"
         ],
         "researchPoints": 10000,
         "researchPower": 312,
@@ -7400,7 +7403,8 @@
         "id": "R-Wpn-Cannon-Damage08",
         "name": "HVAPFSDS Cannon Rounds Mk2",
         "requiredResearch": [
-            "R-Wpn-Cannon-Damage07"
+            "R-Wpn-Cannon-Damage07",
+            "R-Wpn-MG-Damage09"
         ],
         "researchPoints": 10800,
         "researchPower": 337,
@@ -7429,7 +7433,8 @@
         "id": "R-Wpn-Cannon-Damage09",
         "name": "HVAPFSDS Cannon Rounds Mk3",
         "requiredResearch": [
-            "R-Wpn-Cannon-Damage08"
+            "R-Wpn-Cannon-Damage08",
+            "R-Wpn-Cannon-ROF06"
         ],
         "researchPoints": 12000,
         "researchPower": 375,
@@ -7486,6 +7491,7 @@
     "R-Wpn-Cannon-ROF05": {
         "iconID": "IMAGE_RES_WEAPONTECH",
         "id": "R-Wpn-Cannon-ROF05",
+        "keyTopic": 1,
         "name": "Cannon Rapid Loader Mk2",
         "requiredResearch": [
             "R-Wpn-Cannon-ROF04"
@@ -7635,6 +7641,7 @@
         "name": "Hi-Energy Laser Emitter Mk3",
         "requiredResearch": [
             "R-Wpn-Laser02",
+            "R-Wpn-Energy-Damage02",
             "R-Wpn-Energy-ROF02"
         ],
         "researchPoints": 43200,
@@ -7821,7 +7828,8 @@
         "id": "R-Wpn-Howitzer-Damage05",
         "name": "HEAP Howitzer Shells Mk2",
         "requiredResearch": [
-            "R-Wpn-Howitzer-Damage04"
+            "R-Wpn-Howitzer-Damage04",
+            "R-Wpn-Cannon-Damage08"
         ],
         "researchPoints": 12000,
         "researchPower": 375,
@@ -7857,7 +7865,8 @@
         "id": "R-Wpn-Howitzer-Damage06",
         "name": "HEAP Howitzer Shells Mk3",
         "requiredResearch": [
-            "R-Wpn-Howitzer-Damage05"
+            "R-Wpn-Howitzer-Damage05",
+            "R-Wpn-Cannon-Damage09"
         ],
         "researchPoints": 14000,
         "researchPower": 437,
@@ -7991,6 +8000,7 @@
     "R-Wpn-MG-Damage09": {
         "iconID": "IMAGE_RES_WEAPONTECH",
         "id": "R-Wpn-MG-Damage09",
+        "keyTopic": 1,
         "name": "Depleted Uranium MG Bullets Mk2",
         "requiredResearch": [
             "R-Wpn-MG-Damage08"
@@ -8177,7 +8187,8 @@
         "name": "Vindicator SAM",
         "requiredResearch": [
             "R-Wpn-Missile-Damage02",
-            "R-Wpn-Missile-ROF01"
+            "R-Wpn-Missile-ROF01",
+            "R-Wpn-Missile-Accuracy02"
         ],
         "researchPoints": 28800,
         "researchPower": 450,
@@ -8460,7 +8471,7 @@
         "name": "Hardened Rail Dart Mk3",
         "requiredResearch": [
             "R-Wpn-Rail-Damage02",
-            "R-Wpn-RailGun02"
+            "R-Wpn-RailGun03"
         ],
         "researchPoints": 43200,
         "researchPower": 450,

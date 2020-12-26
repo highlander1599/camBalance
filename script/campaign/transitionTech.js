@@ -139,7 +139,7 @@ const BETA_RESEARCH_NEW = [
 ];
 
 //This is used for giving allies in Gamma technology (3-b/3-2/3-c)
-const GAMMA_ALLY_RES = ALPHA_RESEARCH_NEW.concat(BETA_RESEARCH_NEW);
+const GAMMA_ALLY_RES = ALPHA_RESEARCH_NEW.concat(PLAYER_RES_BETA).concat(BETA_RESEARCH_NEW);
 
 const GAMMA_RESEARCH_NEW = [
 	//1

@@ -292,13 +292,10 @@ function eventStartLevel()
 	setAlliance(ALPHA, CAM_HUMAN_PLAYER, true);
 	changePlayerColour(ALPHA, 0);
 
-	phantomFactoryNE();
-	phantomFactorySW();
-
 	hackAddMessage("C3-2_OBJ1", PROX_MSG, CAM_HUMAN_PLAYER);
 	queue("setAlphaExp", camSecondsToMilliseconds(2));
-	queue("setupPatrolGroups", camSecondsToMilliseconds(15));
+	queue("setupPatrolGroups", camMinutesToMilliseconds(1.5));
 
-	setTimer("phantomFactoryNE", camChangeOnDiff(camMinutesToMilliseconds(2)));
-	setTimer("phantomFactorySW", camChangeOnDiff(camMinutesToMilliseconds(3)));
+	setTimer("phantomFactoryNE", camChangeOnDiff(camMinutesToMilliseconds(4)));
+	setTimer("phantomFactorySW", camChangeOnDiff(camMinutesToMilliseconds(6)));
 }

@@ -138,7 +138,7 @@ function eventStartLevel()
 			order: CAM_ORDER_PATROL, // will override later
 			data: { // will override later
 				pos: [ "patrol1", "patrol2", "patrol3", "patrol4" ],
-				interval: 20000
+				interval: camSecondsToMilliseconds(20)
 			},
 			group: camMakeGroup("hillForce"), // will override later
 			groupSize: 4, // will override later

@@ -232,7 +232,7 @@ function camChangeOnDiff(num)
 			modifier = 0.80;
 			break;
 		case INSANE:
-			modifier = 0.67;
+			modifier = 0.70;
 			break;
 		default:
 			modifier = 1.00;

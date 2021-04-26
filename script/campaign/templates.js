@@ -42,6 +42,7 @@ npsmct: { body: "Body8MBT", prop: "tracked01", weap: "Cannon2A-TMk1" },
 npmrl: { body: "Body4ABT", prop: "HalfTrack", weap: "Rocket-MRL" },
 npmmct: { body: "Body12SUP", prop: "tracked01", weap: "Cannon2A-TMk1" },
 npsbb: { body: "Body8MBT", prop: "HalfTrack", weap: "Rocket-BB" },
+npltat: { body: "Body4ABT", prop: "HalfTrack", weap: "Rocket-LtA-T" },
 
 // SUB_1_4A
 
@@ -60,7 +61,6 @@ npmsens: { body: "Body8MBT", prop: "HalfTrack", weap: "SensorTurret1Mk1" },
 
 // CAM_1_D
 npcybr: { body: "CyborgLightBody", prop: "CyborgLegs", weap: "CyborgRocket" },
-npltat: { body: "Body4ABT", prop: "HalfTrack", weap: "Rocket-LtA-T" },
 nphmgh: { body: "Body8MBT", prop: "hover01", weap: "MG3Mk1" },
 npltath: { body: "Body8MBT", prop: "hover01", weap: "Rocket-LtA-T" },
 nphch: { body: "Body12SUP", prop: "hover01", weap: "Cannon375mmMk1" },

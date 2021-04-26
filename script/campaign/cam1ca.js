@@ -63,18 +63,21 @@ function sendTransport()
 	{
 		lastHeavy = true;
 	}
-	// find an LZ that is not compromised
 	var list = [];
 	var i = 0;
-	for (i = 0; i < landingZoneList.length; ++i)
+	// Randomly find an LZ that is not compromised
+	if (camRand(100) < 10)
 	{
-		var lz = landingZoneList[i];
-		if (enumArea(lz, CAM_HUMAN_PLAYER, false).length === 0)
+		for (i = 0; i < landingZoneList.length; ++i)
 		{
-			list.push({ idx: i, label: lz });
+			var lz = landingZoneList[i];
+			if (enumArea(lz, CAM_HUMAN_PLAYER, false).length === 0)
+			{
+				list.push({ idx: i, label: lz });
+			}
 		}
 	}
-	//If all are compromised then choose the LZ randomly
+	//If all are compromised (or not checking for compromised LZs) then choose the LZ randomly
 	if (list.length === 0)
 	{
 		for (i = 0; i < 2; ++i)
@@ -95,12 +98,12 @@ function sendTransport()
 	if (lastHeavy)
 	{
 		lastHeavy = false;
-		templates = [ cTempl.nppod, cTempl.nphmg, cTempl.npmrl, cTempl.npsmc ];
+		templates = [ cTempl.nppod, cTempl.nphmg, cTempl.npmrl, cTempl.npsmc, cTempl.npltat ];
 	}
 	else
 	{
 		lastHeavy = true;
-		templates = [ cTempl.npsmct, cTempl.npmor, cTempl.npsmc, cTempl.npmmct, cTempl.npmrl, cTempl.nphmg, cTempl.npsbb ];
+		templates = [ cTempl.npsmct, cTempl.npmor, cTempl.npsmc, cTempl.npmmct, cTempl.npmrl, cTempl.nphmg, cTempl.npsbb, cTempl.npltat ];
 	}
 
 	var droids = [];

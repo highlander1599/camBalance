@@ -155,7 +155,8 @@ function eventStartLevel()
 	camSetStandardWinLossConditions(CAM_VICTORY_OFFWORLD, "CAM_2C",{
 		area: "RTLZ",
 		message: "C22_LZ",
-		reinforcements: camMinutesToSeconds(3)
+		reinforcements: camMinutesToSeconds(3),
+		retlz: true
 	});
 
 	var startpos = getObject("startPosition");

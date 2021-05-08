@@ -19,7 +19,7 @@ const COLLECTIVE_RES = [
 //Remove enemy vtols when in the remove zone area.
 function checkEnemyVtolArea()
 {
-	var pos = {"x": 127, "y": 64};
+	var pos = {x: 127, y: 64};
 	var vtols = enumRange(pos.x, pos.y, 2, THE_COLLECTIVE, false).filter(function(obj) {
 		return isVTOL(obj);
 	});
@@ -85,13 +85,13 @@ function randomTemplates(list, isTransport)
 function vtolAttack()
 {
 	const VTOL_POSITIONS = [
-		{"x": 99, "y": 1},
-		{"x": 127, "y": 65},
-		{"x": 127, "y": 28},
-		{"x": 36, "y": 1},
-		{"x": 1, "y": 28},
+		{x: 99, y: 1},
+		{x: 127, y: 65},
+		{x: 127, y: 28},
+		{x: 36, y: 1},
+		{x: 1, y: 28},
 	];
-	var vtolRemovePos = {"x": 127, "y": 64};
+	var vtolRemovePos = {x: 127, y: 64};
 
 	var list = [cTempl.commorv, cTempl.colcbv, cTempl.colagv, cTempl.comhvat, cTempl.commorvt];
 	camSetVtolData(THE_COLLECTIVE, VTOL_POSITIONS, vtolRemovePos, list, camChangeOnDiff(camSecondsToMilliseconds(30)));
@@ -100,7 +100,7 @@ function vtolAttack()
 //SouthEast attackers which are mostly cyborgs.
 function cyborgAttack()
 {
-	var southCyborgAssembly = {"x": 123, "y": 125};
+	var southCyborgAssembly = {x: 123, y: 125};
 	var list = [cTempl.npcybr, cTempl.cocybag, cTempl.npcybc, cTempl.comhltat, cTempl.cohhpv];
 
 	camSendReinforcement(THE_COLLECTIVE, camMakePos(southCyborgAssembly), randomTemplates(list), CAM_REINFORCE_GROUND, {
@@ -111,8 +111,8 @@ function cyborgAttack()
 //North road attacker consisting of powerful weaponry.
 function tankAttack()
 {
-	var northTankAssembly = {"x": 95, "y": 3};
-	//var westTankAssembly = {"x": 3, "y": 112}; //This was unused.
+	var northTankAssembly = {x: 95, y: 3};
+	//var westTankAssembly = {x: 3, y: 112}; //This was unused.
 
 	var list = [cTempl.comhltat, cTempl.cohact, cTempl.cohhpv, cTempl.comagt, cTempl.cohbbt];
 	var pos = [];
@@ -147,9 +147,9 @@ function eventStartLevel()
 {
 	camSetExtraObjectiveMessage(_("Send off at least one transporter with a truck and survive The Collective assault"));
 
-	var startpos = {"x": 88, "y": 101};
-	var lz = {"x": 86, "y": 99, "x2": 88, "y2": 101};
-	var tCoords = {"xStart": 87, "yStart": 100, "xOut": 0, "yOut": 55};
+	var startpos = {x: 88, y: 101};
+	var lz = {x: 86, y: 99, x2: 88, y2: 101};
+	var tCoords = {xStart: 87, yStart: 100, xOut: 0, yOut: 55};
 
 	camSetStandardWinLossConditions(CAM_VICTORY_TIMEOUT, "CAM_3A", {
 		reinforcements: camMinutesToSeconds(7), //Duration the transport "leaves" map.
@@ -159,7 +159,7 @@ function eventStartLevel()
 	setNoGoArea(lz.x, lz.y, lz.x2, lz.y2, CAM_HUMAN_PLAYER);
 	camSetupTransporter(tCoords.xStart, tCoords.yStart, tCoords.xOut, tCoords.yOut);
 
-	var enemyLz = {"x": 49, "y": 83, "x2": 51, "y2": 85};
+	var enemyLz = {x: 49, y: 83, x2: 51, y2: 85};
 	setNoGoArea(enemyLz.x, enemyLz.y, enemyLz.x2, enemyLz.y2, THE_COLLECTIVE);
 
 	setMissionTime(camMinutesToSeconds(30));

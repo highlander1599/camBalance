@@ -113,8 +113,8 @@ function vaporizeTarget()
 	{
 		//Choose random coordinate within the limits.
 		target = {
-			"x": camRand(mapWidth),
-			"y": Y_SCROLL_LIMIT + camRand(mapHeight - Math.floor(mapLimit)),
+			x: camRand(mapWidth),
+			y: Y_SCROLL_LIMIT + camRand(mapHeight - Math.floor(mapLimit)),
 		};
 
 		if (target.y > Math.floor(mapLimit))

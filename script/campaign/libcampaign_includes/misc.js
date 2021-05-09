@@ -355,6 +355,75 @@ function camBreakAlliances()
 	}
 }
 
+// Picks a random coordinate anywhere on the edge of the map.
+function camGenerateRandomMapEdgeCoordinate(reachPosition)
+{
+	let loc;
+
+	do
+	{
+		let location = {x: 0, y: 0};
+		let xWasRandom = false;
+
+		if (camRand(100) < 50)
+		{
+			location.x = 2 + camRand(mapWidth - 4);
+			xWasRandom = true;
+		}
+		else
+		{
+			location.x = (camRand(100) < 50) ? mapWidth - 2 : 2;
+		}
+
+		if (!xWasRandom && (camRand(100) < 50))
+		{
+			location.y = 2 + camRand(mapHeight - 4);
+		}
+		else
+		{
+			location.y = (camRand(100) < 50) ? mapHeight - 2 : 2;
+		}
+
+		loc = location;
+	} while (camDef(reachPosition) && reachPosition && !propulsionCanReach("wheeled01", reachPosition.x, reachPosition.y, loc.x, loc.y));
+
+
+	return loc;
+}
+
+// Picks a random coordinate anywhere on the map.
+function camGenerateRandomMapCoordinate(reachPosition)
+{
+	let pos;
+
+	do
+	{
+		let randomPos = {x: camRand(mapWidth), y: camRand(mapHeight)};
+
+		if (randomPos.x < 2)
+		{
+			randomPos.x = 2;
+		}
+		if (randomPos.x > mapWidth - 2)
+		{
+			randomPos.x = mapWidth - 2;
+		}
+
+		if (randomPos.y < 2)
+		{
+			randomPos.y = 2;
+		}
+		if (randomPos.y > mapHeight - 2)
+		{
+			randomPos.y = mapHeight - 2;
+		}
+
+		pos = randomPos;
+	} while (camDef(reachPosition) && reachPosition && !propulsionCanReach("wheeled01", reachPosition.x, reachPosition.y, pos.x, pos.y));
+
+	return pos;
+}
+
 //////////// privates
 
 function __camGlobalContext()

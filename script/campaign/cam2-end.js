@@ -126,7 +126,7 @@ function cyborgAttack()
 	{
 		list = [cTempl.npcybr, cTempl.cocybag, cTempl.npcybc, cTempl.npcybc, cTempl.comrotm]; //favor cannon cyborg
 
-		camSendReinforcement(THE_COLLECTIVE, camMakePos(camGenerateRandomMapEdgeCoordinate(startpos)), randomTemplates(list).concat(cTempl.comsens), CAM_REINFORCE_GROUND, {
+		camSendReinforcement(THE_COLLECTIVE, camMakePos(camGenerateRandomMapEdgeCoordinate(startpos)), randomTemplates(list, true).concat(cTempl.comsens), CAM_REINFORCE_GROUND, {
 			data: { regroup: false, count: -1 }
 		});
 	}
@@ -136,12 +136,20 @@ function cyborgAttack()
 function tankAttack()
 {
 	var northTankAssembly = {x: 95, y: 3};
-	//var westTankAssembly = {x: 3, y: 112}; //This was unused.
 	var list = [cTempl.comhltat, cTempl.cohact, cTempl.cohhpv, cTempl.comagt, cTempl.cohbbt];
 
 	camSendReinforcement(THE_COLLECTIVE, camMakePos(northTankAssembly), randomTemplates(list), CAM_REINFORCE_GROUND, {
 		data: { regroup: false, count: -1, },
 	});
+
+	if (difficulty >= HARD && camRand(100) < 40)
+	{
+		var westTankAssembly = {x: 3, y: 112}; //This was unused. Now part of Hard/Insane playthroughs.
+
+		camSendReinforcement(THE_COLLECTIVE, camMakePos(westTankAssembly), randomTemplates(list, true), CAM_REINFORCE_GROUND, {
+			data: { regroup: false, count: -1, },
+		});
+	}
 }
 
 function transporterAttack()

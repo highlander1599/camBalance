@@ -392,8 +392,17 @@ function camGenerateRandomMapEdgeCoordinate(reachPosition)
 }
 
 // Picks a random coordinate anywhere on the map.
-function camGenerateRandomMapCoordinate(reachPosition)
+function camGenerateRandomMapCoordinate(reachPosition, distFromReach, scanObjectRadius)
 {
+	if (!camDef(distFromReach))
+	{
+		distFromReach = 10;
+	}
+	if (!camDef(scanObjectRadius))
+	{
+		scanObjectRadius = 2;
+	}
+
 	let pos;
 
 	do
@@ -419,7 +428,12 @@ function camGenerateRandomMapCoordinate(reachPosition)
 		}
 
 		pos = randomPos;
-	} while (camDef(reachPosition) && reachPosition && !propulsionCanReach("wheeled01", reachPosition.x, reachPosition.y, pos.x, pos.y));
+	} while (camDef(reachPosition) &&
+		reachPosition &&
+		!propulsionCanReach("wheeled01", reachPosition.x, reachPosition.y, pos.x, pos.y) &&
+		(camDist(pos, reachPosition) < distFromReach) &&
+		(enumRange(pos.x, pos.y, scanObjectRadius, ALL_PLAYERS, false).length !== 0)
+	);
 
 	return pos;
 }

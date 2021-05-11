@@ -80,7 +80,7 @@ function randomTemplates(list, transporterAmount)
 	}
 	else
 	{
-		size = 18 + camRand(8);
+		size = (difficulty === INSANE) ? (15 + camRand(3)) : (18 + camRand(8));
 	}
 
 	for (var i = 0; i < size; ++i)
@@ -121,15 +121,15 @@ function cyborgAttack()
 	camSendReinforcement(THE_COLLECTIVE, camMakePos(southCyborgAssembly), randomTemplates(list), CAM_REINFORCE_GROUND, {
 		data: { regroup: false, count: -1 }
 	});
+}
 
-	if (difficulty >= HARD && camRand(100) < 80)
-	{
-		list = [cTempl.npcybr, cTempl.cocybag, cTempl.npcybc, cTempl.npcybc, cTempl.comrotm]; //favor cannon cyborg
+function cyborgAttackRandom()
+{
+	var list = [cTempl.npcybr, cTempl.cocybag, cTempl.npcybc, cTempl.npcybc, cTempl.comrotm]; //favor cannon cyborg
 
-		camSendReinforcement(THE_COLLECTIVE, camMakePos(camGenerateRandomMapEdgeCoordinate(startpos)), randomTemplates(list, true).concat(cTempl.comsens), CAM_REINFORCE_GROUND, {
-			data: { regroup: false, count: -1 }
-		});
-	}
+	camSendReinforcement(THE_COLLECTIVE, camMakePos(camGenerateRandomMapEdgeCoordinate(startpos)), randomTemplates(list).concat(cTempl.comsens), CAM_REINFORCE_GROUND, {
+		data: { regroup: false, count: -1 }
+	});
 }
 
 //North road attacker consisting of powerful weaponry.
@@ -141,22 +141,23 @@ function tankAttack()
 	camSendReinforcement(THE_COLLECTIVE, camMakePos(northTankAssembly), randomTemplates(list), CAM_REINFORCE_GROUND, {
 		data: { regroup: false, count: -1, },
 	});
+}
 
-	if (difficulty >= HARD && camRand(100) < 40)
-	{
-		var westTankAssembly = {x: 3, y: 112}; //This was unused. Now part of Hard/Insane playthroughs.
+function tankAttackWest()
+{
+	var westTankAssembly = {x: 3, y: 112}; //This was unused. Now part of Hard/Insane playthroughs.
+	var list = [cTempl.comhltat, cTempl.cohact, cTempl.cohhpv, cTempl.comagt, cTempl.cohbbt];
 
-		camSendReinforcement(THE_COLLECTIVE, camMakePos(westTankAssembly), randomTemplates(list, true), CAM_REINFORCE_GROUND, {
-			data: { regroup: false, count: -1, },
-		});
-	}
+	camSendReinforcement(THE_COLLECTIVE, camMakePos(westTankAssembly), randomTemplates(list, true), CAM_REINFORCE_GROUND, {
+		data: { regroup: false, count: -1, },
+	});
 }
 
 function transporterAttack()
 {
 	var droids = [cTempl.cohact, cTempl.comhltat, cTempl.cohbbt, cTempl.cohct, cTempl.cohhpv];
 
-	camSendReinforcement(THE_COLLECTIVE, camMakePos(camGenerateRandomMapCoordinate(startpos)), randomTemplates(droids, true),
+	camSendReinforcement(THE_COLLECTIVE, camMakePos(camGenerateRandomMapCoordinate(startpos, 10, 1)), randomTemplates(droids, true),
 		CAM_REINFORCE_TRANSPORT, {
 			entry: camGenerateRandomMapEdgeCoordinate(),
 			exit: camGenerateRandomMapEdgeCoordinate()
@@ -213,6 +214,11 @@ function eventStartLevel()
 	{
 		setPower(playerPower(CAM_HUMAN_PLAYER) + 10000);
 		setTimer("transporterAttack", camMinutesToMilliseconds(4));
+	}
+	if (difficulty >= HARD)
+	{
+		setTimer("tankAttackWest", camChangeOnDiff(camMinutesToMilliseconds(6)));
+		setTimer("cyborgAttackRandom", camChangeOnDiff(camMinutesToMilliseconds(5)));
 	}
 	setTimer("cyborgAttack", camChangeOnDiff(camMinutesToMilliseconds(4)));
 	setTimer("tankAttack", camChangeOnDiff(camMinutesToMilliseconds(3)));

@@ -139,6 +139,7 @@ nxlflash: { body: "Body3MBT", prop: "hover02", weap: "Laser3BEAMMk1" },
 
 // CAM_3_A_B
 nxmsens: { body: "Body7ABT", prop: "hover02", weap: "SensorTurret1Mk1" },
+nxmangel: { body: "Body7ABT", prop: "hover02", weap: "Missile-MdArt" },
 
 // CAM_3_C
 

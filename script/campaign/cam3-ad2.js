@@ -124,12 +124,17 @@ function vaporizeTarget()
 	}
 	else
 	{
-		var dr = targets.filter(function(obj) { return obj.type === DROID; });
+		var dr = targets.filter(function(obj) { return obj.type === DROID && !isVTOL(obj); });
+		var vt = targets.filter(function(obj) { return obj.type === DROID && isVTOL(obj); });
 		var st = targets.filter(function(obj) { return obj.type === STRUCTURE; });
 
 		if (dr.length)
 		{
 			target = dr[0];
+		}
+		if (vt.length && (camRand(100) < 15))
+		{
+			target = vt[0]; //don't care about VTOLs as much
 		}
 		if (st.length && !camRand(2)) //chance to focus on a structure
 		{

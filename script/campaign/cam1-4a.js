@@ -43,10 +43,6 @@ camAreaEvent("NPBaseDetectTrigger", function()
 camAreaEvent("removeRedObjectiveBlip", function()
 {
 	hackRemoveMessage("C1-4_OBJ1", PROX_MSG, CAM_HUMAN_PLAYER); //Remove mission objective.
-});
-
-camAreaEvent("triggerLZ2Blip", function()
-{
 	hackAddMessage("C1-4_LZ", PROX_MSG, CAM_HUMAN_PLAYER, false);
 });
 

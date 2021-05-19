@@ -153,7 +153,7 @@ function __camChooseNexusTarget(player)
 		return enumStruct(player, HQ);
 	}
 
-	const TARGET_UNIT_CHANCE = 40;
+	const TARGET_UNIT_CHANCE = (getResearch("R-Sys-Resistance-Upgrade01").done) ? 40 : 20;
 	var objects = [];
 
 	if (camRand(100) < TARGET_UNIT_CHANCE)
@@ -175,17 +175,30 @@ function __camChooseNexusTarget(player)
 		};
 
 		//As the player researches more resistance upgrades their higher exp units will become more safe
+		//Trucks get a little more safe with each upgrade also.
 		objects = objects.filter(function(d) {
 			if (getResearch("R-Sys-Resistance-Upgrade03").done)
 			{
+				if (d.droidType === DROID_CONSTRUCT && camRand(100) < 66)
+				{
+					return false;
+				}
 				return d.experience < EXP.regular;
 			}
 			else if (getResearch("R-Sys-Resistance-Upgrade02").done)
 			{
+				if (d.droidType === DROID_CONSTRUCT && camRand(100) < 50)
+				{
+					return false;
+				}
 				return d.experience < EXP.veteran;
 			}
 			else if (getResearch("R-Sys-Resistance-Upgrade01").done)
 			{
+				if (d.droidType === DROID_CONSTRUCT && camRand(100) < 20)
+				{
+					return false;
+				}
 				return d.experience < EXP.special;
 			}
 			else
@@ -211,6 +224,19 @@ function __camChooseNexusTarget(player)
 		{
 			objects = enumStruct(player).filter(function(s) { return (s.status === BUILT); });
 		}
+
+		objects = objects.filter(function(s) {
+			//cam3-ab is way too annoying if Nexus can still take factories after the second resistance upgrade.
+			if (getResearch("R-Sys-Resistance-Upgrade02").done &&
+				(s.stattype === FACTORY ||
+				s.stattype === CYBORG_FACTORY ||
+				s.stattype === VTOL_FACTORY))
+			{
+				return false;
+			}
+
+			return true;
+		});
 	}
 
 	return objects;

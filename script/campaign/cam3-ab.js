@@ -35,7 +35,11 @@ camAreaEvent("vtolRemoveZone", function(droid)
 
 function sendEdgeMapDroids()
 {
-	const COUNT = 16 + camRand(5); // 16 - 20.
+	var unitCount = 16 + camRand(5); // 16 - 20.
+	if (difficulty === INSANE)
+	{
+		unitCount = 14 + camRand(3); // 14 - 16.
+	}
 	const EDGE = ["SWPhantomFactory", "NWPhantomFactory"];
 	var list = [
 		cTempl.nxcyrail, cTempl.nxcyscou, cTempl.nxcylas,
@@ -53,7 +57,7 @@ function sendEdgeMapDroids()
 		edgeMapCounter = 0;
 	}
 
-	for (var i = 0; i < COUNT; ++i)
+	for (var i = 0; i < unitCount; ++i)
 	{
 		droids.push(list[camRand(list.length)]);
 	}

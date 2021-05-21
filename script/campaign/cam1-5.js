@@ -102,8 +102,9 @@ camAreaEvent("NPLZTrigger", function()
 
 function sendNPTransport()
 {
-	var tPos = getObject("NPTransportPos");
-	var nearbyDefense = enumRange(tPos.x, tPos.y, 6, NEW_PARADIGM, false);
+	var nearbyDefense = enumArea("LandingZone2", NEW_PARADIGM, false).filter(function(obj) {
+		return (obj.type === STRUCTURE && obj.stattype === DEFENSE);
+	});
 
 	if (nearbyDefense.length > 0)
 	{
@@ -183,7 +184,7 @@ function eventStartLevel()
 	camUpgradeOnMapTemplates(cTempl.buggy, cTempl.buggyheavy, SCAV_7);
 	camUpgradeOnMapTemplates(cTempl.bjeep, cTempl.bjeepheavy, SCAV_7);
 	camUpgradeOnMapTemplates(cTempl.rbjeep, cTempl.rbjeep8, SCAV_7);
-	
+
 	camSetEnemyBases({
 		"ScavNorthGroup": {
 			cleanup: "ScavNorth",

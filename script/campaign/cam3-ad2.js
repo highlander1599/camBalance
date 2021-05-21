@@ -51,7 +51,7 @@ function randomTemplates(list)
 		droids.push(list[camRand(list.length)]);
 	}
 
-	//Vtol strike sensor and vindicator hovers.
+	//Sensor and vindicator hovers.
 	for (i = 0; i < 4; ++i)
 	{
 		droids.push(extras[camRand(extras.length)]);

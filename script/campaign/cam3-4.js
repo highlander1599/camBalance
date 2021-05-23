@@ -256,31 +256,31 @@ function eventStartLevel()
 			assembly: "NX-NWFactory1Assembly",
 			order: CAM_ORDER_ATTACK,
 			groupSize: 4,
-			throttle: camChangeOnDiff(camSecondsToMilliseconds(60)),
+			throttle: camChangeOnDiff(camSecondsToMilliseconds(80)),
 			data: {
 				regroup: false,
 				repair: 45,
 				count: -1,
 			},
-			templates: [cTempl.nxhgauss, cTempl.nxmpulseh, cTempl.nxmscouh, cTempl.nxmsamh, cTempl.nxmsens]
+			templates: [cTempl.nxhgauss, cTempl.nxmpulseh, cTempl.nxmscouh, cTempl.nxmsamh]
 		},
 		"NX-NWFactory2": {
 			assembly: "NX-NWFactory2Assembly",
 			order: CAM_ORDER_ATTACK,
 			groupSize: 4,
-			throttle: camChangeOnDiff(camSecondsToMilliseconds(50)),
+			throttle: camChangeOnDiff(camSecondsToMilliseconds(70)),
 			data: {
 				regroup: false,
 				repair: 45,
 				count: -1,
 			},
-			templates: [cTempl.nxhgauss, cTempl.nxmpulseh, cTempl.nxmscouh, cTempl.nxmsamh, cTempl.nxmsens]
+			templates: [cTempl.nxhgauss, cTempl.nxmpulseh, cTempl.nxmscouh, cTempl.nxmsamh]
 		},
 		"NX-NWCyborgFactory": {
 			assembly: "NX-NWCyborgFactoryAssembly",
 			order: CAM_ORDER_ATTACK,
 			groupSize: 4,
-			throttle: camChangeOnDiff(camSecondsToMilliseconds(35)),
+			throttle: camChangeOnDiff(camSecondsToMilliseconds(55)),
 			data: {
 				regroup: false,
 				repair: 45,
@@ -292,7 +292,7 @@ function eventStartLevel()
 			assembly: "NX-NEFactoryAssembly",
 			order: CAM_ORDER_ATTACK,
 			groupSize: 4,
-			throttle: camChangeOnDiff(camSecondsToMilliseconds(50)),
+			throttle: camChangeOnDiff(camSecondsToMilliseconds(70)),
 			data: {
 				regroup: false,
 				repair: 45,
@@ -304,16 +304,14 @@ function eventStartLevel()
 			assembly: "NX-SWFactoryAssembly",
 			order: CAM_ORDER_PATROL,
 			groupSize: 4,
-			throttle: camChangeOnDiff(camSecondsToMilliseconds(60)),
+			throttle: camChangeOnDiff(camSecondsToMilliseconds(80)),
 			data: {
 				pos: [
-					camMakePos("SWPatrolPos1"),
-					camMakePos("SWPatrolPos2"),
 					camMakePos("SWPatrolPos3"),
 					camMakePos("NEPatrolPos1"),
 					camMakePos("NEPatrolPos2")
 				],
-				interval: camSecondsToMilliseconds(45),
+				interval: camSecondsToMilliseconds(90),
 				regroup: false,
 				repair: 45,
 				count: -1,
@@ -324,7 +322,7 @@ function eventStartLevel()
 			assembly: "NX-SWCyborgFactory1Assembly",
 			order: CAM_ORDER_ATTACK,
 			groupSize: 4,
-			throttle: camChangeOnDiff(camSecondsToMilliseconds(45)),
+			throttle: camChangeOnDiff(camSecondsToMilliseconds(65)),
 			data: {
 				regroup: false,
 				repair: 45,
@@ -336,7 +334,7 @@ function eventStartLevel()
 			assembly: "NX-SWCyborgFactory2Assembly",
 			order: CAM_ORDER_ATTACK,
 			groupSize: 4,
-			throttle: camChangeOnDiff(camSecondsToMilliseconds(40)),
+			throttle: camChangeOnDiff(camSecondsToMilliseconds(60)),
 			data: {
 				regroup: false,
 				repair: 45,
@@ -348,13 +346,13 @@ function eventStartLevel()
 			assembly: "NX-SEFactoryAssembly",
 			order: CAM_ORDER_PATROL,
 			groupSize: 4,
-			throttle: camChangeOnDiff(camSecondsToMilliseconds(55)),
+			throttle: camChangeOnDiff(camSecondsToMilliseconds(75)),
 			data: {
 				pos: [
 					camMakePos("SEPatrolPos1"),
 					camMakePos("NEPatrolPos1")
 				],
-				interval: camSecondsToMilliseconds(30),
+				interval: camSecondsToMilliseconds(90),
 				regroup: false,
 				repair: 45,
 				count: -1,
@@ -365,7 +363,7 @@ function eventStartLevel()
 			assembly: "NX-VtolFactory1Assembly",
 			order: CAM_ORDER_ATTACK,
 			groupSize: 5,
-			throttle: camChangeOnDiff(camSecondsToMilliseconds(60)),
+			throttle: camChangeOnDiff(camSecondsToMilliseconds(80)),
 			data: {
 				regroup: false,
 				repair: 45,
@@ -377,7 +375,7 @@ function eventStartLevel()
 			assembly: "NX-VtolFactory2Assembly",
 			order: CAM_ORDER_ATTACK,
 			groupSize: 5,
-			throttle: camChangeOnDiff(camSecondsToMilliseconds(50)),
+			throttle: camChangeOnDiff(camSecondsToMilliseconds(70)),
 			data: {
 				regroup: false,
 				repair: 45,

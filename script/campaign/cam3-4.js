@@ -69,7 +69,7 @@ function firstAbsorbAttack()
 			camSafeRemoveObject(obj, true);
 			continue;
 		}
-		if ((camRand(100) < 20) && !donateObject(obj, NEXUS))
+		if ((camRand(100) < 10) && !donateObject(obj, NEXUS))
 		{
 			camSafeRemoveObject(obj, true);
 		}
@@ -298,7 +298,7 @@ function eventStartLevel()
 				repair: 45,
 				count: -1,
 			},
-			templates: [cTempl.nxhgauss, cTempl.nxmpulseh, cTempl.nxmscouh, cTempl.nxmsamh, cTempl.nxmsens]
+			templates: [cTempl.nxhgauss, cTempl.nxmpulseh, cTempl.nxmscouh, cTempl.nxmsamh]
 		},
 		"NX-SWFactory": {
 			assembly: "NX-SWFactoryAssembly",
@@ -357,7 +357,7 @@ function eventStartLevel()
 				repair: 45,
 				count: -1,
 			},
-			templates: [cTempl.nxhgauss, cTempl.nxmpulseh, cTempl.nxmscouh, cTempl.nxmsamh, cTempl.nxmsens]
+			templates: [cTempl.nxhgauss, cTempl.nxmpulseh, cTempl.nxmscouh, cTempl.nxmsamh]
 		},
 		"NX-VtolFactory1": {
 			assembly: "NX-VtolFactory1Assembly",

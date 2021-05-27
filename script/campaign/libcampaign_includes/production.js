@@ -186,7 +186,6 @@ function camUpgradeOnMapTemplates(t1, t2, player, excluded)
 	}
 
 	var droidsOnMap = enumDroid(player);
-	var droidInfo = {x: 0, y: 0, name: ""};
 
 	for (var i = 0, l = droidsOnMap.length; i < l; ++i)
 	{
@@ -226,7 +225,7 @@ function camUpgradeOnMapTemplates(t1, t2, player, excluded)
 			}
 
 			//Replace it
-			droidInfo = {x: dr.x, y: dr.y, name: dr.name};
+			let droidInfo = {x: dr.x, y: dr.y, name: dr.name};
 			camSafeRemoveObject(dr, false);
 			addDroid(player, droidInfo.x, droidInfo.y, droidInfo.name, t2.body,
 				__camChangePropulsionOnDiff(t2.prop), "", "", t2.weap);

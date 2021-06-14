@@ -3521,7 +3521,7 @@
 		"shortRange": 1024,
 		"waterGfx": "FXSSplsh.PIE",
 		"weaponClass": "KINETIC",
-		"weaponEffect": "ARTILLERY ROUND",
+		"weaponEffect": "ANTI TANK",
 		"weaponSubClass": "SLOW ROCKET",
 		"weaponWav": "rocket.ogg",
 		"weight": 10000

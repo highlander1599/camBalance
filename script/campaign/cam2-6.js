@@ -23,14 +23,10 @@ function camEnemyBaseDetected_COMainBase()
 		regroup: false,
 	});
 
-	camManageGroup(camMakeGroup("southEastGroup"), CAM_ORDER_PATROL, {
+	camManageGroup(camMakeGroup("southEastGroup"), CAM_ORDER_COMPROMISE, {
 		pos: [
 			camMakePos("playerLZ"),
-			camMakePos("grp2Pos2"),
-			camMakePos("uplinkBaseCorner"),
 		],
-		interval: camSecondsToMilliseconds(40),
-		//fallback: camMakePos("heavyFacAssembly"),
 		repair: 40,
 		regroup: false,
 	});
@@ -250,5 +246,5 @@ function eventStartLevel()
 	}
 	queue("northWestAttack", camMinutesToMilliseconds(2));
 	queue("mainBaseAttackGroup", camMinutesToMilliseconds(3));
-	queue("enableTimeBasedFactories", camChangeOnDiff(camMinutesToMilliseconds(7)));
+	queue("enableTimeBasedFactories", camChangeOnDiff(camMinutesToMilliseconds(5)));
 }

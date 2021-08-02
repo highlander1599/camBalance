@@ -134,7 +134,7 @@ function __camTruckTick()
 		}
 		var oil = oils[0];
 		truck = __camGetClosestTruck(player, oil);
-		if (camDef(truck))
+		if (camDef(truck) && player !== NEXUS)
 		{
 			enableStructure("A0ResourceExtractor", player);
 			orderDroidBuild(truck, DORDER_BUILD, "A0ResourceExtractor", oil.x, oil.y);

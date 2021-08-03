@@ -11,7 +11,7 @@
 //;;
 function camManageTrucks(player)
 {
-	__camTruckInfo[player] = { enabled: 1, queue: [] };
+	__camTruckInfo[player] = { enabled: 1, queue: [], player: player };
 }
 
 //;; ## camQueueBuilding(player, stat[, pos])
@@ -80,9 +80,10 @@ function __camTruckTick()
 {
 	// Issue truck orders for each player.
 	// See comments inside the loop to understand priority.
-	for (var player in __camTruckInfo)
+	for (var playerObj in __camTruckInfo)
 	{
-		var ti = __camTruckInfo[player];
+		var ti = __camTruckInfo[playerObj];
+		var player = ti.player;
 		var truck;
 
 		// First, build things that were explicitly ordered.
@@ -92,6 +93,7 @@ function __camTruckTick()
 			var pos = qi.pos;
 			var randx = 0;
 			var randy = 0;
+
 			if (camDef(pos))
 			{
 				// Find the truck most suitable for the job.

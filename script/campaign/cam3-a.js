@@ -4,6 +4,7 @@ include("script/campaign/templates.js");
 
 var index; //Number of bonus transports that have flown in.
 var startedFromMenu;
+var truckLocCounter;
 
 //Remove Nexus VTOL droids.
 camAreaEvent("vtolRemoveZone", function(droid)
@@ -89,8 +90,20 @@ function truckDefense()
 	}
 
 	var list = ["Emplacement-Howitzer150", "Emplacement-MdART-pit", "Emplacement-RotHow"];
-	camQueueBuilding(NEXUS, list[camRand(list.length)], camMakePos("buildPos1"));
-	camQueueBuilding(NEXUS, list[camRand(list.length)], camMakePos("buildPos2"));
+	var position;
+
+	if (truckLocCounter === 0)
+	{
+		position = camMakePos("buildPos1");
+		truckLocCounter += 1;
+	}
+	else
+	{
+		position = camMakePos("buildPos2");
+		truckLocCounter = 0;
+	}
+
+	camQueueBuilding(NEXUS, list[camRand(list.length)], position);
 }
 
 //Extra transport units are only awarded to those who start Gamma campaign
@@ -341,6 +354,7 @@ function eventStartLevel()
 
 	camPlayVideos(["CAM3_INT", "MB3A_MSG2"]);
 	startedFromMenu = false;
+	truckLocCounter = 0;
 
 	//Only if starting Gamma directly rather than going through Beta
 	if (enumDroid(CAM_HUMAN_PLAYER, DROID_SUPERTRANSPORTER).length === 0)

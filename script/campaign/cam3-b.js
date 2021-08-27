@@ -4,6 +4,7 @@ include("script/campaign/transitionTech.js");
 
 var trapActive;
 var gammaAttackCount;
+var truckLocCounter;
 const GAMMA = 1; // Player 1 is Gamma team.
 const NEXUS_RES = [
 	"R-Sys-Engineering03", "R-Defense-WallUpgrade08", "R-Struc-Materials08",
@@ -206,8 +207,20 @@ function truckDefense()
 	}
 
 	var list = ["Emplacement-Howitzer105", "Emplacement-MdART-pit", "Emplacement-RotHow"];
-	camQueueBuilding(GAMMA, list[camRand(list.length)], camMakePos("buildPos1"));
-	camQueueBuilding(GAMMA, list[camRand(list.length)], camMakePos("buildPos2"));
+	var position;
+
+	if (truckLocCounter === 0)
+	{
+		position = camMakePos("buildPos1");
+		truckLocCounter += 1;
+	}
+	else
+	{
+		position = camMakePos("buildPos2");
+		truckLocCounter = 0;
+	}
+
+	camQueueBuilding(GAMMA, list[camRand(list.length)], position);
 }
 
 //Take everything Gamma has and donate to Nexus.
@@ -257,6 +270,7 @@ function eventStartLevel()
 {
 	trapActive = false;
 	gammaAttackCount = 0;
+	truckLocCounter = 0;
 	var startpos = getObject("startPosition");
 	var lz = getObject("landingZone");
 

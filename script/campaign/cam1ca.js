@@ -22,7 +22,12 @@ var totalTransportLoads;
 function baseEstablished()
 {
 	//Now we check if there is stuff built here already from cam1-C.
-	if (camCountStructuresInArea("buildArea") >= 7)
+	var total = camCountStructuresInArea("buildArea") +
+				camCountStructuresInArea("buildArea2") +
+				camCountStructuresInArea("buildArea3") +
+				camCountStructuresInArea("buildArea4") +
+				camCountStructuresInArea("buildArea5");
+	if (total >= 7)
 	{
 		if (blipActive)
 		{

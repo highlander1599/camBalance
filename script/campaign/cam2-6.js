@@ -245,7 +245,7 @@ function eventStartLevel()
 	}
 
 	queue("northWestAttack", camChangeOnDiff(camMinutesToMilliseconds(3)));
-	queue("southEastAttack", camChangeOnDiff(camMinutesToMilliseconds(4)));
 	queue("mainBaseAttackGroup", camChangeOnDiff(camMinutesToMilliseconds(4.5)));
+	queue("southEastAttack", camChangeOnDiff(camMinutesToMilliseconds(5)));
 	queue("enableTimeBasedFactories", camChangeOnDiff(camMinutesToMilliseconds(6)));
 }

@@ -39,14 +39,13 @@ function camEnemyBaseDetected_COMainBase()
 camAreaEvent("factoryTriggerWest", function(droid)
 {
 	enableTimeBasedFactories();
-
 });
 
 camAreaEvent("factoryTriggerEast", function(droid)
 {
 	enableTimeBasedFactories();
-
 });
+
 function camEnemyBaseEliminated_COUplinkBase()
 {
 	hackRemoveMessage("C26_OBJ1", PROX_MSG, CAM_HUMAN_PLAYER);
@@ -244,6 +243,6 @@ function eventStartLevel()
 		setTimer("truckDefense", camChangeOnDiff(camMinutesToMilliseconds(6)));
 	}
 	queue("northWestAttack", camChangeOnDiff(camMinutesToMilliseconds(3)));
-	queue("mainBaseAttackGroup", camChangeOnDiff(camMinutesToMilliseconds(4.5)));
+	queue("mainBaseAttackGroup", camChangeOnDiff(camMinutesToMilliseconds(5)));
 	queue("enableTimeBasedFactories", camChangeOnDiff(camMinutesToMilliseconds(6)));
 }

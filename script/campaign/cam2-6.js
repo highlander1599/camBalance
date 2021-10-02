@@ -23,14 +23,6 @@ function camEnemyBaseDetected_COMainBase()
 		regroup: false,
 	});
 
-	camManageGroup(camMakeGroup("southEastGroup"), CAM_ORDER_COMPROMISE, {
-		pos: [
-			camMakePos("playerLZ"),
-		],
-		repair: 40,
-		regroup: false,
-	});
-
 	camEnableFactory("COCyborgFactory-b1");
 	camEnableFactory("COCyborgFactory-b2");
 	camEnableFactory("COHeavyFactory-b2R");
@@ -74,6 +66,17 @@ function truckDefense()
 	var list = ["Emplacement-Howitzer105", "Emplacement-Rocket06-IDF", "Sys-CB-Tower01", "Emplacement-Howitzer105", "Emplacement-Rocket06-IDF", "Sys-SensoTower02"];
 	camQueueBuilding(THE_COLLECTIVE, list[camRand(list.length)], camMakePos("buildPos1"));
 	camQueueBuilding(THE_COLLECTIVE, list[camRand(list.length)], camMakePos("buildPos2"));
+}
+
+function southEastAttack()
+{
+	camManageGroup(camMakeGroup("southEastGroup"), CAM_ORDER_COMPROMISE, {
+		pos: [
+			camMakePos("playerLZ"),
+		],
+		repair: 40,
+		regroup: false,
+	});
 }
 
 function northWestAttack()
@@ -237,12 +240,12 @@ function eventStartLevel()
 	{
 		addDroid(THE_COLLECTIVE, 26, 27, "Truck Panther Tracks", "Body6SUPP", "tracked01", "", "", "Spade1Mk1");
 		addDroid(THE_COLLECTIVE, 42, 4, "Truck Panther Tracks", "Body6SUPP", "tracked01", "", "", "Spade1Mk1");
-
 		camManageTrucks(THE_COLLECTIVE);
-
 		setTimer("truckDefense", camChangeOnDiff(camMinutesToMilliseconds(6)));
 	}
+
 	queue("northWestAttack", camChangeOnDiff(camMinutesToMilliseconds(3)));
-	queue("mainBaseAttackGroup", camChangeOnDiff(camMinutesToMilliseconds(5)));
+	queue("southEastAttack", camChangeOnDiff(camMinutesToMilliseconds(4)));
+	queue("mainBaseAttackGroup", camChangeOnDiff(camMinutesToMilliseconds(4.5)));
 	queue("enableTimeBasedFactories", camChangeOnDiff(camMinutesToMilliseconds(6)));
 }

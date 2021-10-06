@@ -3792,7 +3792,7 @@
         "name": "Assault Cannon Hardpoint",
         "requiredResearch": [
             "R-Wpn-Cannon5",
-			"WallTower-HPVcannon"
+			"R-Defense-WallTower-HPVcannon"
         ],
         "researchPoints": 4800,
         "researchPower": 150,

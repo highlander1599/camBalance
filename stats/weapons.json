@@ -2230,7 +2230,7 @@
 		"weaponSubClass": "MACHINE GUN",
 		"weaponWav": "mgbar3.ogg",
 		"weight": 400
-	},	
+	},
 	"MG2-VTOL": {
 		"buildPoints": 125,
 		"buildPower": 25,

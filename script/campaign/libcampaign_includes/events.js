@@ -46,7 +46,7 @@ function cam_eventChat(from, to, message)
 {
 	if (message === "win info")
 	{
-		__camShowVictoryConditions(true);
+		__camShowVictoryConditions();
 	}
 	if (!camIsCheating())
 	{
@@ -69,9 +69,9 @@ function cam_eventChat(from, to, message)
 	}
 	if (message === "deity")
 	{
-		for (var blabel in __camEnemyBases)
+		for (const baseLabel in __camEnemyBases)
 		{
-			camDetectEnemyBase(blabel);
+			camDetectEnemyBase(baseLabel);
 		}
 	}
 	if (message === "research available")
@@ -83,7 +83,7 @@ function cam_eventChat(from, to, message)
 			{
 				break;
 			}
-			for (var i = 0, len = research.length; i < len; ++i)
+			for (let i = 0, len = research.length; i < len; ++i)
 			{
 				var researchName = research[i].name;
 				completeResearch(researchName, CAM_HUMAN_PLAYER);
@@ -115,12 +115,7 @@ function cam_eventStartLevel()
 	__camArtifacts = {};
 	__camNumEnemyBases = 0;
 	__camEnemyBases = {};
-	__camVtolPlayer = 0;
-	__camVtolStartPosition = {};
-	__camVtolTemplates = {};
-	__camVtolExitPosition = {};
-	__camVtolSpawnActive = false;
-	__camVtolExtras = {};
+	__camVtolDataSystem = [];
 	__camLastNexusAttack = 0;
 	__camNexusActivated = false;
 	__camNewGroupCounter = 0;
@@ -128,15 +123,19 @@ function cam_eventStartLevel()
 	__camSaveLoading = false;
 	__camNeverGroupDroids = [];
 	__camNumTransporterExits = 0;
-	__camVictoryMessageThrottle = 0;
+	__camAllowVictoryMsgClear = true;
 	camSetPropulsionTypeLimit(); //disable the propulsion changer by default
 	__camAiPowerReset(); //grant power to the AI
+	setTimer("__camSpawnVtols", camSecondsToMilliseconds(0.5));
+	setTimer("__camRetreatVtols", camSecondsToMilliseconds(0.9));
+	setTimer("__checkVtolSpawnObject", camSecondsToMilliseconds(5));
 	setTimer("__checkEnemyFactoryProductionTick", camSecondsToMilliseconds(0.8));
 	setTimer("__camTick", camSecondsToMilliseconds(1)); // campaign pollers
 	setTimer("__camTruckTick", camSecondsToMilliseconds(10) + camSecondsToMilliseconds(0.1)); // some slower campaign pollers
 	setTimer("__camAiPowerReset", camMinutesToMilliseconds(3)); //reset AI power every so often
 	setTimer("__camShowVictoryConditions", camMinutesToMilliseconds(5));
 	setTimer("__camTacticsTick", camSecondsToMilliseconds(0.1));
+	queue("__camShowBetaHintEarly", camSecondsToMilliseconds(4));
 	queue("__camGrantSpecialResearch", camSecondsToMilliseconds(6));
 }
 
@@ -228,7 +227,6 @@ function cam_eventTransporterExit(transport)
 	{
 		camTrace("Transporter is away.");
 		__camGameWon();
-		return;
 	}
 }
 
@@ -271,15 +269,14 @@ function cam_eventAttacked(victim, attacker)
 			{
 				const DEFAULT_RADIUS = 6;
 				var loc = {x: victim.x, y: victim.y};
-				var droids = enumRange(loc.x, loc.y, DEFAULT_RADIUS, victim.player, false).filter(function(obj) {
-					return (obj.type === DROID &&
-						obj.group === null &&
-						(obj.canHitGround || obj.isSensor) &&
-						obj.droidType !== DROID_CONSTRUCT &&
-						!camIsTransporter(obj) &&
-						!camInNeverGroup(obj)
-					);
-				});
+				var droids = enumRange(loc.x, loc.y, DEFAULT_RADIUS, victim.player, false).filter((obj) => (
+					obj.type === DROID &&
+					obj.group === null &&
+					(obj.canHitGround || obj.isSensor) &&
+					obj.droidType !== DROID_CONSTRUCT &&
+					!camIsTransporter(obj) &&
+					!camInNeverGroup(obj)
+				));
 				if (droids.length === 0)
 				{
 					return;
@@ -296,7 +293,7 @@ function cam_eventAttacked(victim, attacker)
 				__camGroupInfo[victim.group].lastHit = gameTime;
 
 				//Increased Nexus intelligence if struck on cam3-4
-				if (__camNextLevel === "GAMMA_OUT")
+				if (__camNextLevel === CAM_GAMMA_OUT)
 				{
 					if (__camGroupInfo[victim.group].order === CAM_ORDER_PATROL)
 					{
@@ -320,7 +317,7 @@ function cam_eventGameLoaded()
 
 	//Need to set the scavenger kevlar vests when loading a save from later Alpha
 	//missions or else it reverts to the original texture.
-	for (var i = 0, l = SCAV_KEVLAR_MISSIONS.length; i < l; ++i)
+	for (let i = 0, l = SCAV_KEVLAR_MISSIONS.length; i < l; ++i)
 	{
 		var mission = SCAV_KEVLAR_MISSIONS[i];
 		if (__camNextLevel === mission)

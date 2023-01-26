@@ -90,7 +90,7 @@ function NPReinforce()
 		var count = 5 + camRand(5);
 		var scouts = [cTempl.nphmg, cTempl.npblc, cTempl.nppod, cTempl.nphmg, cTempl.npblc];
 
-		for (var i = 0; i < count; ++i)
+		for (let i = 0; i < count; ++i)
 		{
 			list.push(scouts[camRand(scouts.length)]);
 		}
@@ -163,6 +163,7 @@ function camEnemyBaseDetected_ScavBaseGroupSouth()
 		pos: camMakePos("SouthConvoyLoc"),
 		regroup: false, //true when movement gets better. Very big group this one is.
 	});
+	queue("camCallOnce", camSecondsToMilliseconds(1), "enableReinforcements");
 }
 
 function camEnemyBaseEliminated_ScavBaseGroup()

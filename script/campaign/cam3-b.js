@@ -86,7 +86,7 @@ function getDroidsForNXLZ(isTransport)
 	var units = [cTempl.nxcyrail, cTempl.nxcyscou, cTempl.nxcylas, cTempl.nxmlinkh, cTempl.nxmrailh, cTempl.nxmsamh];
 
 	var droids = [];
-	for (var i = 0; i < COUNT; ++i)
+	for (let i = 0; i < COUNT; ++i)
 	{
 		droids.push(units[camRand(units.length)]);
 	}
@@ -152,10 +152,10 @@ function sendNXlandReinforcements()
 
 function transferPower()
 {
-    const AWARD = 5000;
-    var powerTransferSound = "power-transferred.ogg";
-    setPower(playerPower(CAM_HUMAN_PLAYER) + AWARD, CAM_HUMAN_PLAYER);
-    playSound(powerTransferSound);
+	const AWARD = 5000;
+	var powerTransferSound = "power-transferred.ogg";
+	setPower(playerPower(CAM_HUMAN_PLAYER) + AWARD, CAM_HUMAN_PLAYER);
+	playSound(powerTransferSound);
 }
 
 function activateNexusGroups()
@@ -262,7 +262,7 @@ function eventAttacked(victim, attacker)
 
 	if (victim.player === GAMMA && attacker.player === NEXUS)
 	{
-		gammaAttackCount = gammaAttackCount + 1;
+		gammaAttackCount += 1;
 	}
 }
 
@@ -274,7 +274,7 @@ function eventStartLevel()
 	var startpos = getObject("startPosition");
 	var lz = getObject("landingZone");
 
-     camSetStandardWinLossConditions(CAM_VICTORY_STANDARD, "SUB_3_2S");
+	camSetStandardWinLossConditions(CAM_VICTORY_STANDARD, "SUB_3_2S");
 	setMissionTime(camChangeOnDiff(camMinutesToSeconds(30))); // For the rescue mission.
 
 	centreView(startpos.x, startpos.y);

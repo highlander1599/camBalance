@@ -64,7 +64,7 @@ camAreaEvent("roadblockArea", function(droid)
 // Scavengers hiding in the split canyon area between base two and three.
 function raidAttack()
 {
-	camManageGroup( camMakeGroup("raidTrigger", ENEMIES), CAM_ORDER_ATTACK, {
+	camManageGroup(camMakeGroup("raidTrigger", ENEMIES), CAM_ORDER_ATTACK, {
 		pos: camMakePos("scavBase3Cleanup")
 	});
 	camManageGroup(camMakeGroup("raidGroup", ENEMIES), CAM_ORDER_ATTACK, {
@@ -89,7 +89,7 @@ function eventStructureBuilt(structure, droid)
 	{
 		// Is it in the base two area?
 		var objs = enumArea("scavBase2Cleanup", CAM_HUMAN_PLAYER);
-		for (var i = 0, l = objs.length; i < l; ++i)
+		for (let i = 0, l = objs.length; i < l; ++i)
 		{
 			var obj = objs[i];
 			if (obj.type === STRUCTURE && obj.stattype === RESOURCE_EXTRACTOR)
@@ -123,7 +123,7 @@ function enableBaseStructures()
 		"A0ResearchFacility", "A0LightFactory",
 	];
 
-	for (var i = 0; i < STRUCTS.length; ++i)
+	for (let i = 0; i < STRUCTS.length; ++i)
 	{
 		enableStructure(STRUCTS[i], CAM_HUMAN_PLAYER);
 	}
@@ -217,7 +217,7 @@ function eventStartLevel()
 			data: { pos: "playerBase" },
 			groupSize: 3,
 			maxSize: 3,
-			throttle: camChangeOnDiff(camSecondsToMilliseconds((difficulty === EASY || difficulty === MEDIUM) ? 24 : 18)),
+			throttle: camChangeOnDiff(camSecondsToMilliseconds((difficulty <= MEDIUM) ? 24 : 18)),
 			templates: [ cTempl.trike, cTempl.bloke ]
 		},
 		"base3Factory": {
@@ -226,7 +226,7 @@ function eventStartLevel()
 			data: { pos: "playerBase" },
 			groupSize: 4,
 			maxSize: 4,
-			throttle: camChangeOnDiff(camSecondsToMilliseconds((difficulty === EASY || difficulty === MEDIUM) ? 20 : 14)),
+			throttle: camChangeOnDiff(camSecondsToMilliseconds((difficulty <= MEDIUM) ? 20 : 14)),
 			templates: [ cTempl.bloke, cTempl.buggy, cTempl.bloke ]
 		},
 		"base4Factory": {
@@ -235,7 +235,7 @@ function eventStartLevel()
 			data: { pos: "playerBase" },
 			groupSize: 4,
 			maxSize: 4,
-			throttle: camChangeOnDiff(camSecondsToMilliseconds((difficulty === EASY || difficulty === MEDIUM) ? 16 : 12)),
+			throttle: camChangeOnDiff(camSecondsToMilliseconds((difficulty <= MEDIUM) ? 16 : 12)),
 			templates: [ cTempl.bjeep, cTempl.bloke, cTempl.trike, cTempl.bloke ]
 		},
 	});

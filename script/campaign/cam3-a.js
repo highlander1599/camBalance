@@ -2,7 +2,7 @@ include("script/campaign/transitionTech.js");
 include("script/campaign/libcampaign.js");
 include("script/campaign/templates.js");
 
-var index; //Number of bonus transports that have flown in.
+var transporterIndex; //Number of bonus transports that have flown in.
 var startedFromMenu;
 var truckLocCounter;
 
@@ -46,17 +46,18 @@ camAreaEvent("westFactoryTrigger", function(droid)
 	enableAllFactories();
 });
 
-//make the first batch or extra transport droids hero rank.
-function setHeroUnits()
+function setUnitRank(transport)
 {
-	const DROID_EXP = 512;
-	var droids = enumDroid(CAM_HUMAN_PLAYER).filter(function(dr) {
-		return (!camIsSystemDroid(dr) && !camIsTransporter(dr));
-	});
+	const DROID_EXP = [1024, 128, 64, 32]; //Can make Hero Commanders if recycled.
+	var droids = enumCargo(transport);
 
-	for (var j = 0, i = droids.length; j < i; ++j)
+	for (let i = 0, len = droids.length; i < len; ++i)
 	{
-		setDroidExperience(droids[j], DROID_EXP);
+		var droid = droids[i];
+		if (!camIsSystemDroid(droid))
+		{
+			setDroidExperience(droid, DROID_EXP[transporterIndex - 1]);
+		}
 	}
 }
 
@@ -64,7 +65,7 @@ function eventTransporterLanded(transport)
 {
 	if (startedFromMenu)
 	{
-		camCallOnce("setHeroUnits");
+		setUnitRank(transport);
 	}
 }
 
@@ -75,10 +76,13 @@ function enableAllFactories()
 		"NXcybFac-b3", "NXcybFac-b2-1", "NXcybFac-b2-2", "NXHvyFac-b2", "NXcybFac-b4",
 	];
 
-	for (var j = 0, i = FACTORY_NAMES.length; j < i; ++j)
+	for (let j = 0, i = FACTORY_NAMES.length; j < i; ++j)
 	{
 		camEnableFactory(FACTORY_NAMES[j]);
 	}
+
+	//If they go really fast, adapt the alloy research to come sooner
+	queue("improveNexusAlloys", camChangeOnDiff(camMinutesToMilliseconds(10)));
 }
 
 function truckDefense()
@@ -111,12 +115,12 @@ function truckDefense()
 function sendPlayerTransporter()
 {
 	const transportLimit = 4; //Max of four transport loads if starting from menu.
-	if (!camDef(index))
+	if (!camDef(transporterIndex))
 	{
-		index = 0;
+		transporterIndex = 0;
 	}
 
-	if (index === transportLimit)
+	if (transporterIndex === transportLimit)
 	{
 		removeTimer("sendPlayerTransporter");
 		return;
@@ -126,7 +130,7 @@ function sendPlayerTransporter()
 	var list = [cTempl.prhasgnt, cTempl.prhhpvt, cTempl.prhaacnt, cTempl.prtruck];
 
 	// send 4 Assault Guns, 2 Hyper Velocity Cannons, 2 Cyclone AA Turrets and 2 Trucks
-	for (var i = 0, d = list.length; i < 10; ++i)
+	for (let i = 0, d = list.length; i < 10; ++i)
 	{
 		droids.push(i < d * 2 ? list[i % 4] : list[0]);
 	}
@@ -138,7 +142,7 @@ function sendPlayerTransporter()
 		}
 	);
 
-	index = index + 1;
+	transporterIndex += 1;
 }
 
 //Setup Nexus VTOL hit and runners.
@@ -189,8 +193,8 @@ function cam3Setup()
 		"R-Struc-VTOLPad-Upgrade06", "R-Wpn-Bomb-Damage03", "R-Sys-NEXUSrepair",
 		"R-Vehicle-Prop-Hover02", "R-Vehicle-Prop-VTOL02", "R-Cyborg-Legs02",
 		"R-Wpn-Mortar-Acc03", "R-Wpn-MG-Damage08", "R-Wpn-Mortar-ROF04",
-		"R-Vehicle-Engine07", "R-Vehicle-Metals07", "R-Vehicle-Armor-Heat04",
-		"R-Cyborg-Metals07", "R-Cyborg-Armor-Heat04", "R-Wpn-RocketSlow-ROF04",
+		"R-Vehicle-Engine07", "R-Vehicle-Metals06", "R-Vehicle-Armor-Heat03",
+		"R-Cyborg-Metals06", "R-Cyborg-Armor-Heat03", "R-Wpn-RocketSlow-ROF04",
 		"R-Wpn-AAGun-Damage05", "R-Wpn-AAGun-ROF04", "R-Wpn-Howitzer-Damage09",
 		"R-Wpn-Cannon-Damage07", "R-Wpn-Cannon-ROF04",
 		"R-Wpn-Missile-Damage01", "R-Wpn-Missile-ROF01", "R-Wpn-Missile-Accuracy01",
@@ -198,7 +202,7 @@ function cam3Setup()
 		"R-Wpn-Energy-Damage02", "R-Wpn-Energy-ROF01", "R-Wpn-Energy-Accuracy01",
 	];
 
-	for (var x = 0, l = STRUCTS_ALPHA.length; x < l; ++x)
+	for (let x = 0, l = STRUCTS_ALPHA.length; x < l; ++x)
 	{
 		enableStructure(STRUCTS_ALPHA[x], CAM_HUMAN_PLAYER);
 	}
@@ -207,10 +211,24 @@ function cam3Setup()
 	camCompleteRequiredResearch(GAMMA_ALLY_RES, NEXUS);
 	camCompleteRequiredResearch(NEXUS_RES, NEXUS);
 
+	if (difficulty >= HARD)
+	{
+		improveNexusAlloys();
+	}
+
 	enableResearch("R-Wpn-Howitzer03-Rot", CAM_HUMAN_PLAYER);
 	enableResearch("R-Wpn-MG-Damage08", CAM_HUMAN_PLAYER);
 }
 
+//Easy and Normal difficulty has Nexus start off a little bit weaker
+function improveNexusAlloys()
+{
+	var alloys = [
+		"R-Vehicle-Metals07", "R-Cyborg-Metals07",
+		"R-Vehicle-Armor-Heat04", "R-Cyborg-Armor-Heat04"
+	];
+	camCompleteRequiredResearch(alloys, NEXUS);
+}
 
 function eventStartLevel()
 {
@@ -372,4 +390,5 @@ function eventStartLevel()
 	groupPatrolNoTrigger();
 	queue("vtolAttack", camChangeOnDiff(camMinutesToMilliseconds(8)));
 	queue("enableAllFactories", camChangeOnDiff(camMinutesToMilliseconds(20)));
+	queue("improveNexusAlloys", camChangeOnDiff(camMinutesToMilliseconds(25)));
 }

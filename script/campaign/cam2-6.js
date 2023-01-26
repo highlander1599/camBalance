@@ -46,9 +46,9 @@ function camEnemyBaseEliminated_COUplinkBase()
 //Group together attack droids in this base that are not already in a group
 function camEnemyBaseDetected_COMediumBase()
 {
-	var droids = enumArea("mediumBaseCleanup", THE_COLLECTIVE, false).filter(function(obj) {
-		return obj.type === DROID && obj.group === null && obj.canHitGround;
-	});
+	var droids = enumArea("mediumBaseCleanup", THE_COLLECTIVE, false).filter((obj) => (
+		obj.type === DROID && obj.group === null && obj.canHitGround
+	));
 
 	camManageGroup(camMakeGroup(droids), CAM_ORDER_ATTACK, {
 		regroup: false,
@@ -134,6 +134,7 @@ function eventStartLevel()
 		"COCommandCenter": { tech: "R-Wpn-Mortar3" },
 		"uplink": { tech: "R-Sys-VTOLCBS-Tower01" },
 		"COMediumFactory": { tech: "R-Wpn-Cannon4AMk1" },
+		"COWhirlwindSite": { tech: "R-Wpn-AAGun04" },
 	});
 
 	camCompleteRequiredResearch(COLLECTIVE_RES, THE_COLLECTIVE);
@@ -164,7 +165,7 @@ function eventStartLevel()
 			assembly: "COCyborgFactory-ArtiAssembly",
 			order: CAM_ORDER_ATTACK,
 			groupSize: 4,
-			throttle: camChangeOnDiff(camSecondsToMilliseconds(40)),
+			throttle: camChangeOnDiff(camSecondsToMilliseconds((difficulty <= MEDIUM) ? 36 : 40)),
 			data: {
 				regroup: false,
 				repair: 40,
@@ -176,7 +177,7 @@ function eventStartLevel()
 			assembly: "COCyborgFactory-b1Assembly",
 			order: CAM_ORDER_ATTACK,
 			groupSize: 6,
-			throttle: camChangeOnDiff(camSecondsToMilliseconds(50)),
+			throttle: camChangeOnDiff(camSecondsToMilliseconds((difficulty <= MEDIUM) ? 45 : 50)),
 			data: {
 				regroup: false,
 				repair: 40,
@@ -188,7 +189,7 @@ function eventStartLevel()
 			assembly: "COCyborgFactory-b2Assembly",
 			order: CAM_ORDER_ATTACK,
 			groupSize: 4,
-			throttle: camChangeOnDiff(camSecondsToMilliseconds(50)),
+			throttle: camChangeOnDiff(camSecondsToMilliseconds((difficulty <= MEDIUM) ? 45 : 50)),
 			data: {
 				regroup: false,
 				repair: 40,
@@ -200,7 +201,7 @@ function eventStartLevel()
 			assembly: "COHeavyFactory-b2LAssembly",
 			order: CAM_ORDER_ATTACK,
 			groupSize: 4,
-			throttle: camChangeOnDiff(camSecondsToMilliseconds(80)),
+			throttle: camChangeOnDiff(camSecondsToMilliseconds((difficulty <= MEDIUM) ? 72 : 80)),
 			data: {
 				regroup: false,
 				repair: 20,
@@ -212,7 +213,7 @@ function eventStartLevel()
 			assembly: "COHeavyFactory-b2RAssembly",
 			order: CAM_ORDER_ATTACK,
 			groupSize: 5,
-			throttle: camChangeOnDiff(camSecondsToMilliseconds(60)),
+			throttle: camChangeOnDiff(camSecondsToMilliseconds((difficulty <= MEDIUM) ? 54 : 60)),
 			data: {
 				regroup: false,
 				repair: 20,
@@ -224,7 +225,7 @@ function eventStartLevel()
 			assembly: "COMediumFactoryAssembly",
 			order: CAM_ORDER_ATTACK,
 			groupSize: 4,
-			throttle: camChangeOnDiff(camSecondsToMilliseconds(45)),
+			throttle: camChangeOnDiff(camSecondsToMilliseconds((difficulty <= MEDIUM) ? 40 : 45)),
 			data: {
 				regroup: false,
 				repair: 30,
@@ -245,7 +246,7 @@ function eventStartLevel()
 	}
 
 	queue("northWestAttack", camChangeOnDiff(camMinutesToMilliseconds(3)));
-	queue("mainBaseAttackGroup", camChangeOnDiff(camMinutesToMilliseconds(4.5)));
-	queue("southEastAttack", camChangeOnDiff(camMinutesToMilliseconds(5)));
-	queue("enableTimeBasedFactories", camChangeOnDiff(camMinutesToMilliseconds(6)));
+	queue("mainBaseAttackGroup", camChangeOnDiff(camMinutesToMilliseconds((difficulty <= MEDIUM) ? 4 : 4.5)));
+	queue("southEastAttack", camChangeOnDiff(camMinutesToMilliseconds((difficulty <= MEDIUM) ? 4.5 : 5)));
+	queue("enableTimeBasedFactories", camChangeOnDiff(camMinutesToMilliseconds((difficulty <= MEDIUM) ? 5 : 6)));
 }

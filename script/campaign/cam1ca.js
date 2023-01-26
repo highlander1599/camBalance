@@ -128,13 +128,18 @@ function sendTransport()
 		data: { regroup: true, count: -1, pos: "buildArea" }
 	});
 
-	totalTransportLoads = totalTransportLoads + 1;
+	totalTransportLoads += 1;
 }
 
 function startTransporterAttack()
 {
+	let attackTime = camMinutesToMilliseconds(2.2);
+	if (difficulty >= HARD)
+	{
+		attackTime = camChangeOnDiff(camMinutesToMilliseconds(2.2));
+	}
 	sendTransport();
-	setTimer("sendTransport", camChangeOnDiff(camMinutesToMilliseconds(2.2)));
+	setTimer("sendTransport", attackTime);
 }
 
 function eventStartLevel()
@@ -153,12 +158,12 @@ function eventStartLevel()
 	setNoGoArea(lz.x, lz.y, lz.x2, lz.y2, CAM_HUMAN_PLAYER);
 
 	// make sure player doesn't build on enemy LZs
-	for (var i = 1; i <= 5; ++i)
+	for (let i = 1; i <= 5; ++i)
 	{
 		var ph = getObject("PhantomLZ" + i);
 		// HACK: set LZs of bad players, namely 2...6,
 		// note: player 1 is NP
-		setNoGoArea(ph.x, ph.y, ph.x2, ph.y2, i + 1);
+		setNoGoArea(ph.x, ph.y, ph.x2, ph.y2, i + 2);
 	}
 
 	setMissionTime(camChangeOnDiff(camMinutesToSeconds(30)));

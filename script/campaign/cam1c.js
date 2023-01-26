@@ -63,6 +63,11 @@ function enableNPFactory()
 	camEnableFactory("NPCentralFactory");
 }
 
+function enableNorthScavFactory()
+{
+	camEnableFactory("ScavNorthFactory");
+}
+
 camAreaEvent("RemoveBeacon", function()
 {
 	hackRemoveMessage("C1C_OBJ1", PROX_MSG, CAM_HUMAN_PLAYER);
@@ -100,7 +105,7 @@ camAreaEvent("ScavCentralFactoryTrigger", function()
 
 camAreaEvent("ScavNorthFactoryTrigger", function()
 {
-	camEnableFactory("ScavNorthFactory");
+	camCallOnce("enableNorthScavFactory");
 });
 
 camAreaEvent("NPNorthFactoryTrigger", function()
@@ -115,20 +120,27 @@ function camEnemyBaseEliminated_NPCentralFactory()
 
 function getDroidsForNPLZ(args)
 {
-	var scouts = [ cTempl.npsens, cTempl.nppod, cTempl.nphmg ];
-	var heavies = [ cTempl.npslc, cTempl.npsmct, cTempl.npmor ];
-
+	var scouts = [ cTempl.nppod, cTempl.nphmg ];
+	var heavies = [ cTempl.npslc, cTempl.npsmct ];
+	var useArtillery = (camRand(100) < 50);
 
 	var numScouts = camRand(5) + 1;
 	var heavy = heavies[camRand(heavies.length)];
 	var list = [];
 
-	for (var i = 0; i < numScouts; ++i)
+	if (useArtillery)
+	{
+		list[list.length] = cTempl.npsens; //sensor will count towards scout total
+		numScouts -= 1;
+		heavy = cTempl.npmor;
+	}
+
+	for (let i = 0; i < numScouts; ++i)
 	{
 		list[list.length] = scouts[camRand(scouts.length)];
 	}
 
-	for (var a = numScouts; a < 8; ++a)
+	for (let a = numScouts; a < 8; ++a)
 	{
 		list[list.length] = heavy;
 	}
@@ -155,6 +167,7 @@ camAreaEvent("NPLZ2Trigger", function()
 {
 	camPlayVideos({video: "MB1C3_MSG", type: MISS_MSG});
 	camDetectEnemyBase("NPLZ2Group");
+	camCallOnce("enableNorthScavFactory");
 
 	camSetBaseReinforcements("NPLZ2Group", camChangeOnDiff(camMinutesToMilliseconds(5)), "getDroidsForNPLZ",
 		CAM_REINFORCE_TRANSPORT, {
@@ -173,7 +186,7 @@ function eventStartLevel()
 	setNoGoArea(lz.x, lz.y, lz.x2, lz.y2, CAM_HUMAN_PLAYER);
 
 	// make sure player doesn't build on enemy LZs of the next level
-	for (var i = 1; i <= 5; ++i)
+	for (let i = 1; i <= 5; ++i)
 	{
 		var ph = getObject("PhantomLZ" + i);
 		// HACK: set LZs of bad players, namely 2...6,

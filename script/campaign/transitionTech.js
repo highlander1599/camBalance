@@ -71,7 +71,6 @@ const STRUCTS_ALPHA = [
 	"A0LightFactory",
 ];
 
-
 //BETA 2-A bonus research
 const PLAYER_RES_BETA = [
 	"R-Wpn-AAGun03",
@@ -112,9 +111,8 @@ const BETA_RESEARCH_NEW = [
 
 	// 6
 	"R-Struc-Power-Upgrade01", "R-Wpn-Cannon-ROF02", "R-Wpn-MG4", "R-Wpn-RocketSlow-ROF02",
-	"R-Cyborg-Wpn-RotMG", "R-Defense-RotMG", "R-Wpn-AAGun04", "R-Wpn-MG-Damage07",
-	"R-Wpn-Rocket-Damage06", "R-Defense-AASite-QuadRotMg", "R-Defense-Wall-RotMg",
-	"R-Wpn-AAGun-ROF03", "R-Defense-Pillbox-RotMG",
+	"R-Cyborg-Wpn-RotMG", "R-Defense-RotMG", "R-Wpn-MG-Damage07", "R-Wpn-Rocket-Damage06",
+	"R-Defense-Wall-RotMg", "R-Wpn-AAGun-ROF03", "R-Defense-Pillbox-RotMG",
 
 	// 7
 	"R-Wpn-Bomb02", "R-Wpn-Howitzer-Accuracy01", "R-Wpn-Howitzer-Damage02",
@@ -125,7 +123,7 @@ const BETA_RESEARCH_NEW = [
 	"R-Sys-VTOLCBS-Tower01", "R-Wpn-Cannon4AMk1", "R-Wpn-Mortar3", "R-Wpn-Rocket07-Tank-Killer",
 	"R-Defense-Emplacement-HPVcannon", "R-Defense-HvyA-Trocket", "R-Defense-RotMor",
 	"R-Defense-WallTower-HPVcannon", "R-Defense-WallTower-HvyA-Trocket", "R-Sys-VTOLCBS-Turret01",
-	"R-Wpn-Mortar-ROF03", "R-Wpn-Mortar-Damage06",
+	"R-Wpn-Mortar-ROF03", "R-Wpn-Mortar-Damage06", "R-Wpn-AAGun04", "R-Defense-AASite-QuadRotMg",
 
 	// 9
 	"R-Wpn-Cannon5", "R-Wpn-RocketSlow-Damage06", "R-Defense-Wall-VulcanCan",
@@ -143,13 +141,13 @@ const BETA_RESEARCH_NEW = [
 const GAMMA_ALLY_RES = ALPHA_RESEARCH_NEW.concat(PLAYER_RES_BETA).concat(BETA_RESEARCH_NEW);
 
 const GAMMA_RESEARCH_NEW = [
-	//1
+	// 1
 	"R-Wpn-Howitzer03-Rot", "R-Wpn-MG-Damage08", "R-Struc-Power-Upgrade02", "R-Sys-Engineering03",
 	"R-Wpn-Cannon-Damage07", "R-Wpn-AAGun-Damage04", "R-Defense-WallUpgrade07", "R-Defense-WallUpgrade08",
 	"R-Defense-WallUpgrade09", "R-Struc-Materials07", "R-Struc-Materials08", "R-Struc-Materials09",
 	"R-Defense-RotHow", "R-Wpn-Howitzer-Damage04",
 
-	//2
+	// 2
 	"R-Wpn-MG-Damage09", "R-Wpn-Cannon-Damage08", "R-Wpn-AAGun-Damage05", "R-Wpn-Howitzer-Damage05",
 
 	// 3
@@ -161,13 +159,14 @@ const GAMMA_RESEARCH_NEW = [
 	"R-Wpn-Energy-Damage02", "R-Wpn-Energy-ROF01", "R-Cyborg-Metals07", "R-Vehicle-Armor-Heat04",
 	"R-Wpn-Howitzer-ROF04", "R-Cyborg-Armor-Heat04", "R-Wpn-RocketSlow-ROF04",
 
-
 	// 4
 	"R-Wpn-Cannon-ROF05", "R-Wpn-Cannon-ROF06", "R-Wpn-Cannon-Damage09", "R-Wpn-AAGun-Damage06",
 	"R-Wpn-Howitzer-Damage06", "R-Wpn-AAGun-ROF05", "R-Wpn-AAGun-ROF06", "R-Wpn-RocketSlow-ROF05",
 	"R-Wpn-RocketSlow-ROF06",
 
 	// 5
+	"R-Sys-Resistance-Upgrade01", "R-Sys-Resistance-Upgrade02", "R-Sys-Resistance-Upgrade03",
+	"R-Sys-Resistance-Upgrade04",
 
 	// 6
 	"R-Vehicle-Body07", "R-Wpn-RailGun01", "R-Struc-VTOLPad-Upgrade04", "R-Wpn-Missile-LtSAM",
@@ -178,7 +177,6 @@ const GAMMA_RESEARCH_NEW = [
 	"R-Cyborg-Wpn-ATMiss", "R-Defense-GuardTower-ATMiss", "R-Defense-WallTower-A-Tmiss", "R-Wpn-Missile-Damage02",
 	"R-Wpn-Missile-ROF01",
 
-
 	// 7
 	"R-Wpn-MdArtMissile", "R-Wpn-Laser02", "R-Wpn-RailGun02",
 	"R-Wpn-Missile-HvSAM", "R-Defense-SamSite2", "R-Wpn-Missile-Accuracy02",
@@ -187,13 +185,13 @@ const GAMMA_RESEARCH_NEW = [
 	"R-Wpn-Rail-Damage02", "R-Wpn-Rail-ROF02",
 
 	// 8
+	"R-Sys-Resistance", "R-Comp-MissileCodes01", "R-Comp-MissileCodes02", "R-Comp-MissileCodes03",
 
 	// 9
 	"R-Wpn-RailGun03", "R-Vehicle-Body10", "R-Wpn-HvArtMissile",
 	"R-Wpn-Rail-Damage03", "R-Defense-Rail3", "R-Defense-WallTower-Rail3", "R-Wpn-Rail-ROF03",
 	"R-Vehicle-Metals09", "R-Vehicle-Engine09", "R-Defense-HvyArtMissile", "R-Wpn-Missile-Damage03",
 	"R-Wpn-Missile-ROF03", "R-Cyborg-Metals09", "R-Vehicle-Armor-Heat06", "R-Cyborg-Armor-Heat06",
-
 
 ];
 

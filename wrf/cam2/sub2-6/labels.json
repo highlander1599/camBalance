@@ -75,8 +75,8 @@
 	},
 	"area_1": {
 		"label": "RTLZ",
-		"pos1": [1344, 6592],
-		"pos2": [3904, 8128]
+		"pos1": [1344, 6848],
+		"pos2": [3456, 8128]
 	},
 	"area_2": {
 		"label": "uplinkBaseCleanup",
@@ -150,8 +150,8 @@
 		"type": 1
 	},
 	"object_2": {
-		"label": "aaGunEmplacement",
-		"id": 487,
+		"label": "COWhirlwindSite",
+		"id": 562,
 		"player": 2,
 		"type": 1
 	},

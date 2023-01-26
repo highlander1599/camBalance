@@ -34,9 +34,9 @@ function camEnemyBaseEliminated_COEastBase()
 //Tell everything not grouped on map to attack
 function camEnemyBaseDetected_COEastBase()
 {
-	var droids = enumArea(0, 0, mapWidth, mapHeight, THE_COLLECTIVE, false).filter(function(obj) {
-		return obj.type === DROID && obj.group === null && obj.canHitGround;
-	});
+	var droids = enumArea(0, 0, mapWidth, mapHeight, THE_COLLECTIVE, false).filter((obj) => (
+		obj.type === DROID && obj.group === null && obj.canHitGround
+	));
 
 	camManageGroup(camMakeGroup(droids), CAM_ORDER_ATTACK, {
 		count: -1,
@@ -116,6 +116,11 @@ function eventStartLevel()
 	});
 
 	camCompleteRequiredResearch(COLLECTIVE_RES, THE_COLLECTIVE);
+
+	if (difficulty >= MEDIUM)
+	{
+		camUpgradeOnMapTemplates(cTempl.commc, cTempl.commrp, THE_COLLECTIVE);
+	}
 
 	camSetEnemyBases({
 		"COEastBase": {

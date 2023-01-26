@@ -25,10 +25,21 @@ var useHeavyReinforcement;
 //Get some droids for the New Paradigm transport
 function getDroidsForNPLZ(args)
 {
-	const LIGHT_ATTACKER_LIMIT = 8;
-	const HEAVY_ATTACKER_LIMIT = 3;
+	var lightAttackerLimit = 8;
+	var heavyAttackerLimit = 3;
 	var unitTemplates;
 	var list = [];
+
+	if (difficulty === HARD)
+	{
+		lightAttackerLimit = 9;
+		heavyAttackerLimit = 4;
+	}
+	else if (difficulty === INSANE)
+	{
+		lightAttackerLimit = 10;
+		heavyAttackerLimit = 5;
+	}
 
 	if (useHeavyReinforcement)
 	{
@@ -50,8 +61,8 @@ function getDroidsForNPLZ(args)
 		unitTemplates = [cTempl.nppod, cTempl.npmrl, cTempl.nphmgt];
 	}
 
-	var lim = useHeavyReinforcement ? HEAVY_ATTACKER_LIMIT : LIGHT_ATTACKER_LIMIT;
-	for (var i = 0; i < lim; ++i)
+	var lim = useHeavyReinforcement ? heavyAttackerLimit : lightAttackerLimit;
+	for (let i = 0; i < lim; ++i)
 	{
 		list.push(unitTemplates[camRand(unitTemplates.length)]);
 	}
@@ -94,17 +105,27 @@ camAreaEvent("NPFactoryTrigger", function(droid)
 });
 
 //Land New Paradigm transport in the LZ area (protected by four hardpoints in the New Paradigm base)
+camAreaEvent("NPLZTriggerEast", function()
+{
+	camCallOnce("activateNPLZTransporter");
+});
+
 camAreaEvent("NPLZTrigger", function()
+{
+	camCallOnce("activateNPLZTransporter");
+});
+
+function activateNPLZTransporter()
 {
 	setTimer("sendNPTransport", camChangeOnDiff(camMinutesToMilliseconds(3)));
 	sendNPTransport();
-});
+}
 
 function sendNPTransport()
 {
-	var nearbyDefense = enumArea("LandingZone2", NEW_PARADIGM, false).filter(function(obj) {
-		return (obj.type === STRUCTURE && obj.stattype === DEFENSE);
-	});
+	var nearbyDefense = enumArea("LandingZone2", NEW_PARADIGM, false).filter((obj) => (
+		obj.type === STRUCTURE && obj.stattype === DEFENSE
+	));
 
 	if (nearbyDefense.length > 0)
 	{
@@ -114,7 +135,7 @@ function sendNPTransport()
 			exit: { x: 2, y: 42 },
 			order: CAM_ORDER_ATTACK,
 			data: {
-				regroup: true,
+				regroup: false,
 				count: -1,
 				pos: camMakePos("NPBase"),
 				repair: 66,
@@ -165,7 +186,7 @@ function eventStartLevel()
 	var tent = getObject("TransporterEntry");
 	var text = getObject("TransporterExit");
 	setNoGoArea(lz.x, lz.y, lz.x2, lz.y2, CAM_HUMAN_PLAYER);
-	setNoGoArea(lz2.x, lz2.y, lz2.x2, lz2.y2, NEW_PARADIGM);
+	setNoGoArea(lz2.x, lz2.y, lz2.x2, lz2.y2, 5);
 	startTransporterEntry(tent.x, tent.y, CAM_HUMAN_PLAYER);
 	setTransporterExit(text.x, text.y, CAM_HUMAN_PLAYER);
 

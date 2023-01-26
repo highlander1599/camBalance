@@ -26,7 +26,6 @@ var enemyStoleArtifact; //Reached the LZ with the artifact
 var droidWithArtiID; //The droid ID that was closest to the artifact to take it
 var artiMovePos; //where artiGroup members are moving to
 
-
 //These enable scav factories when close enough
 camAreaEvent("northScavFactoryTrigger", function(droid)
 {
@@ -73,7 +72,6 @@ function artifactVideoSetup()
 {
 	camPlayVideos({video: "SB1_7_MSG3", type: MISS_MSG});
 	camCallOnce("removeCanyonBlip");
-	artiMovePos = "NPWayPoint";
 }
 
 //Remove nearby droids. Make sure the player loses if the NP still has the artifact
@@ -83,10 +81,10 @@ function eventTransporterLanded(transport)
 	if (transport.player === NEW_PARADIGM && enemyHasArtifact)
 	{
 		enemyStoleArtifact = true;
-		var crew = enumRange(transport.x, transport.y, 6, NEW_PARADIGM, false).filter(function(obj) {
-			return obj.type === DROID && obj.group === artiGroup;
-		});
-		for (var i = 0, l = crew.length; i < l; ++i)
+		var crew = enumRange(transport.x, transport.y, 6, NEW_PARADIGM, false).filter((obj) => (
+			obj.type === DROID && obj.group === artiGroup
+		));
+		for (let i = 0, l = crew.length; i < l; ++i)
 		{
 			camSafeRemoveObject(crew[i], false);
 		}
@@ -129,9 +127,9 @@ function getArtifact()
 	}
 
 	const GRAB_RADIUS = 2;
-	var artifact = camGetArtifacts().filter(function(label) {
-		return enemyCanTakeArtifact(label) && getObject(label) !== null;
-	});
+	var artifact = camGetArtifacts().filter((label) => (
+		enemyCanTakeArtifact(label) && getObject(label) !== null
+	));
 	var artiLoc = artiMovePos;
 
 	if (!enemyHasArtifact && !enemyStoleArtifact && artifact.length > 0)
@@ -149,7 +147,7 @@ function getArtifact()
 		var idx = 0;
 		var dist = Infinity;
 
-		for (var i = 0, l = artiMembers.length; i < l; ++i)
+		for (let i = 0, l = artiMembers.length; i < l; ++i)
 		{
 			var drDist = camDist(artiMembers[i], artiLoc);
 			if (drDist < dist)
@@ -183,7 +181,7 @@ function getArtifact()
 //New Paradigm truck builds six lancer hardpoints around LZ
 function buildLancers()
 {
-	for (var i = 1; i <= 6; ++i)
+	for (let i = 1; i <= 6; ++i)
 	{
 		camQueueBuilding(NEW_PARADIGM, "WallTower06", "hardPoint" + i);
 	}
@@ -193,7 +191,7 @@ function buildLancers()
 function extraVictory()
 {
 	var npTransportFound = false;
-	enumDroid(NEW_PARADIGM).forEach(function(dr) {
+	enumDroid(NEW_PARADIGM).forEach((dr) => {
 		if (camIsTransporter(dr))
 		{
 			npTransportFound = true;
@@ -245,6 +243,7 @@ function eventStartLevel()
 
 	enemyHasArtifact = false;
 	enemyStoleArtifact = false;
+	artiMovePos = "NPWayPoint";
 	var startpos = getObject("startPosition");
 	var lz = getObject("landingZone"); //player lz
 	var tent = getObject("transporterEntry");

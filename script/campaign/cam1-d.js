@@ -2,11 +2,11 @@
 include("script/campaign/libcampaign.js");
 include("script/campaign/templates.js");
 
-const NEW_PARADIGM_RES = [
+const mis_newParadigmRes = [
 	"R-Wpn-MG1Mk1", "R-Vehicle-Body01", "R-Sys-Spade1Mk1", "R-Vehicle-Prop-Wheels",
 	"R-Sys-Engineering01", "R-Wpn-MG-Damage04", "R-Wpn-MG-ROF02", "R-Wpn-Cannon-Damage03",
 	"R-Wpn-Flamer-Damage03", "R-Wpn-Flamer-Range01", "R-Wpn-Flamer-ROF01",
-	"R-Defense-WallUpgrade03","R-Struc-Materials03", "R-Vehicle-Engine03",
+	"R-Defense-WallUpgrade03", "R-Struc-Materials03", "R-Vehicle-Engine03",
 	"R-Struc-RprFac-Upgrade03", "R-Wpn-Rocket-Damage03", "R-Wpn-Rocket-ROF03",
 	"R-Vehicle-Metals03", "R-Wpn-Mortar-Damage03", "R-Wpn-Rocket-Accuracy02",
 	"R-Wpn-RocketSlow-Damage03", "R-Wpn-Mortar-ROF01", "R-Cyborg-Metals03",
@@ -61,9 +61,9 @@ function transportBaseSetup()
 function getDroidsForNPLZ()
 {
 	const LIM = 8; //Last alpha mission always has 8 transport units
-	var templates = [ cTempl.nphct, cTempl.nphct, cTempl.npmorb, cTempl.npmorb, cTempl.npsbb ];
+	const templates = [ cTempl.nphct, cTempl.nphct, cTempl.npmorb, cTempl.npmorb, cTempl.npsbb ];
 
-	var droids = [];
+	const droids = [];
 	for (let i = 0; i < LIM; ++i)
 	{
 		droids.push(templates[camRand(templates.length)]);
@@ -148,14 +148,14 @@ function eventStartLevel()
 		eliminateBases: true
 	});
 
-	var startpos = getObject("startPosition");
-	var lz = getObject("landingZone"); //player lz
-	var tent = getObject("transporterEntry");
-	var text = getObject("transporterExit");
-	centreView(startpos.x, startpos.y);
+	const startPos = getObject("startPosition");
+	const lz = getObject("landingZone"); //player lz
+	const tEnt = getObject("transporterEntry");
+	const tExt = getObject("transporterExit");
+	centreView(startPos.x, startPos.y);
 	setNoGoArea(lz.x, lz.y, lz.x2, lz.y2, CAM_HUMAN_PLAYER);
-	startTransporterEntry(tent.x, tent.y, CAM_HUMAN_PLAYER);
-	setTransporterExit(text.x, text.y, CAM_HUMAN_PLAYER);
+	startTransporterEntry(tEnt.x, tEnt.y, CAM_HUMAN_PLAYER);
+	setTransporterExit(tExt.x, tExt.y, CAM_HUMAN_PLAYER);
 
 	//Get rid of the already existing crate and replace with another
 	camSafeRemoveObject("artifact1", false);
@@ -165,7 +165,7 @@ function eventStartLevel()
 		"NPFactoryNE": { tech: "R-Vehicle-Body12" }, //Main base factory
 	});
 
-	camCompleteRequiredResearch(NEW_PARADIGM_RES, NEW_PARADIGM);
+	camCompleteRequiredResearch(mis_newParadigmRes, CAM_NEW_PARADIGM);
 
 	camSetEnemyBases({
 		"NPSouthEastGroup": {
@@ -190,7 +190,7 @@ function eventStartLevel()
 			cleanup: "NPLZ1",
 			detectMsg: "C1D_LZ2",
 			eliminateSnd: "pcv394.ogg",
-			player: NEW_PARADIGM // required for LZ-type bases
+			player: CAM_NEW_PARADIGM // required for LZ-type bases
 		},
 	});
 

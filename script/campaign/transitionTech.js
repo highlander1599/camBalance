@@ -1,7 +1,7 @@
 //Contains the campaign transition technology definitions.
 
 //This array should give a player all the research from Alpha.
-const ALPHA_RESEARCH_NEW = [
+const mis_alphaResearchNew = [
 	// 1
 	"R-Wpn-MG1Mk1", "R-Vehicle-Body01", "R-Sys-Spade1Mk1", "R-Vehicle-Prop-Wheels",
 	"R-Sys-MobileRepairTurret01", "R-Sys-Engineering01", "R-Wpn-Flamer01Mk1", "R-Wpn-Flamer-Damage01",
@@ -22,7 +22,7 @@ const ALPHA_RESEARCH_NEW = [
 	"R-Wpn-Mortar-ROF01","R-Wpn-Cannon-Damage01", "R-Wpn-Cannon-Damage02",
 
 	// 5
-	"R-Struc-Factory-Module", "R-Wpn-Flamer-Damage03",
+	"R-Struc-Factory-Module", "R-Wpn-Flamer-Damage03", "R-Sys-Sensor-Tower02",
 	"R-Struc-Factory-Upgrade01", "R-Struc-Factory-Upgrade02", "R-Defense-HardcreteWall",
 	"R-Struc-CommandRelay", "R-Comp-CommandTurret01", "R-Struc-RepairFacility",
 	"R-Struc-RprFac-Upgrade01", "R-Struc-RprFac-Upgrade02", "R-Defense-MortarPit",
@@ -64,7 +64,7 @@ const ALPHA_RESEARCH_NEW = [
 ];
 
 //Basic base structures.
-const STRUCTS_ALPHA = [
+const mis_structsAlpha = [
 	"A0CommandCentre",
 	"A0PowerGenerator",
 	"A0ResourceExtractor",
@@ -73,14 +73,13 @@ const STRUCTS_ALPHA = [
 ];
 
 //BETA 2-A bonus research
-const PLAYER_RES_BETA = [
+const mis_playerResBeta = [
 	"R-Wpn-AAGun03",
 	"R-Defense-AASite-QuadMg1",
-	"R-Sys-Sensor-Tower02",
 ];
 
 //This array should give a player all the research from Beta.
-const BETA_RESEARCH_NEW = [
+const mis_betaResearchNew = [
 	// 1
 	"R-Sys-Engineering02", "R-Sys-Sensor-Upgrade01", "R-Wpn-AAGun-Damage03",
 	"R-Wpn-Cannon-Damage04", "R-Wpn-MG-ROF02", "R-Wpn-Rocket-Damage04",
@@ -139,9 +138,9 @@ const BETA_RESEARCH_NEW = [
 ];
 
 //This is used for giving allies in Gamma technology (3-b/3-2/3-c)
-const GAMMA_ALLY_RES = ALPHA_RESEARCH_NEW.concat(PLAYER_RES_BETA).concat(BETA_RESEARCH_NEW);
+const mis_gammaAllyRes = mis_alphaResearchNew.concat(mis_playerResBeta).concat(mis_betaResearchNew);
 
-const GAMMA_RESEARCH_NEW = [
+const mis_gammaResearchNew = [
 	// 1
 	"R-Wpn-Howitzer03-Rot", "R-Wpn-MG-Damage08", "R-Struc-Power-Upgrade02", "R-Sys-Engineering03",
 	"R-Wpn-Cannon-Damage07", "R-Wpn-AAGun-Damage04", "R-Defense-WallUpgrade07", "R-Defense-WallUpgrade08",
@@ -176,7 +175,7 @@ const GAMMA_RESEARCH_NEW = [
 	"R-Wpn-Missile-Damage01", "R-Vehicle-Armor-Heat05", "R-Wpn-Rail-Accuracy01", "R-Wpn-Missile-Accuracy01",
 	"R-Wpn-AAGun-Accuracy03", "R-Wpn-Howitzer-Accuracy03", "R-Wpn-Rail-ROF01", "R-Wpn-Missile2A-T",
 	"R-Cyborg-Wpn-ATMiss", "R-Defense-GuardTower-ATMiss", "R-Defense-WallTower-A-Tmiss", "R-Wpn-Missile-Damage02",
-	"R-Wpn-Missile-ROF01",
+	"R-Wpn-Missile-ROF01", "R-Cyborg-Metals08", "R-Cyborg-Armor-Heat05",
 
 	// 7
 	"R-Wpn-MdArtMissile", "R-Wpn-Laser02", "R-Wpn-RailGun02",

@@ -4,15 +4,15 @@ include("script/campaign/templates.js");
 
 //New base blip, new base area, new factory data
 
-const NEW_PARADIGM_RES = [
+const mis_newParadigmRes = [
 	"R-Wpn-MG1Mk1", "R-Vehicle-Body01", "R-Sys-Spade1Mk1", "R-Vehicle-Prop-Wheels",
 	"R-Sys-Engineering01", "R-Wpn-MG-Damage03", "R-Wpn-MG-ROF01", "R-Wpn-Cannon-Damage01",
 	"R-Wpn-Flamer-Damage03", "R-Wpn-Flamer-Range01", "R-Wpn-Flamer-ROF01",
-	"R-Defense-WallUpgrade02","R-Struc-Materials02", "R-Vehicle-Engine01",
+	"R-Defense-WallUpgrade02", "R-Struc-Materials02", "R-Vehicle-Engine01",
 	"R-Struc-RprFac-Upgrade01", "R-Wpn-Rocket-Damage01", "R-Wpn-Rocket-ROF02",
 	"R-Wpn-Mortar-Damage02", "R-Wpn-Mortar-ROF01",
 ];
-const SCAVENGER_RES = [
+const mis_scavengerRes = [
 	"R-Wpn-Flamer-Damage02", "R-Wpn-Flamer-Range01", "R-Wpn-Flamer-ROF01",
 	"R-Wpn-MG-Damage03", "R-Wpn-MG-ROF01", "R-Wpn-Cannon-Damage01",
 	"R-Wpn-Mortar-Damage02", "R-Wpn-Mortar-ROF01", "R-Wpn-Rocket-ROF03",
@@ -34,11 +34,11 @@ camAreaEvent("NorthConvoyTrigger", function(droid)
 
 camAreaEvent("SouthConvoyTrigger", function(droid)
 {
-	var scout = getObject("ScoutDroid");
+	const scout = getObject("ScoutDroid");
 	if (camDef(scout) && scout)
 	{
 		camTrace("New Paradigm sensor scout retreating");
-		var pos = camMakePos("ScoutDroidTarget");
+		const pos = camMakePos("ScoutDroidTarget");
 		orderDroidLoc(scout, DORDER_MOVE, pos.x, pos.y);
 	}
 });
@@ -86,15 +86,15 @@ function NPReinforce()
 {
 	if (getObject("NPHQ") !== null)
 	{
-		var list = [];
-		var count = 5 + camRand(5);
-		var scouts = [cTempl.nphmg, cTempl.npblc, cTempl.nppod, cTempl.nphmg, cTempl.npblc];
+		const list = [];
+		const COUNT = 5 + camRand(5);
+		const scouts = [cTempl.nphmg, cTempl.npblc, cTempl.nppod, cTempl.nphmg, cTempl.npblc];
 
-		for (let i = 0; i < count; ++i)
+		for (let i = 0; i < COUNT; ++i)
 		{
 			list.push(scouts[camRand(scouts.length)]);
 		}
-		camSendReinforcement(NEW_PARADIGM, camMakePos("NPReinforcementPos"), list, CAM_REINFORCE_GROUND, {
+		camSendReinforcement(CAM_NEW_PARADIGM, camMakePos("NPReinforcementPos"), list, CAM_REINFORCE_GROUND, {
 			data: {
 				regroup: false,
 				repair: 66,
@@ -127,10 +127,10 @@ function eventAttacked(victim, attacker) {
 	{
 		return;
 	}
-	if (victim.player === NEW_PARADIGM)
+	if (victim.player === CAM_NEW_PARADIGM)
 	{
 		camCallOnce("enableNP");
-		var commander = getObject("NPCommander");
+		const commander = getObject("NPCommander");
 		if (camDef(attacker) && attacker && camDef(commander) && commander &&
 			commander.order !== DORDER_SCOUT && commander.order !== DORDER_RTR)
 		{
@@ -170,7 +170,7 @@ function camEnemyBaseEliminated_ScavBaseGroup()
 {
 	//make enemy easier to find if all his buildings destroyed
 	camManageGroup(
-		camMakeGroup(enumArea(0, 0, mapWidth, mapHeight, SCAV_7, false)),
+		camMakeGroup(enumArea(0, 0, mapWidth, mapHeight, CAM_SCAV_7, false)),
 		CAM_ORDER_ATTACK
 	);
 }
@@ -210,24 +210,24 @@ function eventStartLevel()
 		annihilate: true
 	});
 
-	var startpos = getObject("StartPosition");
-	var lz = getObject("LandingZone");
-	var tent = getObject("TransporterEntry");
-	var text = getObject("TransporterExit");
-	centreView(startpos.x, startpos.y);
+	const startPos = getObject("StartPosition");
+	const lz = getObject("LandingZone");
+	const tEnt = getObject("TransporterEntry");
+	const tExt = getObject("TransporterExit");
+	centreView(startPos.x, startPos.y);
 	setNoGoArea(lz.x, lz.y, lz.x2, lz.y2, CAM_HUMAN_PLAYER);
-	startTransporterEntry(tent.x, tent.y, CAM_HUMAN_PLAYER);
-	setTransporterExit(text.x, text.y, CAM_HUMAN_PLAYER);
+	startTransporterEntry(tEnt.x, tEnt.y, CAM_HUMAN_PLAYER);
+	setTransporterExit(tExt.x, tExt.y, CAM_HUMAN_PLAYER);
 
-	camCompleteRequiredResearch(NEW_PARADIGM_RES, NEW_PARADIGM);
-	camCompleteRequiredResearch(SCAVENGER_RES, SCAV_7);
-	setAlliance(NEW_PARADIGM, SCAV_7, true);
+	camCompleteRequiredResearch(mis_newParadigmRes, CAM_NEW_PARADIGM);
+	camCompleteRequiredResearch(mis_scavengerRes, CAM_SCAV_7);
+	setAlliance(CAM_NEW_PARADIGM, CAM_SCAV_7, true);
 
-	camUpgradeOnMapTemplates(cTempl.bloke, cTempl.blokeheavy, 7);
-	camUpgradeOnMapTemplates(cTempl.trike, cTempl.trikeheavy, 7);
-	camUpgradeOnMapTemplates(cTempl.buggy, cTempl.buggyheavy, 7);
-	camUpgradeOnMapTemplates(cTempl.bjeep, cTempl.bjeepheavy, 7);
-	camUpgradeOnMapTemplates(cTempl.rbjeep, cTempl.rbjeep8, 7);
+	camUpgradeOnMapTemplates(cTempl.bloke, cTempl.blokeheavy, CAM_SCAV_7);
+	camUpgradeOnMapTemplates(cTempl.trike, cTempl.trikeheavy, CAM_SCAV_7);
+	camUpgradeOnMapTemplates(cTempl.buggy, cTempl.buggyheavy, CAM_SCAV_7);
+	camUpgradeOnMapTemplates(cTempl.bjeep, cTempl.bjeepheavy, CAM_SCAV_7);
+	camUpgradeOnMapTemplates(cTempl.rbjeep, cTempl.rbjeep8, CAM_SCAV_7);
 
 	camSetEnemyBases({
 		"ScavBaseGroup": {

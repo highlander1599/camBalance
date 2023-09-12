@@ -2,10 +2,10 @@ include("script/campaign/libcampaign.js");
 include("script/campaign/templates.js");
 
 var allowWin;
-const COLLECTIVE_RES = [
+const mis_collectiveRes = [
 	"R-Defense-WallUpgrade06", "R-Struc-Materials06", "R-Sys-Engineering02",
 	"R-Vehicle-Engine06", "R-Vehicle-Metals06", "R-Cyborg-Metals06",
-	"R-Wpn-Cannon-Accuracy02", "R-Wpn-Cannon-Damage06","R-Wpn-Cannon-ROF03",
+	"R-Wpn-Cannon-Accuracy02", "R-Wpn-Cannon-Damage06", "R-Wpn-Cannon-ROF03",
 	"R-Wpn-Flamer-Damage06", "R-Wpn-Flamer-ROF03", "R-Wpn-MG-Damage07",
 	"R-Wpn-MG-ROF03", "R-Wpn-Mortar-Acc02", "R-Wpn-Mortar-Damage06",
 	"R-Wpn-Mortar-ROF03", "R-Wpn-Rocket-Accuracy02", "R-Wpn-Rocket-Damage06",
@@ -15,13 +15,13 @@ const COLLECTIVE_RES = [
 	"R-Wpn-Bomb-Damage02", "R-Wpn-AAGun-Damage03", "R-Wpn-AAGun-ROF03",
 	"R-Wpn-AAGun-Accuracy02", "R-Wpn-Howitzer-Accuracy02", "R-Struc-VTOLPad-Upgrade03",
 ];
-const startpos = {x: 92, y: 99};
+const mis_startPos = {x: 92, y: 99};
 
 //Remove enemy vtols when in the remove zone area.
 function checkEnemyVtolArea()
 {
-	var pos = {x: 127, y: 64};
-	var vtols = enumRange(pos.x, pos.y, 2, THE_COLLECTIVE, false).filter((obj) => (isVTOL(obj)));
+	const pos = {x: 127, y: 64};
+	const vtols = enumRange(pos.x, pos.y, 2, CAM_THE_COLLECTIVE, false).filter((obj) => (isVTOL(obj)));
 
 	for (let i = 0, l = vtols.length; i < l; ++i)
 	{
@@ -43,11 +43,11 @@ function eventTransporterLaunch(transporter)
 {
 	if (!allowWin && transporter.player === CAM_HUMAN_PLAYER)
 	{
-		var cargoDroids = enumCargo(transporter);
+		const cargoDroids = enumCargo(transporter);
 
 		for (let i = 0, len = cargoDroids.length; i < len; ++i)
 		{
-			var virDroid = cargoDroids[i];
+			const virDroid = cargoDroids[i];
 
 			if (virDroid && virDroid.droidType === DROID_CONSTRUCT)
 			{
@@ -62,8 +62,8 @@ function eventTransporterLaunch(transporter)
 function randomTemplates(list, transporterAmount, useWhirlwinds)
 {
 	const WHIRLWIND_AMOUNT = 2;
-	var droids = [];
-	var size;
+	const droids = [];
+	let size;
 
 	if (camDef(transporterAmount) && transporterAmount)
 	{
@@ -94,47 +94,47 @@ function randomTemplates(list, transporterAmount, useWhirlwinds)
 //Attack every 30 seconds.
 function vtolAttack()
 {
-	var vtolPositions = [
+	let vtolPositions = [
 		{x: 99, y: 1},
 		{x: 127, y: 65},
 		{x: 127, y: 28},
 		{x: 36, y: 1},
 		{x: 1, y: 28},
 	];
-	var vtolRemovePos = {x: 127, y: 64};
+	const vtolRemovePos = {x: 127, y: 64};
 
 	if (difficulty === INSANE)
 	{
 		vtolPositions = undefined; //to randomize the spawns each time
 	}
 
-	var list = [
+	const list = [
 		cTempl.commorv, cTempl.commorv, cTempl.comhvat, cTempl.commorvt
 	];
-	var extras = {
+	const extras = {
 		minVTOLs: (difficulty >= HARD) ? 5 : 4,
 		maxRandomVTOLs: (difficulty >= HARD) ? 2 : 1
 	};
 
-	camSetVtolData(THE_COLLECTIVE, vtolPositions, vtolRemovePos, list, camChangeOnDiff(camSecondsToMilliseconds(30)), undefined, extras);
+	camSetVtolData(CAM_THE_COLLECTIVE, vtolPositions, vtolRemovePos, list, camChangeOnDiff(camSecondsToMilliseconds(30)), undefined, extras);
 }
 
 //SouthEast attackers which are mostly cyborgs.
 function cyborgAttack()
 {
-	var southCyborgAssembly = {x: 123, y: 125};
-	var list = [cTempl.npcybr, cTempl.cocybag, cTempl.npcybc, cTempl.comhltat, cTempl.cohhpv];
+	const southCyborgAssembly = {x: 123, y: 125};
+	const list = [cTempl.npcybr, cTempl.cocybag, cTempl.npcybc, cTempl.comhltat, cTempl.cohhpv];
 
-	camSendReinforcement(THE_COLLECTIVE, camMakePos(southCyborgAssembly), randomTemplates(list, false, true), CAM_REINFORCE_GROUND, {
+	camSendReinforcement(CAM_THE_COLLECTIVE, camMakePos(southCyborgAssembly), randomTemplates(list, false, true), CAM_REINFORCE_GROUND, {
 		data: { regroup: false, count: -1 }
 	});
 }
 
 function cyborgAttackRandom()
 {
-	var list = [cTempl.npcybr, cTempl.cocybag, cTempl.npcybc, cTempl.npcybc, cTempl.comrotm]; //favor cannon cyborg
+	const list = [cTempl.npcybr, cTempl.cocybag, cTempl.npcybc, cTempl.npcybc, cTempl.comrotm]; //favor cannon cyborg
 
-	camSendReinforcement(THE_COLLECTIVE, camMakePos(camGenerateRandomMapEdgeCoordinate(startpos)), randomTemplates(list, false, true).concat(cTempl.comsens), CAM_REINFORCE_GROUND, {
+	camSendReinforcement(CAM_THE_COLLECTIVE, camMakePos(camGenerateRandomMapEdgeCoordinate(mis_startPos)), randomTemplates(list, false, true).concat(cTempl.comsens), CAM_REINFORCE_GROUND, {
 		data: { regroup: false, count: -1 }
 	});
 }
@@ -142,29 +142,29 @@ function cyborgAttackRandom()
 //North road attacker consisting of powerful weaponry.
 function tankAttack()
 {
-	var northTankAssembly = {x: 95, y: 3};
-	var list = [cTempl.comhltat, cTempl.cohact, cTempl.cohhpv, cTempl.comagt, cTempl.cohbbt];
+	const northTankAssembly = {x: 95, y: 3};
+	const list = [cTempl.comhltat, cTempl.cohact, cTempl.cohhpv, cTempl.comagt, cTempl.cohbbt];
 
-	camSendReinforcement(THE_COLLECTIVE, camMakePos(northTankAssembly), randomTemplates(list, false, true), CAM_REINFORCE_GROUND, {
+	camSendReinforcement(CAM_THE_COLLECTIVE, camMakePos(northTankAssembly), randomTemplates(list, false, true), CAM_REINFORCE_GROUND, {
 		data: { regroup: false, count: -1, },
 	});
 }
 
 function tankAttackWest()
 {
-	var westTankAssembly = {x: 3, y: 112}; //This was unused. Now part of Hard/Insane playthroughs.
-	var list = [cTempl.comhltat, cTempl.cohact, cTempl.cohhpv, cTempl.comagt, cTempl.cohbbt];
+	const westTankAssembly = {x: 3, y: 112}; //This was unused. Now part of Hard/Insane playthroughs.
+	const list = [cTempl.comhltat, cTempl.cohact, cTempl.cohhpv, cTempl.comagt, cTempl.cohbbt];
 
-	camSendReinforcement(THE_COLLECTIVE, camMakePos(westTankAssembly), randomTemplates(list, true, true), CAM_REINFORCE_GROUND, {
+	camSendReinforcement(CAM_THE_COLLECTIVE, camMakePos(westTankAssembly), randomTemplates(list, true, true), CAM_REINFORCE_GROUND, {
 		data: { regroup: false, count: -1, },
 	});
 }
 
 function transporterAttack()
 {
-	var droids = [cTempl.cohact, cTempl.comhltat, cTempl.cohbbt, cTempl.cohhpv];
+	const droids = [cTempl.cohact, cTempl.comhltat, cTempl.cohbbt, cTempl.cohhpv];
 
-	camSendReinforcement(THE_COLLECTIVE, camMakePos(camGenerateRandomMapCoordinate(startpos, 10, 1)), randomTemplates(droids, true, false),
+	camSendReinforcement(CAM_THE_COLLECTIVE, camMakePos(camGenerateRandomMapCoordinate(mis_startPos, 10, 1)), randomTemplates(droids, true, false),
 		CAM_REINFORCE_TRANSPORT, {
 			entry: camGenerateRandomMapEdgeCoordinate(),
 			exit: camGenerateRandomMapEdgeCoordinate()
@@ -175,7 +175,7 @@ function transporterAttack()
 //NOTE: this is only called once from the library's eventMissionTimeout().
 function checkIfLaunched()
 {
-	var transporters = enumArea(0, 0, mapWidth, mapHeight, CAM_HUMAN_PLAYER, false).filter((obj) => (
+	const transporters = enumArea(0, 0, mapWidth, mapHeight, CAM_HUMAN_PLAYER, false).filter((obj) => (
 		obj.type === DROID && camIsTransporter(obj)
 	));
 	if (transporters.length > 0)
@@ -203,22 +203,22 @@ function eventStartLevel()
 		camSetExtraObjectiveMessage(_("Send off as many transporters as you can and bring at least one truck"));
 	}
 
-	var lz = {x: 86, y: 99, x2: 88, y2: 101};
-	var tCoords = {xStart: 87, yStart: 100, xOut: 0, yOut: 55};
+	const lz = {x: 86, y: 99, x2: 88, y2: 101};
+	const tCoords = {xStart: 87, yStart: 100, xOut: 0, yOut: 55};
 
 	camSetStandardWinLossConditions(CAM_VICTORY_TIMEOUT, "CAM_3A", {
 		reinforcements: camMinutesToSeconds(7), //Duration the transport "leaves" map.
 		callback: "checkIfLaunched"
 	});
-	centreView(startpos.x, startpos.y);
+	centreView(mis_startPos.x, mis_startPos.y);
 	setNoGoArea(lz.x, lz.y, lz.x2, lz.y2, CAM_HUMAN_PLAYER);
 	camSetupTransporter(tCoords.xStart, tCoords.yStart, tCoords.xOut, tCoords.yOut);
 
-	var enemyLz = {x: 49, y: 83, x2: 51, y2: 85};
-	setNoGoArea(enemyLz.x, enemyLz.y, enemyLz.x2, enemyLz.y2, THE_COLLECTIVE);
+	const enemyLz = {x: 49, y: 83, x2: 51, y2: 85};
+	setNoGoArea(enemyLz.x, enemyLz.y, enemyLz.x2, enemyLz.y2, CAM_THE_COLLECTIVE);
 
 	setMissionTime(camMinutesToSeconds(30));
-	camCompleteRequiredResearch(COLLECTIVE_RES, THE_COLLECTIVE);
+	camCompleteRequiredResearch(mis_collectiveRes, CAM_THE_COLLECTIVE);
 
 	allowWin = false;
 	camPlayVideos([{video: "MB2_DII_MSG", type: CAMP_MSG}, {video: "MB2_DII_MSG2", type: MISS_MSG}]);

@@ -197,16 +197,40 @@ function setupPatrolGroups()
 	});
 }
 
-//Setup Nexus VTOL hit and runners.
-function vtolAttack()
+function wave2()
 {
-	const list = [cTempl.nxlscouv, cTempl.nxmtherv];
+	const list = [cTempl.nxlscouv, cTempl.nxlscouv];
 	const ext = {
-		limit: [2, 4], //paired with template list
+		limit: [3, 3], //paired with list array
 		alternate: true,
 		altIdx: 0
 	};
-	camSetVtolData(CAM_NEXUS, "vtolAppearPos", "vtolRemovePos", list, camChangeOnDiff(camMinutesToMilliseconds(2)), undefined, ext);
+	camSetVtolData(CAM_NEXUS, "vtolAppearPos", "vtolRemovePos", list, camChangeOnDiff(camMinutesToMilliseconds(2)), "NXvtolStrikeTower", ext);
+}
+
+function wave3()
+{
+	const list = [cTempl.nxlneedv, cTempl.nxlneedv];
+	const ext = {
+		limit: [3, 3], //paired with list array
+		alternate: true,
+		altIdx: 0
+	};
+	camSetVtolData(CAM_NEXUS, "vtolAppearPos", "vtolRemovePos", list, camChangeOnDiff(camMinutesToMilliseconds(2)), "NXvtolStrikeTower", ext);
+}
+
+//Setup Nexus VTOL hit and runners.
+function vtolAttack()
+{
+	const list = [cTempl.nxmtherv, cTempl.nxmtherv];
+	const ext = {
+		limit: [3, 3], //paired with list array
+		alternate: true,
+		altIdx: 0
+	};
+	camSetVtolData(CAM_NEXUS, "vtolAppearPos", "vtolRemovePos", list, camChangeOnDiff(camMinutesToMilliseconds(2)), "NXvtolStrikeTower", ext);
+	queue("wave2", camChangeOnDiff(camSecondsToMilliseconds(30)));
+	queue("wave3", camChangeOnDiff(camSecondsToMilliseconds(60)));
 }
 
 //Reinforcements not available until team Alpha brief about VTOLS.

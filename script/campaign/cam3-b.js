@@ -55,17 +55,40 @@ function camEnemyBaseEliminated_NXWestBase()
 	camRemoveEnemyTransporterBlip();
 }
 
-//Setup Nexus VTOL hit and runners.
-function vtolAttack()
+function wave2()
 {
-	const list = [cTempl.nxmheapv, cTempl.nxlscouv, cTempl.nxmtherv, cTempl.nxlscouv];
+	const list = [cTempl.nxlscouv, cTempl.nxlscouv];
 	const ext = {
-		limit: [5, 2, 5, 2], //paired with template list
+		limit: [4, 4], //paired with list array
 		alternate: true,
 		altIdx: 0
 	};
-
 	camSetVtolData(CAM_NEXUS, "vtolAppearPos", "vtolRemovePos", list, camChangeOnDiff(camMinutesToMilliseconds(2)), "NXCommandCenter", ext);
+}
+
+function wave3()
+{
+	const list = [cTempl.nxlneedv, cTempl.nxlneedv];
+	const ext = {
+		limit: [4, 4], //paired with list array
+		alternate: true,
+		altIdx: 0
+	};
+	camSetVtolData(CAM_NEXUS, "vtolAppearPos", "vtolRemovePos", list, camChangeOnDiff(camMinutesToMilliseconds(2)), "NXCommandCenter", ext);
+}
+
+//Setup Nexus VTOL hit and runners.
+function vtolAttack()
+{
+	const list = [cTempl.nxmheapv, cTempl.nxmtherv];
+	const ext = {
+		limit: [4, 4], //paired with list array
+		alternate: true,
+		altIdx: 0
+	};
+	camSetVtolData(CAM_NEXUS, "vtolAppearPos", "vtolRemovePos", list, camChangeOnDiff(camMinutesToMilliseconds(2)), "NXCommandCenter", ext);
+	queue("wave2", camChangeOnDiff(camSecondsToMilliseconds(30)));
+	queue("wave3", camChangeOnDiff(camSecondsToMilliseconds(60)));
 }
 
 function enableAllFactories()

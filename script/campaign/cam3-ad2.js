@@ -58,11 +58,40 @@ function randomTemplates(list)
 	return droids;
 }
 
-//Chose a random spawn point for the VTOLs.
+function wave2()
+{
+	const list = [cTempl.nxlpulsev, cTempl.nxlpulsev];
+	const ext = {
+		limit: [4, 4], //paired with list array
+		alternate: true,
+		altIdx: 0
+	};
+	camSetVtolData(CAM_NEXUS, mis_vtolPositions, "vtolRemovePos", list, camChangeOnDiff(camMinutesToMilliseconds(3)), undefined, ext);
+}
+
+function wave3()
+{
+	const list = [cTempl.nxlpulsev, cTempl.nxmheapv];
+	const ext = {
+		limit: [4, 4], //paired with list array
+		alternate: true,
+		altIdx: 0
+	};
+	camSetVtolData(CAM_NEXUS, mis_vtolPositions, "vtolRemovePos", list, camChangeOnDiff(camMinutesToMilliseconds(3)), undefined, ext);
+}
+
+//Setup Nexus VTOL hit and runners. Choose a random spawn point for the VTOLs.
 function vtolAttack()
 {
-	const list = [cTempl.nxmheapv, cTempl.nxlpulsev];
-	camSetVtolData(CAM_NEXUS, mis_vtolPositions, "vtolRemovePos", list, camChangeOnDiff(camMinutesToMilliseconds(3)));
+	const list = [cTempl.nxmheapv, cTempl.nxmtherv];
+	const ext = {
+		limit: [4, 4], //paired with list array
+		alternate: true,
+		altIdx: 0
+	};
+	camSetVtolData(CAM_NEXUS, mis_vtolPositions, "vtolRemovePos", list, camChangeOnDiff(camMinutesToMilliseconds(3)), undefined, ext);
+	queue("wave2", camChangeOnDiff(camSecondsToMilliseconds(30)));
+	queue("wave3", camChangeOnDiff(camSecondsToMilliseconds(60)));
 }
 
 //Chose a random spawn point to send ground reinforcements.

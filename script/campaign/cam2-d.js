@@ -42,8 +42,8 @@ function truckDefense()
 //Attacks every 3 minutes until HQ is destroyed.
 function wave2()
 {
-	var list = [cTempl.colatv, cTempl.colatv];
-	var ext = {
+	const list = [cTempl.colatv, cTempl.colatv];
+	const ext = {
 		limit: [4, 4], //paired with list array
 		alternate: true,
 		altIdx: 0
@@ -53,8 +53,8 @@ function wave2()
 
 function wave3()
 {
-	var list = [cTempl.commorv, cTempl.commorv];
-	var ext = {
+	const list = [cTempl.commorv, cTempl.commorv];
+	const ext = {
 		limit: [4, 4], //paired with list array
 		alternate: true,
 		altIdx: 0
@@ -64,8 +64,8 @@ function wave3()
 
 function vtolAttack()
 {
-	var list = [cTempl.commorvt, cTempl.commorvt];
-	var ext = {
+	const list = [cTempl.commorvt, cTempl.commorvt];
+	const ext = {
 		limit: [4, 4], //paired with list array
 		alternate: true,
 		altIdx: 0

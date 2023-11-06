@@ -149,8 +149,8 @@ function mapEdgeDroids()
 
 function wave2()
 {
-	var list = [cTempl.colatv, cTempl.colatv];
-	var ext = {
+	const list = [cTempl.colatv, cTempl.colatv];
+	const ext = {
 		limit: [4, 4], //paired with list array
 		alternate: true,
 		altIdx: 0
@@ -160,8 +160,8 @@ function wave2()
 
 function wave3()
 {
-	var list = [cTempl.colcbv, cTempl.colcbv];
-	var ext = {
+	const list = [cTempl.colcbv, cTempl.colcbv];
+	const ext = {
 		limit: [4, 4], //paired with list array
 		alternate: true,
 		altIdx: 0
@@ -171,8 +171,8 @@ function wave3()
 
 function vtolAttack()
 {
-	var list = [cTempl.colpbv, cTempl.colpbv];
-	var ext = {
+	const list = [cTempl.colpbv, cTempl.colpbv];
+	const ext = {
 		limit: [4, 4], //paired with list array
 		alternate: true,
 		altIdx: 0

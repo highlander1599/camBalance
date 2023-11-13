@@ -2,7 +2,7 @@ include("script/campaign/libcampaign.js");
 include("script/campaign/templates.js");
 
 const mis_nexusRes = [
-	"R-Sys-Engineering03", "R-Defense-WallUpgrade11", "R-Struc-Materials11",
+	"R-Sys-Engineering03", "R-Defense-WallUpgrade12", "R-Struc-Materials11",
 	"R-Struc-VTOLPad-Upgrade06", "R-Wpn-Bomb-Damage03", "R-Sys-NEXUSrepair",
 	"R-Vehicle-Prop-Hover02", "R-Vehicle-Prop-VTOL02", "R-Cyborg-Legs02",
 	"R-Wpn-Mortar-Acc03", "R-Wpn-MG-Damage09", "R-Wpn-Mortar-ROF04",
@@ -209,8 +209,8 @@ function truckDefense()
 	{
 		const list = [
 			"Sys-NEXUSLinkTOW", "P0-AASite-SAM2", "Emplacement-PrisLas",
-			"NX-Tower-ATMiss", "Sys-NX-CBTower", "Emplacement-HvART-pit",
-			"Sys-SensoTower02"
+			"NX-Tower-ATMiss", "Sys-NX-CBTower", "NX-Emp-MultiArtMiss-Pit",
+			"Sys-NX-SensorTower"
 		];
 
 		for (let i = 0; i < TRUCK_NUM; ++i)
@@ -246,6 +246,10 @@ function eventStartLevel()
 	setNoGoArea(enemyLz.x, enemyLz.y, enemyLz.x2, enemyLz.y2, CAM_NEXUS);
 
 	camCompleteRequiredResearch(mis_nexusRes, CAM_NEXUS);
+	if (difficulty === INSANE)
+	{
+		completeResearch("R-Defense-WallUpgrade13", CAM_NEXUS);
+	}
 	setupNexusPatrols();
 	camManageTrucks(CAM_NEXUS);
 
@@ -433,5 +437,5 @@ function eventStartLevel()
 	hackAddMessage("CM34_OBJ1", PROX_MSG, CAM_HUMAN_PLAYER);
 
 	queue("enableAllFactories", camChangeOnDiff(camMinutesToMilliseconds(5)));
-	setTimer("truckDefense", camChangeOnDiff(camMinutesToMilliseconds(15)));
+	setTimer("truckDefense", camMinutesToMilliseconds(20));
 }

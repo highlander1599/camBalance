@@ -1594,7 +1594,8 @@
 		"imdName": "BLWALLH.PIE",
 		"name": "Improved Hardcrete Mk2",
 		"requiredResearch": [
-			"R-Defense-WallUpgrade01"
+			"R-Defense-WallUpgrade01",
+			"R-Struc-Research-Module"
 		],
 		"researchPoints": 2400,
 		"researchPower": 75,
@@ -1623,7 +1624,8 @@
 		"imdName": "BLWALLH.PIE",
 		"name": "Improved Hardcrete Mk3",
 		"requiredResearch": [
-			"R-Defense-WallUpgrade02"
+			"R-Defense-WallUpgrade02",
+			"R-Struc-Research-Upgrade01"
 		],
 		"researchPoints": 3600,
 		"researchPower": 112,
@@ -3913,6 +3915,7 @@
 		"iconID": "IMAGE_RES_DEFENCE",
 		"id": "R-Defense-WallUpgrade05",
 		"imdName": "BLWALLH.PIE",
+		"keyTopic": 1,
 		"name": "Supercrete Mk2",
 		"requiredResearch": [
 			"R-Defense-WallUpgrade04"
@@ -3944,7 +3947,8 @@
 		"imdName": "BLWALLH.PIE",
 		"name": "Supercrete Mk3",
 		"requiredResearch": [
-			"R-Defense-WallUpgrade05"
+			"R-Defense-WallUpgrade05",
+			"R-Struc-Research-Upgrade04"
 		],
 		"researchPoints": 10000,
 		"researchPower": 312,
@@ -4421,7 +4425,7 @@
 			{
 				"class": "Construct",
 				"parameter": "ConstructorPoints",
-				"value": 20
+				"value": 30
 			}
 		],
 		"subgroupIconID": "IMAGE_RES_GRPUPG"
@@ -4436,7 +4440,7 @@
 		],
 		"requiredResearch": [
 			"R-Sys-Sensor-Tower01",
-			"R-Defense-WallUpgrade02"
+			"R-Defense-WallUpgrade01"
 		],
 		"researchPoints": 1200,
 		"researchPower": 37,
@@ -6799,6 +6803,7 @@
 		"iconID": "IMAGE_RES_DEFENCE",
 		"id": "R-Defense-WallUpgrade07",
 		"imdName": "BLWALLH.PIE",
+		"keyTopic": 1,
 		"msgName": "RES_DF_WU7",
 		"name": "Plascrete",
 		"requiredResearch": [
@@ -6820,7 +6825,7 @@
 				"filterParameter": "Type",
 				"filterValue": "Wall",
 				"parameter": "HitPoints",
-				"value": 40
+				"value": 120
 			}
 		],
 		"subgroupIconID": "IMAGE_RES_GRPUPG"
@@ -6829,6 +6834,7 @@
 		"iconID": "IMAGE_RES_DEFENCE",
 		"id": "R-Defense-WallUpgrade08",
 		"imdName": "BLWALLH.PIE",
+		"keyTopic": 1,
 		"name": "Plascrete Mk2",
 		"requiredResearch": [
 			"R-Defense-WallUpgrade07"
@@ -6848,7 +6854,7 @@
 				"filterParameter": "Type",
 				"filterValue": "Wall",
 				"parameter": "HitPoints",
-				"value": 20
+				"value": 40
 			}
 		],
 		"subgroupIconID": "IMAGE_RES_GRPUPG",
@@ -6860,7 +6866,8 @@
 		"imdName": "BLWALLH.PIE",
 		"name": "Plascrete Mk3",
 		"requiredResearch": [
-			"R-Defense-WallUpgrade08"
+			"R-Defense-WallUpgrade08",
+			"R-Struc-Research-Upgrade07"
 		],
 		"researchPoints": 16000,
 		"researchPower": 450,
@@ -6870,7 +6877,7 @@
 				"filterParameter": "Type",
 				"filterValue": "Wall",
 				"parameter": "Armour",
-				"value": 40
+				"value": 60
 			},
 			{
 				"class": "Building",
@@ -6886,30 +6893,95 @@
 	"R-Defense-WallUpgrade10": {
 		"iconID": "IMAGE_RES_DEFENCE",
 		"id": "R-Defense-WallUpgrade10",
-		"keyTopic": 1,
 		"imdName": "BLWALLH.PIE",
+		"keyTopic": 1,
+		"msgName": "RES_DF_WU10",
+		"name": "Plasteel",
+		"requiredResearch": [
+			"R-Defense-WallUpgrade09"
+		],
+		"researchPoints": 18000,
+		"researchPower": 450,
 		"results": [
 			{
 				"class": "Building",
 				"filterParameter": "Type",
 				"filterValue": "Wall",
 				"parameter": "Armour",
-				"value": 100
+				"value": 30
 			},
 			{
 				"class": "Building",
 				"filterParameter": "Type",
 				"filterValue": "Wall",
 				"parameter": "HitPoints",
-				"value": 100
+				"value": 20
+			}
+		],
+		"subgroupIconID": "IMAGE_RES_GRPUPG"
+	},
+	"R-Defense-WallUpgrade11": {
+		"iconID": "IMAGE_RES_DEFENCE",
+		"id": "R-Defense-WallUpgrade11",
+		"imdName": "BLWALLH.PIE",
+		"keyTopic": 1,
+		"name": "Plasteel Mk2",
+		"requiredResearch": [
+			"R-Defense-WallUpgrade10"
+		],
+		"researchPoints": 20000,
+		"researchPower": 450,
+		"results": [
+			{
+				"class": "Building",
+				"filterParameter": "Type",
+				"filterValue": "Wall",
+				"parameter": "Armour",
+				"value": 30
+			},
+			{
+				"class": "Building",
+				"filterParameter": "Type",
+				"filterValue": "Wall",
+				"parameter": "HitPoints",
+				"value": 20
 			}
 		],
 		"subgroupIconID": "IMAGE_RES_GRPUPG",
 		"techCode": 1
 	},
-	"R-Defense-WallUpgrade11": {
+	"R-Defense-WallUpgrade12": {
 		"iconID": "IMAGE_RES_DEFENCE",
-		"id": "R-Defense-WallUpgrade11",
+		"id": "R-Defense-WallUpgrade12",
+		"imdName": "BLWALLH.PIE",
+		"name": "Plasteel Mk3",
+		"requiredResearch": [
+			"R-Defense-WallUpgrade11"
+		],
+		"researchPoints": 22000,
+		"researchPower": 450,
+		"results": [
+			{
+				"class": "Building",
+				"filterParameter": "Type",
+				"filterValue": "Wall",
+				"parameter": "Armour",
+				"value": 30
+			},
+			{
+				"class": "Building",
+				"filterParameter": "Type",
+				"filterValue": "Wall",
+				"parameter": "HitPoints",
+				"value": 20
+			}
+		],
+		"subgroupIconID": "IMAGE_RES_GRPUPG",
+		"techCode": 1
+	},
+	"R-Defense-WallUpgrade13": {
+		"iconID": "IMAGE_RES_DEFENCE",
+		"id": "R-Defense-WallUpgrade13",
 		"keyTopic": 1,
 		"imdName": "BLWALLH.PIE",
 		"results": [
@@ -6918,14 +6990,14 @@
 				"filterParameter": "Type",
 				"filterValue": "Wall",
 				"parameter": "Armour",
-				"value": 400
+				"value": 200
 			},
 			{
 				"class": "Building",
 				"filterParameter": "Type",
 				"filterValue": "Wall",
 				"parameter": "HitPoints",
-				"value": 100
+				"value": 50
 			}
 		],
 		"subgroupIconID": "IMAGE_RES_GRPUPG",
@@ -7226,7 +7298,7 @@
 			{
 				"class": "Construct",
 				"parameter": "ConstructorPoints",
-				"value": 20
+				"value": 30
 			}
 		],
 		"subgroupIconID": "IMAGE_RES_GRPUPG"
@@ -7556,14 +7628,14 @@
 				"filterParameter": "ImpactClass",
 				"filterValue": "A-A GUN",
 				"parameter": "Damage",
-				"value": 30
+				"value": 40
 			},
 			{
 				"class": "Weapon",
 				"filterParameter": "ImpactClass",
 				"filterValue": "A-A GUN",
 				"parameter": "RadiusDamage",
-				"value": 30
+				"value": 40
 			}
 		],
 		"statID": "QuadMg1AAGun",
@@ -7585,14 +7657,14 @@
 				"filterParameter": "ImpactClass",
 				"filterValue": "A-A GUN",
 				"parameter": "Damage",
-				"value": 30
+				"value": 40
 			},
 			{
 				"class": "Weapon",
 				"filterParameter": "ImpactClass",
 				"filterValue": "A-A GUN",
 				"parameter": "RadiusDamage",
-				"value": 30
+				"value": 40
 			}
 		],
 		"statID": "QuadMg1AAGun",
@@ -7615,14 +7687,14 @@
 				"filterParameter": "ImpactClass",
 				"filterValue": "A-A GUN",
 				"parameter": "Damage",
-				"value": 30
+				"value": 40
 			},
 			{
 				"class": "Weapon",
 				"filterParameter": "ImpactClass",
 				"filterValue": "A-A GUN",
 				"parameter": "RadiusDamage",
-				"value": 30
+				"value": 40
 			}
 		],
 		"statID": "QuadMg1AAGun",

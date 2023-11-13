@@ -103,7 +103,7 @@ function truckDefense()
 		return;
 	}
 
-	const list = ["Emplacement-Howitzer150", "Emplacement-MdART-pit", "Emplacement-RotHow"];
+	const list = ["Emplacement-Howitzer150", "NX-Emp-MedArtMiss-Pit", "Emplacement-RotHow"];
 	let position;
 
 	if (truckLocCounter === 0)
@@ -275,6 +275,7 @@ function cam3Setup()
 
 	enableResearch("R-Wpn-Howitzer03-Rot", CAM_HUMAN_PLAYER);
 	enableResearch("R-Wpn-MG-Damage08", CAM_HUMAN_PLAYER);
+	enableResearch("R-Defense-WallUpgrade07", CAM_HUMAN_PLAYER);
 }
 
 //Normal and lower difficulties has Nexus start off a little bit weaker
@@ -351,7 +352,7 @@ function eventStartLevel()
 				count: -1,
 			},
 			groupSize: 4,
-			throttle: camChangeOnDiff(camSecondsToMilliseconds(40)),
+			throttle: camChangeOnDiff(camSecondsToMilliseconds(50)),
 			group: camMakeGroup("NEAttackerGroup"),
 			templates: [cTempl.nxcyrail, cTempl.nxcyscou]
 		},
@@ -364,7 +365,7 @@ function eventStartLevel()
 				count: -1,
 			},
 			groupSize: 4,
-			throttle: camChangeOnDiff(camSecondsToMilliseconds(30)),
+			throttle: camChangeOnDiff(camSecondsToMilliseconds(40)),
 			group: camMakeGroup("cybAttackers"),
 			templates: [cTempl.nxcyrail, cTempl.nxcyscou]
 		},
@@ -382,7 +383,7 @@ function eventStartLevel()
 				count: -1,
 			},
 			groupSize: 4,
-			throttle: camChangeOnDiff(camSecondsToMilliseconds(35)),
+			throttle: camChangeOnDiff(camSecondsToMilliseconds(60)),
 			group: camMakeGroup("cybValleyPatrol"),
 			templates: [cTempl.nxcyrail, cTempl.nxcyscou]
 		},
@@ -400,7 +401,7 @@ function eventStartLevel()
 				count: -1,
 			},
 			groupSize: 4,
-			throttle: camChangeOnDiff(camSecondsToMilliseconds(60)),
+			throttle: camChangeOnDiff(camSecondsToMilliseconds(70)),
 			group: camMakeGroup("hoverPatrolGrp"),
 			templates: [cTempl.nxmscouh]
 		},
@@ -413,7 +414,7 @@ function eventStartLevel()
 				count: -1,
 			},
 			groupSize: 4,
-			throttle: camChangeOnDiff(camSecondsToMilliseconds(45)),
+			throttle: camChangeOnDiff(camSecondsToMilliseconds(55)),
 			templates: [cTempl.nxcyrail, cTempl.nxcyscou]
 		},
 	});

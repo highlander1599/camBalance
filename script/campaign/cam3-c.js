@@ -79,7 +79,7 @@ function truckDefense()
 		return;
 	}
 
-	const list = ["Emplacement-Howitzer150", "Emplacement-MdART-pit"];
+	const list = ["Emplacement-Howitzer150", "NX-Emp-MedArtMiss-Pit"];
 	let position;
 
 	if (truckLocCounter === 0)
@@ -200,7 +200,7 @@ function eventStartLevel()
 		"NXbase1HeavyFacArti": { tech: "R-Vehicle-Body07" }, //retribution
 		"NXcybFacArti": { tech: "R-Wpn-RailGun01" },
 		"NXvtolFacArti": { tech: "R-Struc-VTOLPad-Upgrade04" },
-		"NXcommandCenter": { tech: "R-Wpn-Missile-LtSAM" },
+		"NXcommandCenter": { tech: ["R-Wpn-Missile-LtSAM", "R-Defense-WallUpgrade10"] },
 	});
 
 	camSetEnemyBases({
@@ -229,7 +229,7 @@ function eventStartLevel()
 			assembly: "NXHeavyAssembly",
 			order: CAM_ORDER_ATTACK,
 			groupSize: 5,
-			throttle: camChangeOnDiff(camSecondsToMilliseconds(50)),
+			throttle: camChangeOnDiff(camSecondsToMilliseconds(60)),
 			data: {
 				regroup: false,
 				repair: 45,
@@ -241,7 +241,7 @@ function eventStartLevel()
 			assembly: "NXsouthCybFacAssembly",
 			order: CAM_ORDER_ATTACK,
 			groupSize: 4,
-			throttle: camChangeOnDiff(camSecondsToMilliseconds(30)),
+			throttle: camChangeOnDiff(camSecondsToMilliseconds(45)),
 			data: {
 				regroup: false,
 				repair: 40,
@@ -253,7 +253,7 @@ function eventStartLevel()
 			assembly: "NXcybFacArtiAssembly",
 			order: CAM_ORDER_ATTACK,
 			groupSize: 5,
-			throttle: camChangeOnDiff(camSecondsToMilliseconds(30)),
+			throttle: camChangeOnDiff(camSecondsToMilliseconds(40)),
 			data: {
 				regroup: false,
 				repair: 40,

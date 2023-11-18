@@ -144,7 +144,7 @@ function tankAttack()
 {
 	const northTankAssembly = {x: 95, y: 3};
 	const list = [cTempl.comhltat, cTempl.cohact, cTempl.cohhpv, cTempl.comagt];
-	if (getMissionTime() < (60 * 15))
+	if (getMissionTime() < (60 * 22))
 	{
 		list.push(cTempl.cohbbt);
 	}
@@ -158,7 +158,7 @@ function tankAttackWest()
 {
 	const westTankAssembly = {x: 3, y: 112}; //This was unused. Now part of Hard/Insane playthroughs.
 	const list = [cTempl.comhltat, cTempl.cohact, cTempl.cohhpv, cTempl.comagt];
-	if (getMissionTime() < (60 * 15))
+	if (getMissionTime() < (60 * 22))
 	{
 		list.push(cTempl.cohbbt);
 	}
@@ -171,7 +171,7 @@ function tankAttackWest()
 function transporterAttack()
 {
 	const droids = [cTempl.cohact, cTempl.comhltat, cTempl.cohhpv];
-	if (getMissionTime() < (60 * 15))
+	if (getMissionTime() < (60 * 22))
 	{
 		droids.push(cTempl.cohbbt);
 	}

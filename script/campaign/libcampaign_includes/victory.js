@@ -24,11 +24,11 @@ function camNextLevel(nextLevel)
 			let bonus = 110;
 			if (difficulty === HARD)
 			{
-				bonus = 105;
+				bonus = 90; //Small bonus compared to the regular Hard extraction value.
 			}
 			else if (difficulty === INSANE)
 			{
-				bonus = 100;
+				bonus = 70; //Same value for oil extraction.
 			}
 			camTrace("Bonus time", bonusTime);
 			setPowerModifier(bonus); // Bonus percentage for completing fast

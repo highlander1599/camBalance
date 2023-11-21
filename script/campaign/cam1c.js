@@ -219,32 +219,32 @@ function eventStartLevel()
 		"ScavSouthDerrickGroup": {
 			cleanup: "ScavSouthDerrick",
 			detectMsg: "C1C_BASE1",
-			detectSnd: cam_sounds.baseDetection.scavengerBaseDetected,
+			detectSnd: cam_sounds.baseDetection.scavengerOutpostDetected,
 			eliminateSnd: cam_sounds.baseElimination.scavengerOutpostEradicated
 		},
 		"ScavSouthEastHighgroundGroup": {
 			cleanup: "ScavSouthEastHighground",
 			detectMsg: "C1C_BASE6",
 			detectSnd: cam_sounds.baseDetection.scavengerBaseDetected,
-			eliminateSnd: cam_sounds.baseElimination.scavengerOutpostEradicated
+			eliminateSnd: cam_sounds.baseElimination.scavengerBaseEradicated
 		},
 		"ScavNorthBaseGroup": {
 			cleanup: "ScavNorthBase",
 			detectMsg: "C1C_BASE3",
 			detectSnd: cam_sounds.baseDetection.scavengerBaseDetected,
-			eliminateSnd: cam_sounds.baseElimination.scavengerOutpostEradicated
+			eliminateSnd: cam_sounds.baseElimination.scavengerBaseEradicated
 		},
 		"ScavSouthPodPitsGroup": {
 			cleanup: "ScavSouthPodPits",
 			detectMsg: "C1C_BASE4",
-			detectSnd: cam_sounds.baseDetection.scavengerBaseDetected,
+			detectSnd: cam_sounds.baseDetection.scavengerOutpostDetected,
 			eliminateSnd: cam_sounds.baseElimination.scavengerOutpostEradicated
 		},
 		"ScavCentralBaseGroup": {
 			cleanup: "MixedCentralBase", // two bases with same cleanup region
 			detectMsg: "C1C_BASE5",
 			detectSnd: cam_sounds.baseDetection.scavengerBaseDetected,
-			eliminateSnd: cam_sounds.baseElimination.scavengerOutpostEradicated,
+			eliminateSnd: cam_sounds.baseElimination.scavengerBaseEradicated,
 			player: CAM_SCAV_7 // hence discriminate by player filter
 		},
 		"NPEastBaseGroup": {

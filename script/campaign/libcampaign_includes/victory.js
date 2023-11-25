@@ -14,12 +14,8 @@ function camNextLevel(nextLevel)
 {
 	if (__camNeedBonusTime)
 	{
-		let bonusTime = getMissionTime();
-		if (difficulty <= MEDIUM)
-		{
-			bonusTime = Math.floor(bonusTime * 0.75);
-		}
-		if (bonusTime > 0)
+		const __POWER_TIME_REMAINING = getMissionTime();
+		if (__POWER_TIME_REMAINING > 0)
 		{
 			let bonus = 110;
 			if (difficulty === HARD)
@@ -30,9 +26,9 @@ function camNextLevel(nextLevel)
 			{
 				bonus = 70; //Same value for oil extraction.
 			}
-			camTrace("Bonus time", bonusTime);
+			camTrace("Bonus time", __POWER_TIME_REMAINING);
 			setPowerModifier(bonus); // Bonus percentage for completing fast
-			extraPowerTime(bonusTime);
+			extraPowerTime(__POWER_TIME_REMAINING);
 			setPowerModifier(100);
 		}
 	}

@@ -772,8 +772,8 @@
 	"CO-Tower-HVCan": {
 		"armour": 15,
 		"breadth": 1,
-		"buildPoints": 650,
-		"buildPower": 300,
+		"buildPoints": 550,
+		"buildPower": 250,
 		"combinesWithWall": true,
 		"ecmID": "ZNULLECM",
 		"height": 2,
@@ -796,8 +796,8 @@
 	"CO-Tower-HvATRkt": {
 		"armour": 15,
 		"breadth": 1,
-		"buildPoints": 675,
-		"buildPower": 325,
+		"buildPoints": 575,
+		"buildPower": 275,
 		"combinesWithWall": true,
 		"ecmID": "ZNULLECM",
 		"height": 2,
@@ -820,7 +820,7 @@
 	"CO-Tower-HvFlame": {
 		"armour": 10,
 		"breadth": 1,
-		"buildPoints": 300,
+		"buildPoints": 250,
 		"buildPower": 110,
 		"ecmID": "ZNULLECM",
 		"height": 1,
@@ -843,7 +843,7 @@
 	"CO-Tower-LtATRkt": {
 		"armour": 12,
 		"breadth": 1,
-		"buildPoints": 400,
+		"buildPoints": 350,
 		"buildPower": 100,
 		"ecmID": "ZNULLECM",
 		"height": 2,
@@ -866,7 +866,7 @@
 	"CO-Tower-MG3": {
 		"armour": 12,
 		"breadth": 1,
-		"buildPoints": 350,
+		"buildPoints": 300,
 		"buildPower": 100,
 		"ecmID": "ZNULLECM",
 		"height": 2,
@@ -889,8 +889,8 @@
 	"CO-Tower-MdCan": {
 		"armour": 15,
 		"breadth": 1,
-		"buildPoints": 625,
-		"buildPower": 250,
+		"buildPoints": 525,
+		"buildPower": 200,
 		"combinesWithWall": true,
 		"ecmID": "ZNULLECM",
 		"height": 2,
@@ -913,7 +913,7 @@
 	"CO-Tower-RotMG": {
 		"armour": 12,
 		"breadth": 1,
-		"buildPoints": 350,
+		"buildPoints": 300,
 		"buildPower": 100,
 		"ecmID": "ZNULLECM",
 		"height": 2,
@@ -936,8 +936,8 @@
 	"CO-WallTower-HvCan": {
 		"armour": 15,
 		"breadth": 1,
-		"buildPoints": 650,
-		"buildPower": 275,
+		"buildPoints": 550,
+		"buildPower": 225,
 		"combinesWithWall": true,
 		"ecmID": "ZNULLECM",
 		"height": 2,
@@ -960,8 +960,8 @@
 	"CO-WallTower-RotCan": {
 		"armour": 15,
 		"breadth": 1,
-		"buildPoints": 675,
-		"buildPower": 300,
+		"buildPoints": 575,
+		"buildPower": 250,
 		"combinesWithWall": true,
 		"ecmID": "ZNULLECM",
 		"height": 2,
@@ -1041,7 +1041,7 @@
 	"Emplacement-HPVcannon": {
 		"armour": 10,
 		"breadth": 1,
-		"buildPoints": 325,
+		"buildPoints": 275,
 		"buildPower": 100,
 		"ecmID": "ZNULLECM",
 		"height": 1,
@@ -1133,7 +1133,7 @@
 	"Emplacement-HvyATrocket": {
 		"armour": 10,
 		"breadth": 1,
-		"buildPoints": 400,
+		"buildPoints": 350,
 		"buildPower": 120,
 		"ecmID": "ZNULLECM",
 		"height": 1,
@@ -1248,7 +1248,7 @@
 	"Emplacement-PrisLas": {
 		"armour": 10,
 		"breadth": 1,
-		"buildPoints": 325,
+		"buildPoints": 275,
 		"buildPower": 100,
 		"ecmID": "ZNULLECM",
 		"height": 1,
@@ -1271,7 +1271,7 @@
 	"Emplacement-PulseLaser": {
 		"armour": 10,
 		"breadth": 1,
-		"buildPoints": 350,
+		"buildPoints": 300,
 		"buildPower": 120,
 		"ecmID": "ZNULLECM",
 		"height": 1,
@@ -1294,7 +1294,7 @@
 	"Emplacement-Rail2": {
 		"armour": 10,
 		"breadth": 1,
-		"buildPoints": 350,
+		"buildPoints": 300,
 		"buildPower": 120,
 		"ecmID": "ZNULLECM",
 		"height": 1,
@@ -1317,7 +1317,7 @@
 	"Emplacement-Rail3": {
 		"armour": 10,
 		"breadth": 1,
-		"buildPoints": 400,
+		"buildPoints": 350,
 		"buildPower": 130,
 		"ecmID": "ZNULLECM",
 		"height": 1,
@@ -1409,7 +1409,7 @@
 	"GuardTower-ATMiss": {
 		"armour": 12,
 		"breadth": 1,
-		"buildPoints": 400,
+		"buildPoints": 350,
 		"buildPower": 200,
 		"ecmID": "ZNULLECM",
 		"height": 2,
@@ -1432,7 +1432,7 @@
 	"GuardTower-BeamLas": {
 		"armour": 12,
 		"breadth": 1,
-		"buildPoints": 360,
+		"buildPoints": 310,
 		"buildPower": 175,
 		"ecmID": "ZNULLECM",
 		"height": 2,
@@ -1455,7 +1455,7 @@
 	"GuardTower-Rail1": {
 		"armour": 12,
 		"breadth": 1,
-		"buildPoints": 380,
+		"buildPoints": 330,
 		"buildPower": 175,
 		"ecmID": "ZNULLECM",
 		"height": 2,
@@ -1478,7 +1478,7 @@
 	"GuardTower-RotMg": {
 		"armour": 12,
 		"breadth": 1,
-		"buildPoints": 350,
+		"buildPoints": 300,
 		"buildPower": 150,
 		"ecmID": "ZNULLECM",
 		"height": 2,
@@ -1593,8 +1593,8 @@
 	"GuardTower3H": {
 		"armour": 12,
 		"breadth": 1,
-		"buildPoints": 350,
-		"buildPower": 150,
+		"buildPoints": 300,
+		"buildPower": 125,
 		"ecmID": "ZNULLECM",
 		"height": 2,
 		"hitpoints": 400,
@@ -1639,8 +1639,8 @@
 	"GuardTower4H": {
 		"armour": 12,
 		"breadth": 1,
-		"buildPoints": 375,
-		"buildPower": 150,
+		"buildPoints": 325,
+		"buildPower": 125,
 		"ecmID": "ZNULLECM",
 		"height": 2,
 		"hitpoints": 400,
@@ -1662,7 +1662,7 @@
 	"GuardTower5": {
 		"armour": 12,
 		"breadth": 1,
-		"buildPoints": 400,
+		"buildPoints": 350,
 		"buildPower": 200,
 		"ecmID": "ZNULLECM",
 		"height": 2,
@@ -1685,8 +1685,8 @@
 	"GuardTower6": {
 		"armour": 12,
 		"breadth": 1,
-		"buildPoints": 375,
-		"buildPower": 175,
+		"buildPoints": 325,
+		"buildPower": 150,
 		"ecmID": "ZNULLECM",
 		"height": 2,
 		"hitpoints": 400,
@@ -1872,7 +1872,7 @@
 	"NX-Tower-ATMiss": {
 		"armour": 15,
 		"breadth": 1,
-		"buildPoints": 400,
+		"buildPoints": 350,
 		"buildPower": 200,
 		"ecmID": "ZNULLECM",
 		"height": 2,
@@ -1895,7 +1895,7 @@
 	"NX-Tower-PulseLas": {
 		"armour": 15,
 		"breadth": 1,
-		"buildPoints": 350,
+		"buildPoints": 300,
 		"buildPower": 200,
 		"ecmID": "ZNULLECM",
 		"height": 2,
@@ -1918,7 +1918,7 @@
 	"NX-Tower-Rail1": {
 		"armour": 15,
 		"breadth": 1,
-		"buildPoints": 380,
+		"buildPoints": 330,
 		"buildPower": 175,
 		"ecmID": "ZNULLECM",
 		"height": 2,
@@ -1941,8 +1941,8 @@
 	"NX-WallTower-BeamLas": {
 		"armour": 15,
 		"breadth": 1,
-		"buildPoints": 625,
-		"buildPower": 275,
+		"buildPoints": 525,
+		"buildPower": 225,
 		"combinesWithWall": true,
 		"ecmID": "ZNULLECM",
 		"height": 2,
@@ -1965,8 +1965,8 @@
 	"NX-WallTower-Rail2": {
 		"armour": 15,
 		"breadth": 1,
-		"buildPoints": 650,
-		"buildPower": 325,
+		"buildPoints": 550,
+		"buildPower": 275,
 		"combinesWithWall": true,
 		"ecmID": "ZNULLECM",
 		"height": 2,
@@ -1989,8 +1989,8 @@
 	"NX-WallTower-Rail3": {
 		"armour": 15,
 		"breadth": 1,
-		"buildPoints": 700,
-		"buildPower": 350,
+		"buildPoints": 600,
+		"buildPower": 300,
 		"combinesWithWall": true,
 		"ecmID": "ZNULLECM",
 		"height": 2,
@@ -2239,7 +2239,7 @@
 	"Sys-CB-Tower01": {
 		"armour": 15,
 		"breadth": 1,
-		"buildPoints": 500,
+		"buildPoints": 450,
 		"buildPower": 300,
 		"ecmID": "ZNULLECM",
 		"height": 3,
@@ -2259,7 +2259,7 @@
 	"Sys-NEXUSLinkTOW": {
 		"armour": 15,
 		"breadth": 1,
-		"buildPoints": 500,
+		"buildPoints": 450,
 		"buildPower": 350,
 		"ecmID": "ZNULLECM",
 		"height": 3,
@@ -2281,7 +2281,7 @@
 	"Sys-NX-CBTower": {
 		"armour": 15,
 		"breadth": 1,
-		"buildPoints": 400,
+		"buildPoints": 350,
 		"buildPower": 350,
 		"ecmID": "ZNULLECM",
 		"height": 3,
@@ -2301,7 +2301,7 @@
 	"Sys-NX-SensorTower": {
 		"armour": 15,
 		"breadth": 1,
-		"buildPoints": 400,
+		"buildPoints": 350,
 		"buildPower": 350,
 		"ecmID": "ZNULLECM",
 		"height": 3,
@@ -2321,7 +2321,7 @@
 	"Sys-NX-VTOL-CB-Tow": {
 		"armour": 15,
 		"breadth": 1,
-		"buildPoints": 400,
+		"buildPoints": 350,
 		"buildPower": 350,
 		"ecmID": "ZNULLECM",
 		"height": 3,
@@ -2341,7 +2341,7 @@
 	"Sys-NX-VTOL-RadTow": {
 		"armour": 15,
 		"breadth": 1,
-		"buildPoints": 400,
+		"buildPoints": 350,
 		"buildPower": 350,
 		"ecmID": "ZNULLECM",
 		"height": 3,
@@ -2381,7 +2381,7 @@
 	"Sys-SensoTower02": {
 		"armour": 15,
 		"breadth": 1,
-		"buildPoints": 500,
+		"buildPoints": 450,
 		"buildPower": 300,
 		"ecmID": "ZNULLECM",
 		"height": 3,
@@ -2401,7 +2401,7 @@
 	"Sys-VTOL-CB-Tower01": {
 		"armour": 15,
 		"breadth": 1,
-		"buildPoints": 500,
+		"buildPoints": 450,
 		"buildPower": 300,
 		"ecmID": "ZNULLECM",
 		"height": 3,
@@ -2421,7 +2421,7 @@
 	"Sys-VTOL-RadarTower01": {
 		"armour": 15,
 		"breadth": 1,
-		"buildPoints": 500,
+		"buildPoints": 450,
 		"buildPower": 300,
 		"ecmID": "ZNULLECM",
 		"height": 3,
@@ -2460,7 +2460,7 @@
 	"Tower-Projector": {
 		"armour": 10,
 		"breadth": 1,
-		"buildPoints": 300,
+		"buildPoints": 250,
 		"buildPower": 110,
 		"ecmID": "ZNULLECM",
 		"height": 2,
@@ -2483,7 +2483,7 @@
 	"Tower-RotMg": {
 		"armour": 12,
 		"breadth": 1,
-		"buildPoints": 350,
+		"buildPoints": 300,
 		"buildPower": 150,
 		"ecmID": "ZNULLECM",
 		"height": 2,
@@ -2506,7 +2506,7 @@
 	"Tower-VulcanCan": {
 		"armour": 12,
 		"breadth": 1,
-		"buildPoints": 375,
+		"buildPoints": 325,
 		"buildPower": 175,
 		"ecmID": "ZNULLECM",
 		"height": 2,
@@ -2548,8 +2548,8 @@
 	"Wall-RotMg": {
 		"armour": 15,
 		"breadth": 1,
-		"buildPoints": 600,
-		"buildPower": 250,
+		"buildPoints": 500,
+		"buildPower": 200,
 		"combinesWithWall": true,
 		"ecmID": "ZNULLECM",
 		"height": 2,
@@ -2572,8 +2572,8 @@
 	"Wall-VulcanCan": {
 		"armour": 15,
 		"breadth": 1,
-		"buildPoints": 675,
-		"buildPower": 300,
+		"buildPoints": 575,
+		"buildPower": 250,
 		"combinesWithWall": true,
 		"ecmID": "ZNULLECM",
 		"height": 2,
@@ -2596,8 +2596,8 @@
 	"WallTower-Atmiss": {
 		"armour": 15,
 		"breadth": 1,
-		"buildPoints": 700,
-		"buildPower": 350,
+		"buildPoints": 600,
+		"buildPower": 300,
 		"combinesWithWall": true,
 		"ecmID": "ZNULLECM",
 		"height": 2,
@@ -2620,8 +2620,8 @@
 	"WallTower-HPVcannon": {
 		"armour": 15,
 		"breadth": 1,
-		"buildPoints": 650,
-		"buildPower": 300,
+		"buildPoints": 550,
+		"buildPower": 250,
 		"combinesWithWall": true,
 		"ecmID": "ZNULLECM",
 		"height": 2,
@@ -2644,8 +2644,8 @@
 	"WallTower-HvATrocket": {
 		"armour": 15,
 		"breadth": 1,
-		"buildPoints": 650,
-		"buildPower": 325,
+		"buildPoints": 550,
+		"buildPower": 275,
 		"combinesWithWall": true,
 		"ecmID": "ZNULLECM",
 		"height": 2,
@@ -2668,7 +2668,7 @@
 	"WallTower-Projector": {
 		"armour": 10,
 		"breadth": 1,
-		"buildPoints": 300,
+		"buildPoints": 250,
 		"buildPower": 130,
 		"ecmID": "ZNULLECM",
 		"height": 1,
@@ -2691,8 +2691,8 @@
 	"WallTower-PulseLas": {
 		"armour": 15,
 		"breadth": 1,
-		"buildPoints": 625,
-		"buildPower": 275,
+		"buildPoints": 525,
+		"buildPower": 225,
 		"combinesWithWall": true,
 		"ecmID": "ZNULLECM",
 		"height": 2,
@@ -2715,8 +2715,8 @@
 	"WallTower-Rail2": {
 		"armour": 15,
 		"breadth": 1,
-		"buildPoints": 650,
-		"buildPower": 325,
+		"buildPoints": 550,
+		"buildPower": 275,
 		"combinesWithWall": true,
 		"ecmID": "ZNULLECM",
 		"height": 2,
@@ -2739,8 +2739,8 @@
 	"WallTower-Rail3": {
 		"armour": 15,
 		"breadth": 1,
-		"buildPoints": 700,
-		"buildPower": 350,
+		"buildPoints": 600,
+		"buildPower": 300,
 		"combinesWithWall": true,
 		"ecmID": "ZNULLECM",
 		"height": 2,
@@ -2763,8 +2763,8 @@
 	"WallTower01": {
 		"armour": 15,
 		"breadth": 1,
-		"buildPoints": 600,
-		"buildPower": 225,
+		"buildPoints": 500,
+		"buildPower": 175,
 		"combinesWithWall": true,
 		"ecmID": "ZNULLECM",
 		"height": 2,
@@ -2787,8 +2787,8 @@
 	"WallTower02": {
 		"armour": 15,
 		"breadth": 1,
-		"buildPoints": 625,
-		"buildPower": 225,
+		"buildPoints": 525,
+		"buildPower": 175,
 		"combinesWithWall": true,
 		"ecmID": "ZNULLECM",
 		"height": 2,
@@ -2811,8 +2811,8 @@
 	"WallTower03": {
 		"armour": 15,
 		"breadth": 1,
-		"buildPoints": 650,
-		"buildPower": 250,
+		"buildPoints": 550,
+		"buildPower": 200,
 		"combinesWithWall": true,
 		"ecmID": "ZNULLECM",
 		"height": 2,
@@ -2835,8 +2835,8 @@
 	"WallTower04": {
 		"armour": 15,
 		"breadth": 1,
-		"buildPoints": 675,
-		"buildPower": 275,
+		"buildPoints": 575,
+		"buildPower": 225,
 		"combinesWithWall": true,
 		"ecmID": "ZNULLECM",
 		"height": 2,
@@ -2859,8 +2859,8 @@
 	"WallTower05": {
 		"armour": 15,
 		"breadth": 1,
-		"buildPoints": 600,
-		"buildPower": 225,
+		"buildPoints": 500,
+		"buildPower": 175,
 		"combinesWithWall": true,
 		"ecmID": "ZNULLECM",
 		"height": 2,
@@ -2883,8 +2883,8 @@
 	"WallTower06": {
 		"armour": 15,
 		"breadth": 1,
-		"buildPoints": 700,
-		"buildPower": 300,
+		"buildPoints": 600,
+		"buildPower": 250,
 		"combinesWithWall": true,
 		"ecmID": "ZNULLECM",
 		"height": 2,

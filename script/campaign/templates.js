@@ -211,6 +211,9 @@ const tRepair = {
 const tConstruct = {
     truck: "Spade1Mk1",
 };
+const tCommand = {
+    commander: "CommandBrain01",
+};
 
 const cTempl = {
 ////////////////////////////////////////////////////////////////////////////////

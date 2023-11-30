@@ -25,10 +25,10 @@ function vtolAttack()
 function setupLandGroups()
 {
 	const hovers = enumArea("NWTankGroup", CAM_THE_COLLECTIVE, false).filter((obj) => (
-		obj.type === DROID && obj.propulsion === "hover01"
+		obj.type === DROID && obj.propulsion === tProp.tank.hover
 	));
 	const tanks = enumArea("NWTankGroup", CAM_THE_COLLECTIVE, false).filter((obj) => (
-		obj.type === DROID && obj.propulsion !== "hover01"
+		obj.type === DROID && obj.propulsion !== tProp.tank.hover
 	));
 
 	camManageGroup(camMakeGroup(hovers), CAM_ORDER_PATROL, {

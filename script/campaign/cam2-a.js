@@ -111,10 +111,13 @@ function sendPlayerTransporter()
 	}
 
 	const droids = [];
-	const bodyList = ["Body12SUP", "Body11ABT"];
-	const propulsionList = ["tracked01", "tracked01", "hover01"];
-	const weaponList = ["Cannon375mmMk1", "Cannon375mmMk1", "Cannon375mmMk1", "Rocket-LtA-T", "Rocket-LtA-T", "Mortar2Mk1", "Rocket-MRL"];
-	const specialList = ["SensorTurret1Mk1", "CommandBrain01"];
+	const bodyList = [tBody.tank.mantis, tBody.tank.python];
+	const propulsionList = [tProp.tank.tracks, tProp.tank.tracks, tProp.tank.hover];
+	const weaponList = [
+		tWeap.tank.heavyCannon, tWeap.tank.heavyCannon, tWeap.tank.heavyCannon,
+		tWeap.tank.lancer, tWeap.tank.lancer, tWeap.tank.bombard, tWeap.tank.miniRocketArray
+	];
+	const specialList = [tSensor.sensor, tCommand.commander];
 	const BODY = bodyList[camRand(bodyList.length)];
 	const PROP = propulsionList[camRand(propulsionList.length)];
 

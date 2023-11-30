@@ -137,10 +137,14 @@ function sendPlayerTransporter()
 	}
 
 	const droids = [];
-	const bodyList = ["Body9REC", "Body9REC", "Body11ABT", "Body12SUP"];
-	const propulsionList = ["hover01", "hover01", "tracked01"];
-	const weaponList = ["Cannon5VulcanMk1", "Cannon5VulcanMk1", "Flame2", "Flame2", "MG4ROTARYMk1", "MG4ROTARYMk1", "Cannon4AUTOMk1", "Rocket-HvyA-T"];
-	const specialList = ["Spade1Mk1", "Spade1Mk1", "CommandBrain01", "CommandBrain01"];
+	const bodyList = [tBody.tank.tiger, tBody.tank.tiger, tBody.tank.python, tBody.tank.mantis];
+	const propulsionList = [tProp.tank.hover, tProp.tank.hover, tProp.tank.tracks];
+	const weaponList = [
+		tWeap.tank.assaultCannon, tWeap.tank.assaultCannon, tWeap.tank.inferno,
+		tWeap.tank.inferno, tWeap.tank.assaultGun, tWeap.tank.assaultGun,
+		tWeap.tank.hyperVelocityCannon, tWeap.tank.tankKiller
+	];
+	const specialList = [tConstruct.truck, tConstruct.truck, tCommand.commander, tCommand.commander];
 	const BODY = bodyList[camRand(bodyList.length)];
 	const PROP = propulsionList[camRand(propulsionList.length)];
 
@@ -150,15 +154,15 @@ function sendPlayerTransporter()
 		let weap = (!transporterIndex && (i < specialList.length)) ? specialList[i] : weaponList[camRand(weaponList.length)];
 		if (transporterIndex === 1 && i < 4)
 		{
-			weap = "QuadRotAAGun"; //Bring 4 Whirlwinds on the 2nd transport.
+			weap = tWeap.tank.whirlwind; //Bring 4 Whirlwinds on the 2nd transport.
 		}
-		if (BODY === "Body12SUP")
+		if (BODY === tBody.tank.mantis)
 		{
-			prop = "tracked01"; //Force Mantis to use Tracks.
+			prop = tProp.tank.tracks; //Force Mantis to use Tracks.
 		}
-		if (weap === "Spade1Mk1")
+		if (weap === tConstruct.truck)
 		{
-			prop = "hover01"; //Force trucks to use Hover.
+			prop = tProp.tank.hover; //Force trucks to use Hover.
 		}
 		droids.push({ body: BODY, prop: prop, weap: weap });
 	}

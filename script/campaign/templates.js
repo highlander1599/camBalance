@@ -329,6 +329,7 @@ cohhpv: { body: tBody.tank.tiger, prop: tProp.tank.tracks, weap: tWeap.tank.hype
 comagt: { body: tBody.tank.panther, prop: tProp.tank.tracks, weap: tWeap.tank.assaultGun },
 cocybsn: { body: tBody.cyborg.lightBody, prop: tProp.cyborg.legs, weap: tWeap.cyborg.sniperCannon },
 cocybtk: { body: tBody.cyborg.lightBody, prop: tProp.cyborg.legs, weap: tWeap.cyborg.tankKiller },
+colhvat: { body: tBody.tank.leopard, prop: tProp.air.vtol, weap: tWeap.air.tankKiller },
 
 // SUB_2_6
 cohact: { body: tBody.tank.tiger, prop: tProp.tank.tracks, weap: tWeap.tank.assaultCannon },

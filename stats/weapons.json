@@ -3867,7 +3867,7 @@
 		"effectSize": 25,
 		"explosionWav": "smlexpl.ogg",
 		"facePlayer": 1,
-		"firePause": 80,
+		"firePause": 20,
 		"flightGfx": "FXSPLME.PIE",
 		"flightSpeed": 1200,
 		"hitGfx": "FXGRDexl.PIE",

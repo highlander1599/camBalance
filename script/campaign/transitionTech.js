@@ -165,7 +165,7 @@ const mis_gammaResearchNew = [
 	// 4
 	"R-Wpn-Cannon-ROF05", "R-Wpn-Cannon-ROF06", "R-Wpn-Cannon-Damage09", "R-Wpn-AAGun-Damage06",
 	"R-Wpn-Howitzer-Damage06", "R-Wpn-AAGun-ROF05", "R-Wpn-AAGun-ROF06", "R-Wpn-RocketSlow-ROF05",
-	"R-Wpn-RocketSlow-ROF06",
+	"R-Wpn-RocketSlow-ROF06", "R-Wpn-MG-Damage10",
 
 	// 5
 	"R-Sys-Resistance-Upgrade01", "R-Sys-Resistance-Upgrade02", "R-Sys-Resistance-Upgrade03",

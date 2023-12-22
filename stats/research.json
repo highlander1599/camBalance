@@ -1290,9 +1290,6 @@
 		"id": "R-Cyborg-Wpn-Laser1",
 		"msgName": "RES_CYW_LS1",
 		"name": "Flashlight Gunner Cyborg",
-		"replacedComponents": [
-			"CyborgRotMG:Cyb-Wpn-Laser"
-		],
 		"requiredResearch": [
 			"R-Wpn-Laser01"
 		],
@@ -6693,7 +6690,8 @@
 		"name": "Pulse Laser Emplacement",
 		"redStructures": [
 			"Emplacement-PrisLas",
-			"Tower-Projector"
+			"Tower-Projector",
+			"Wall-RotMg"
 		],
 		"requiredResearch": [
 			"R-Wpn-Laser02",
@@ -6838,9 +6836,6 @@
 		"id": "R-Defense-WallTower-PulseLas",
 		"msgName": "RES_WT14_PLS",
 		"name": "Flashlight Hardpoint",
-		"redStructures": [
-			"Wall-RotMg"
-		],
 		"requiredResearch": [
 			"R-Wpn-Laser01"
 		],
@@ -8703,10 +8698,6 @@
 		"keyTopic": 1,
 		"msgName": "RES_W_LAS1",
 		"name": "Laser - Flashlight",
-		"redComponents": [
-			"MG4ROTARY-VTOL",
-			"MG4ROTARYMk1"
-		],
 		"researchPoints": 14400,
 		"researchPower": 450,
 		"resultComponents": [
@@ -8724,9 +8715,12 @@
 		"redComponents": [
 			"Laser3BEAM-VTOL",
 			"Laser3BEAMMk1",
+			"MG4ROTARY-VTOL",
+			"MG4ROTARYMk1",
 			"Flame2"
 		],
 		"replacedComponents": [
+			"CyborgRotMG:Cyb-Wpn-Laser",
 			"CyborgFlamer02:Cyb-Wpn-Laser"
 		],
 		"requiredResearch": [
@@ -8780,6 +8774,29 @@
 				"filterValue": "MACHINE GUN",
 				"parameter": "Damage",
 				"value": 35
+			}
+		],
+		"statID": "MG1Mk1",
+		"subgroupIconID": "IMAGE_RES_GRPDAM",
+		"techCode": 1
+	},
+	"R-Wpn-MG-Damage10": {
+		"iconID": "IMAGE_RES_WEAPONTECH",
+		"id": "R-Wpn-MG-Damage10",
+		"name": "Depleted Uranium MG Bullets Mk3",
+		"requiredResearch": [
+			"R-Wpn-MG-Damage09",
+			"R-Wpn-Cannon-Damage09"
+		],
+		"researchPoints": 11600,
+		"researchPower": 362,
+		"results": [
+			{
+				"class": "Weapon",
+				"filterParameter": "ImpactClass",
+				"filterValue": "MACHINE GUN",
+				"parameter": "Damage",
+				"value": 30
 			}
 		],
 		"statID": "MG1Mk1",

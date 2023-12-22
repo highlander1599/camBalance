@@ -42,35 +42,41 @@ function truckDefense()
 //Attacks every 3 minutes until HQ is destroyed.
 function wave2()
 {
-	const list = [cTempl.colatv, cTempl.colatv];
+	const list = [cTempl.colhvat, cTempl.colhvat];
+	const list2 = [cTempl.commorvt, cTempl.commorvt];
 	const ext = {
-		limit: [4, 4], //paired with list array
+		limit: [2, 2], //paired with list array
 		alternate: true,
 		altIdx: 0
 	};
 	camSetVtolData(CAM_THE_COLLECTIVE, "vtolAppearPos", "vtolRemovePos", list, camChangeOnDiff(camMinutesToMilliseconds(3)), "COCommandCenter", ext);
+	camSetVtolData(CAM_THE_COLLECTIVE, "vtolAppearPos", "vtolRemovePos", list2, camChangeOnDiff(camMinutesToMilliseconds(3)), "COCommandCenter", ext);
 }
 
 function wave3()
 {
 	const list = [cTempl.commorv, cTempl.commorv];
+	const list2 = [cTempl.colhvat, cTempl.colhvat];
 	const ext = {
-		limit: [4, 4], //paired with list array
+		limit: [2, 2], //paired with list array
 		alternate: true,
 		altIdx: 0
 	};
 	camSetVtolData(CAM_THE_COLLECTIVE, "vtolAppearPos", "vtolRemovePos", list, camChangeOnDiff(camMinutesToMilliseconds(3)), "COCommandCenter", ext);
+	camSetVtolData(CAM_THE_COLLECTIVE, "vtolAppearPos", "vtolRemovePos", list2, camChangeOnDiff(camMinutesToMilliseconds(3)), "COCommandCenter", ext);
 }
 
 function vtolAttack()
 {
 	const list = [cTempl.commorvt, cTempl.commorvt];
+	const list2 = [cTempl.colhvat, cTempl.colhvat];
 	const ext = {
-		limit: [4, 4], //paired with list array
+		limit: [2, 2], //paired with list array
 		alternate: true,
 		altIdx: 0
 	};
 	camSetVtolData(CAM_THE_COLLECTIVE, "vtolAppearPos", "vtolRemovePos", list, camChangeOnDiff(camMinutesToMilliseconds(3)), "COCommandCenter", ext);
+	camSetVtolData(CAM_THE_COLLECTIVE, "vtolAppearPos", "vtolRemovePos", list2, camChangeOnDiff(camMinutesToMilliseconds(3)), "COCommandCenter", ext);
 	queue("wave2", camChangeOnDiff(camSecondsToMilliseconds(30)));
 	queue("wave3", camChangeOnDiff(camSecondsToMilliseconds(60)));
 }

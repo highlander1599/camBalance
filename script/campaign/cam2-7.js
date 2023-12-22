@@ -228,7 +228,7 @@ function eventStartLevel()
 				regroup: false,
 				count: -1,
 			},
-			templates: [cTempl.colagv, cTempl.commorv, cTempl.commorvt]
+			templates: [cTempl.colagv, cTempl.commorv, cTempl.commorvt, cTempl.colhvat]
 		},
 	});
 

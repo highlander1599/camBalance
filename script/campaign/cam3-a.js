@@ -180,41 +180,35 @@ function sendPlayerTransporter()
 function wave2()
 {
 	const list = [cTempl.nxlscouv, cTempl.nxlscouv];
-	const list2 = [cTempl.nxlneedv, cTempl.nxlneedv];
 	const ext = {
-		limit: [2, 2], //paired with list array
+		limit: [3, 3], //paired with list array
 		alternate: true,
 		altIdx: 0
 	};
 	camSetVtolData(CAM_NEXUS, "vtolAppearPos", "vtolRemovePos", list, camChangeOnDiff(camMinutesToMilliseconds(5)), "NXCommandCenter", ext);
-	camSetVtolData(CAM_NEXUS, "vtolAppearPos", "vtolRemovePos", list2, camChangeOnDiff(camMinutesToMilliseconds(5)), "NXCommandCenter", ext);
 }
 
 function wave3()
 {
 	const list = [cTempl.nxlneedv, cTempl.nxlneedv];
-	const list2 = [cTempl.nxmtherv, cTempl.nxmtherv];
 	const ext = {
-		limit: [2, 2], //paired with list array
+		limit: [4, 4], //paired with list array
 		alternate: true,
 		altIdx: 0
 	};
 	camSetVtolData(CAM_NEXUS, "vtolAppearPos", "vtolRemovePos", list, camChangeOnDiff(camMinutesToMilliseconds(5)), "NXCommandCenter", ext);
-	camSetVtolData(CAM_NEXUS, "vtolAppearPos", "vtolRemovePos", list2, camChangeOnDiff(camMinutesToMilliseconds(5)), "NXCommandCenter", ext);
 }
 
 //Setup Nexus VTOL hit and runners.
 function vtolAttack()
 {
 	const list = [cTempl.nxmtherv, cTempl.nxmtherv];
-	const list2 = [cTempl.nxlscouv, cTempl.nxlscouv];
 	const ext = {
 		limit: [2, 2], //paired with list array
 		alternate: true,
 		altIdx: 0
 	};
 	camSetVtolData(CAM_NEXUS, "vtolAppearPos", "vtolRemovePos", list, camChangeOnDiff(camMinutesToMilliseconds(5)), "NXCommandCenter", ext);
-	camSetVtolData(CAM_NEXUS, "vtolAppearPos", "vtolRemovePos", list2, camChangeOnDiff(camMinutesToMilliseconds(5)), "NXCommandCenter", ext);
 	queue("wave2", camChangeOnDiff(camSecondsToMilliseconds(30)));
 	queue("wave3", camChangeOnDiff(camSecondsToMilliseconds(60)));
 }

@@ -181,7 +181,7 @@ function wave2()
 {
 	const list = [cTempl.nxlscouv, cTempl.nxlscouv];
 	const ext = {
-		limit: [3, 3], //paired with list array
+		limit: [2, 2], //paired with list array
 		alternate: true,
 		altIdx: 0
 	};
@@ -192,7 +192,7 @@ function wave3()
 {
 	const list = [cTempl.nxlneedv, cTempl.nxlneedv];
 	const ext = {
-		limit: [4, 4], //paired with list array
+		limit: [3, 3], //paired with list array
 		alternate: true,
 		altIdx: 0
 	};

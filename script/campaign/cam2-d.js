@@ -44,7 +44,7 @@ function wave2()
 {
 	const list = [cTempl.colhvat, cTempl.colhvat];
 	const ext = {
-		limit: [3, 3], //paired with list array
+		limit: [2, 2], //paired with list array
 		alternate: true,
 		altIdx: 0
 	};

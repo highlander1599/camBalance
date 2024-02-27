@@ -1832,7 +1832,7 @@
 		"flightGfx": "FXLProj.PIE",
 		"flightSpeed": 800,
 		"hitGfx": "FXMNExp.PIE",
-		"hitpoints": 75,
+		"hitpoints": 100,
 		"id": "Flame2",
 		"lightWorld": 1,
 		"longHit": 50,

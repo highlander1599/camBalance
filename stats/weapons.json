@@ -2162,7 +2162,7 @@
 		"flightGfx": "FXLFLSH.PIE",
 		"flightSpeed": 1600,
 		"hitGfx": "FXFLSHL.PIE",
-		"hitpoints": 100,
+		"hitpoints": 125,
 		"id": "Laser3BEAMMk1",
 		"lightWorld": 1,
 		"longHit": 65,

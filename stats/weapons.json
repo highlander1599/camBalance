@@ -1627,7 +1627,7 @@
 	"CyborgRocket": {
 		"buildPoints": 400,
 		"buildPower": 110,
-		"damage": 123,
+		"damage": 124,
 		"effectSize": 25,
 		"explosionWav": "lrgexpl.ogg",
 		"faceInFlight": 1,
@@ -1667,7 +1667,7 @@
 	"CyborgRocket02": {
 		"buildPoints": 700,
 		"buildPower": 160,
-		"damage": 188,
+		"damage": 191,
 		"effectSize": 75,
 		"explosionWav": "lrgexpl.ogg",
 		"faceInFlight": 1,

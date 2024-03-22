@@ -3,6 +3,17 @@
 // Misc useful stuff.
 ////////////////////////////////////////////////////////////////////////////////
 
+//;; ## camClassicMode()
+//;;
+//;; Returns `true` if classic balance mod is enabled.
+//;;
+//;; @returns {boolean}
+//;;
+function camClassicMode()
+{
+	return __camClassicModActive;
+}
+
 //;; ## camDef(something)
 //;;
 //;; Returns `false` if something is JavaScript-undefined, `true` otherwise.

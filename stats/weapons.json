@@ -1043,7 +1043,7 @@
 		"effectSize": 90,
 		"explosionWav": "lrgexpl.ogg",
 		"facePlayer": 1,
-		"firePause": 40,
+		"firePause": 32,
 		"flags": "ShootAir",
 		"flightGfx": "FXCAmmo.PIE",
 		"flightSpeed": 1000,

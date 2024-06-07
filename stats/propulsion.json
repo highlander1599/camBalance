@@ -269,6 +269,6 @@
 		"skidDeceleration": 350,
 		"speed": 175,
 		"type": "Wheeled",
-		"weight": 175
+		"weight": 150
 	}
 }

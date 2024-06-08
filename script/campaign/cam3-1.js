@@ -98,7 +98,12 @@ function vtolAttack()
 	if (camClassicMode())
 	{
 		const list = [cTempl.nxlscouv, cTempl.nxmtherv];
-		camSetVtolData(CAM_NEXUS, "vtolAppearPos", "vtolRemovePos", list, camChangeOnDiff(camMinutesToMilliseconds(5)), "NXCommandCenter");
+		const ext = {
+			limit: [2, 3], //paired with list array
+			alternate: true,
+			altIdx: 0
+		};
+		camSetVtolData(CAM_NEXUS, "vtolAppearPos", "vtolRemovePos", list, camChangeOnDiff(camMinutesToMilliseconds(5)), "NXCommandCenter", ext);
 	}
 	else
 	{

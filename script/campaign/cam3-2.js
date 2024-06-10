@@ -96,7 +96,7 @@ function getAlphaUnitIDs()
 {
 	alphaUnitIDs = [];
 	const alphaDroids = enumArea("alphaPit", CAM_HUMAN_PLAYER, false).filter((obj) => (
-		obj.type === DROID && obj.experience === 512
+		obj.type === DROID && obj.experience > 0
 	));
 
 	for (let i = 0, l = alphaDroids.length; i < l; ++i)

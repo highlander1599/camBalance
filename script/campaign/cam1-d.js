@@ -68,7 +68,15 @@ function transportBaseSetup()
 
 function getDroidsForNPLZ()
 {
-	const LIM = 8; //Last alpha mission always has 8 transport units
+	let lim = 8;
+	if (difficulty === HARD)
+	{
+		lim = 9;
+	}
+	else if (difficulty >= INSANE)
+	{
+		lim = 10;
+	}
 	const templates = [ cTempl.nphct, cTempl.nphct, cTempl.npmorb, cTempl.npmorb, cTempl.npsbb ];
 
 	const droids = [];

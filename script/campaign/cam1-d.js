@@ -80,7 +80,7 @@ function getDroidsForNPLZ()
 	const templates = [ cTempl.nphct, cTempl.nphct, cTempl.npmorb, cTempl.npmorb, cTempl.npsbb ];
 
 	const droids = [];
-	for (let i = 0; i < LIM; ++i)
+	for (let i = 0; i < lim; ++i)
 	{
 		droids.push(templates[camRand(templates.length)]);
 	}

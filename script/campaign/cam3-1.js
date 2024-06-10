@@ -352,6 +352,7 @@ function eventStartLevel()
 
 	camSetStandardWinLossConditions(CAM_VICTORY_OFFWORLD, "CAM_3B", {
 		area: "RTLZ",
+		playLzReminder: false,
 		reinforcements: camMinutesToSeconds(3),
 		callback: "unitsInValley"
 	});

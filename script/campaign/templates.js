@@ -321,14 +321,14 @@ cohbbt: { body: tBody.tank.tiger, prop: tProp.tank.tracks, weap: tWeap.tank.bunk
 
 // SUB_2_5
 cocybag: { body: tBody.cyborg.lightBody, prop: tProp.cyborg.legs, weap: tWeap.cyborg.assaultGun },
+cocybsn: { body: tBody.cyborg.lightBody, prop: tProp.cyborg.legs, weap: tWeap.cyborg.sniperCannon },
+cocybtk: { body: tBody.cyborg.lightBody, prop: tProp.cyborg.legs, weap: tWeap.cyborg.tankKiller },
 
 // SUB_2_D
 comhltat: { body: tBody.tank.panther, prop: tProp.tank.tracks, weap: tWeap.tank.tankKiller },
 commorvt: { body: tBody.tank.panther, prop: tProp.air.vtol, weap: tWeap.air.thermiteBomb },
 cohhpv: { body: tBody.tank.tiger, prop: tProp.tank.tracks, weap: tWeap.tank.hyperVelocityCannon },
 comagt: { body: tBody.tank.panther, prop: tProp.tank.tracks, weap: tWeap.tank.assaultGun },
-cocybsn: { body: tBody.cyborg.lightBody, prop: tProp.cyborg.legs, weap: tWeap.cyborg.sniperCannon },
-cocybtk: { body: tBody.cyborg.lightBody, prop: tProp.cyborg.legs, weap: tWeap.cyborg.tankKiller },
 colhvat: { body: tBody.tank.leopard, prop: tProp.air.vtol, weap: tWeap.air.tankKiller },
 
 // SUB_2_6

@@ -1512,7 +1512,7 @@
 	"CyborgChaingun": {
 		"buildPoints": 160,
 		"buildPower": 40,
-		"damage": 21,
+		"damage": 20,
 		"effectSize": 100,
 		"facePlayer": 1,
 		"firePause": 7,
@@ -2588,7 +2588,7 @@
 	"MG3-VTOL": {
 		"buildPoints": 250,
 		"buildPower": 50,
-		"damage": 57,
+		"damage": 54,
 		"designable": 1,
 		"effectSize": 150,
 		"facePlayer": 1,
@@ -2625,7 +2625,7 @@
 	"MG3Mk1": {
 		"buildPoints": 250,
 		"buildPower": 50,
-		"damage": 19,
+		"damage": 18,
 		"designable": 1,
 		"effectSize": 150,
 		"facePlayer": 1,
@@ -2662,7 +2662,7 @@
 	"MG4ROTARY-Pillbox": {
 		"buildPoints": 500,
 		"buildPower": 100,
-		"damage": 20,
+		"damage": 21,
 		"effectSize": 100,
 		"facePlayer": 1,
 		"firePause": 5,

@@ -265,6 +265,7 @@ npsbb: { body: tBody.tank.scorpion, prop: tProp.tank.halfTracks, weap: tWeap.tan
 npltat: { body: tBody.tank.bug, prop: tProp.tank.halfTracks, weap: tWeap.tank.lancer },
 
 // SUB_1_4A
+npmorb: { body: tBody.tank.scorpion, prop: tProp.tank.halfTracks, weap: tWeap.tank.bombard },
 
 // CAM_1_5
 nphmgt: { body: tBody.tank.scorpion, prop: tProp.tank.tracks, weap: tWeap.tank.heavyMachinegun },
@@ -274,7 +275,6 @@ npcybm: { body: tBody.cyborg.lightBody, prop: tProp.cyborg.legs, weap: tWeap.cyb
 
 // CAM_1AC
 nphct: { body: tBody.tank.mantis, prop: tProp.tank.tracks, weap: tWeap.tank.heavyCannon },
-npmorb: { body: tBody.tank.scorpion, prop: tProp.tank.halfTracks, weap: tWeap.tank.bombard },
 npmsens: { body: tBody.tank.scorpion, prop: tProp.tank.halfTracks, weap: tSensor.sensor },
 
 // SUB_1_7

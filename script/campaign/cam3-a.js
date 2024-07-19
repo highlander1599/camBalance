@@ -23,6 +23,7 @@ camAreaEvent("vtolRemoveZone", function(droid)
 //Order base three groups to do stuff and enable cyborg factories in the north
 camAreaEvent("northFactoryTrigger", function(droid)
 {
+	improveNexusAlloys();
 	camEnableFactory("NXcybFac-b3");
 	camEnableFactory("NXcybFac-b4");
 
@@ -45,6 +46,7 @@ camAreaEvent("northFactoryTrigger", function(droid)
 //Enable factories in the SW base
 camAreaEvent("westFactoryTrigger", function(droid)
 {
+	improveNexusAlloys();
 	camEnableFactory("NXcybFac-b2-1");
 	camEnableFactory("NXcybFac-b2-2");
 	camEnableFactory("NXHvyFac-b2");
@@ -53,6 +55,7 @@ camAreaEvent("westFactoryTrigger", function(droid)
 //Enable all factories if the player tries to bypass a trigger area
 camAreaEvent ("middleTrigger", function(droid)
 {
+	improveNexusAlloys();
 	enableAllFactories();
 });
 
@@ -90,9 +93,6 @@ function enableAllFactories()
 	{
 		camEnableFactory(factoryNames[j]);
 	}
-
-	//If they go really fast, adapt the alloy research to come sooner
-	queue("improveNexusAlloys", camChangeOnDiff(camMinutesToMilliseconds(10)));
 }
 
 function truckDefense()

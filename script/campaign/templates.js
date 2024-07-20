@@ -339,6 +339,7 @@ comsensh: { body: tBody.tank.panther, prop: tProp.tank.halfTracks, weap: tSensor
 // SUB_2_7
 comrotmh: { body: tBody.tank.panther, prop: tProp.tank.tracks, weap: tWeap.tank.pepperpot },
 comltath: { body: tBody.tank.panther, prop: tProp.tank.hover, weap: tWeap.tank.tankKiller },
+comacv: { body: tBody.tank.panther, prop: tProp.air.vtol, weap: tWeap.air.assaultCannon },
 
 // SUB_2_8
 comhvat: { body: tBody.tank.panther, prop: tProp.air.vtol, weap: tWeap.air.tankKiller },

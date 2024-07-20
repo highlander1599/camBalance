@@ -46,10 +46,13 @@ camAreaEvent("northFactoryTrigger", function(droid)
 //Enable factories in the SW base
 camAreaEvent("westFactoryTrigger", function(droid)
 {
-	improveNexusAlloys();
-	camEnableFactory("NXcybFac-b2-1");
-	camEnableFactory("NXcybFac-b2-2");
-	camEnableFactory("NXHvyFac-b2");
+	camCallOnce("enableWestFactories");
+});
+
+//Prevents VTOLs from flying over the west trigger
+camAreaEvent("westFactoryVTOLTrigger", function(droid)
+{
+	camCallOnce("enableWestFactories");
 });
 
 //Enable all factories if the player tries to bypass a trigger area
@@ -58,6 +61,14 @@ camAreaEvent ("middleTrigger", function(droid)
 	improveNexusAlloys();
 	enableAllFactories();
 });
+
+function enableWestFactories()
+{
+	improveNexusAlloys();
+	camEnableFactory("NXcybFac-b2-1");
+	camEnableFactory("NXcybFac-b2-2");
+	camEnableFactory("NXHvyFac-b2");
+}
 
 function setUnitRank(transport)
 {

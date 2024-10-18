@@ -429,8 +429,9 @@
 	"R-Cyborg-Metals10": {
 		"iconID": "IMAGE_RES_CYBORGTECH",
 		"id": "R-Cyborg-Metals10",
-		"keyTopic": 1,
 		"imdName": "icmolql.pie",
+		"keyTopic": 1,
+		"name": "Cyborg Composite Alloys Buff AI",
 		"results": [
 			{
 				"class": "Body",
@@ -453,8 +454,9 @@
 	"R-Cyborg-Metals11": {
 		"iconID": "IMAGE_RES_CYBORGTECH",
 		"id": "R-Cyborg-Metals11",
-		"keyTopic": 1,
 		"imdName": "icmolql.pie",
+		"keyTopic": 1,
+		"name": "Cyborg Composite Alloys Buff AI Mk2",
 		"results": [
 			{
 				"class": "Body",
@@ -613,8 +615,9 @@
 	"R-Cyborg-Armor-Heat07": {
 		"iconID": "IMAGE_RES_CYBORGTECH",
 		"id": "R-Cyborg-Armor-Heat07",
-		"keyTopic": 1,
 		"imdName": "icamrhot.pie",
+		"keyTopic": 1,
+		"name": "Cyborg Thermal Armor Buff AI",
 		"results": [
 			{
 				"class": "Body",
@@ -630,8 +633,9 @@
 	"R-Cyborg-Armor-Heat08": {
 		"iconID": "IMAGE_RES_CYBORGTECH",
 		"id": "R-Cyborg-Armor-Heat08",
-		"keyTopic": 1,
 		"imdName": "icamrhot.pie",
+		"keyTopic": 1,
+		"name": "Cyborg Thermal Armor Buff AI Mk2",
 		"results": [
 			{
 				"class": "Body",
@@ -918,6 +922,7 @@
 		"id": "R-Vehicle-Metals10",
 		"imdName": "icmolql.pie",
 		"keyTopic": 1,
+		"name": "Composite Alloys Buff AI",
 		"results": [
 			{
 				"class": "Body",
@@ -941,6 +946,7 @@
 		"id": "R-Vehicle-Metals11",
 		"imdName": "icmolql.pie",
 		"keyTopic": 1,
+		"name": "Composite Alloys Buff AI Mk2",
 		"results": [
 			{
 				"class": "Body",
@@ -1098,8 +1104,9 @@
 	"R-Vehicle-Armor-Heat07": {
 		"iconID": "IMAGE_RES_DROIDTECH",
 		"id": "R-Vehicle-Armor-Heat07",
-		"keyTopic": 1,
 		"imdName": "icamrhot.pie",
+		"keyTopic": 1,
+		"name": "Thermal Armor Buff AI",
 		"results": [
 			{
 				"class": "Body",
@@ -1115,8 +1122,9 @@
 	"R-Vehicle-Armor-Heat08": {
 		"iconID": "IMAGE_RES_DROIDTECH",
 		"id": "R-Vehicle-Armor-Heat08",
-		"keyTopic": 1,
 		"imdName": "icamrhot.pie",
+		"keyTopic": 1,
+		"name": "Thermal Armor Buff AI Mk2",
 		"results": [
 			{
 				"class": "Body",
@@ -7071,8 +7079,9 @@
 	"R-Defense-WallUpgrade13": {
 		"iconID": "IMAGE_RES_DEFENCE",
 		"id": "R-Defense-WallUpgrade13",
-		"keyTopic": 1,
 		"imdName": "BLWALLH.PIE",
+		"keyTopic": 1,
+		"name": "Improved Hardcrete Buff AI",
 		"results": [
 			{
 				"class": "Building",
@@ -7183,8 +7192,9 @@
 	"R-Struc-Materials10": {
 		"iconID": "IMAGE_RES_STRUCTURETECH",
 		"id": "R-Struc-Materials10",
-		"keyTopic": 1,
 		"imdName": "icmolql.pie",
+		"keyTopic": 1,
+		"name": "Reinforced Base Structure Materials Buff AI",
 		"results": [
 			{
 				"class": "Building",
@@ -7207,8 +7217,9 @@
 	"R-Struc-Materials11": {
 		"iconID": "IMAGE_RES_STRUCTURETECH",
 		"id": "R-Struc-Materials11",
-		"keyTopic": 1,
 		"imdName": "icmolql.pie",
+		"keyTopic": 1,
+		"name": "Reinforced Base Structure Materials Buff AI Mk2",
 		"results": [
 			{
 				"class": "Building",
@@ -8607,6 +8618,7 @@
 		"iconID": "IMAGE_RES_WEAPONTECH",
 		"id": "R-Wpn-Howitzer-Damage07",
 		"keyTopic": 1,
+		"name": "Howitzer Damage Buff AI",
 		"results": [
 			{
 				"class": "Weapon",
@@ -8631,6 +8643,7 @@
 		"iconID": "IMAGE_RES_WEAPONTECH",
 		"id": "R-Wpn-Howitzer-Damage08",
 		"keyTopic": 1,
+		"name": "Howitzer Damage Buff AI Mk2",
 		"results": [
 			{
 				"class": "Weapon",
@@ -8655,6 +8668,7 @@
 		"iconID": "IMAGE_RES_WEAPONTECH",
 		"id": "R-Wpn-Howitzer-Damage09",
 		"keyTopic": 1,
+		"name": "Howitzer Damage Buff AI Mk3",
 		"results": [
 			{
 				"class": "Weapon",

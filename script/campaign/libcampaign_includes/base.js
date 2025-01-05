@@ -345,7 +345,8 @@ function __camBasesTick()
 		}
 		bi.reinforce_last = gameTime;
 		const list = profile(bi.reinforce_callback);
-		const pos = camMakePos(bi.cleanup);
+		const __DEFINED_LZ = (camDef(bi.reinforce_data) && camDef(bi.reinforce_data.posLZ));
+		const pos = (__DEFINED_LZ) ? camMakePos(bi.reinforce_data.posLZ) : camMakePos(bi.cleanup);
 		camSendReinforcement(bi.player, pos, list, bi.reinforce_kind, bi.reinforce_data);
 	}
 }

@@ -177,8 +177,8 @@ function eventStartLevel()
 	camSetStandardWinLossConditions(CAM_VICTORY_STANDARD, cam_levels.alpha8.pre, {
 		callback: "extraVictoryCondition"
 	});
-	const startPos = getObject("startPosition");
-	const lz = getObject("landingZone");
+	const startPos = (!camClassicMode()) ? getObject("startPositionRemastered") : getObject("startPosition");
+	const lz = (!camClassicMode()) ? getObject("landingZoneRemastered") : getObject("landingZone");
 	centreView(startPos.x, startPos.y);
 	setNoGoArea(lz.x, lz.y, lz.x2, lz.y2, CAM_HUMAN_PLAYER);
 
@@ -188,7 +188,9 @@ function eventStartLevel()
 	}
 	else
 	{
+		const fakeLZ = getObject("landingZone");
 		camCompleteRequiredResearch(mis_newParadigmRes, CAM_NEW_PARADIGM);
+		setNoGoArea(fakeLZ.x, fakeLZ.y, fakeLZ.x2, fakeLZ.y2, CAM_SCAV_7); // Keep original LZ clear of structures.
 	}
 
 	setMissionTime(camChangeOnDiff(camMinutesToSeconds(30)));

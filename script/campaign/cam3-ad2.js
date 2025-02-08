@@ -169,9 +169,17 @@ function vaporizeTarget()
 	}
 	else
 	{
-		const dr = targets.filter((obj) => (obj.type === DROID && !isVTOL(obj)));
-		const vt = targets.filter((obj) => (obj.type === DROID && isVTOL(obj)));
-		const st = targets.filter((obj) => (obj.type === STRUCTURE));
+		const MIN_DROID_COST = 150;
+		const dr = targets.filter((obj) => (obj.type === DROID && obj.droidType !== DROID_CONSTRUCT && !isVTOL(obj) && (obj.cost >= MIN_DROID_COST || obj.experience > 0)));
+		const vt = targets.filter((obj) => (obj.type === DROID && isVTOL(obj) && (obj.cost >= MIN_DROID_COST || obj.experience > 0)));
+		const st = targets.filter((obj) => (obj.type === STRUCTURE && obj.stattype !== WALL && obj.status === BUILT));
+
+		// Explode trucks immediately to significantly reduce chances of gaming the lassat.
+		const trucks = targets.filter((obj) => (obj.type === DROID && obj.droidType === DROID_CONSTRUCT));
+		for (let i = 0, len = trucks.length; i < len; ++i)
+		{
+			camSafeRemoveObject(trucks[i], true);
+		}
 
 		if (dr.length)
 		{
@@ -184,6 +192,11 @@ function vaporizeTarget()
 		if (st.length && !camRand(2)) //chance to focus on a structure
 		{
 			target = st[0];
+		}
+		// Choose something less specific if the above rules can't be satisfied.
+		if (!camDef(target))
+		{
+			target = targets[camRand(targets.length)];
 		}
 	}
 

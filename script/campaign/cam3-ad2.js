@@ -145,13 +145,27 @@ function insaneTransporterAttack()
 	camSendGenericSpawn(CAM_REINFORCE_TRANSPORT, CAM_NEXUS, CAM_REINFORCE_CONDITION_NONE, location, units, limits.minimum, limits.maxRandom);
 }
 
+// Explode trucks to significantly reduce chances of gaming the lassat.
+function destroyTrucksInBlastZone()
+{
+	const objects = enumArea(0, MIS_Y_SCROLL_LIMIT, mapWidth, Math.floor(mapLimit), CAM_HUMAN_PLAYER, false);
+	for (let i = 0, len = objects.length; i < len; ++i)
+	{
+		const obj = objects[i];
+		if (obj.type === DROID && obj.droidType === DROID_CONSTRUCT)
+		{
+			camSafeRemoveObject(obj, true);
+		}
+	}
+}
+
 //Choose a target to fire the LasSat at. Automatically increases the limits
 //when no target is found in the area.
 function vaporizeTarget()
 {
 	let target;
 	const targets = enumArea(0, MIS_Y_SCROLL_LIMIT, mapWidth, Math.floor(mapLimit), CAM_HUMAN_PLAYER, false).filter((obj) => (
-		obj.type === DROID || obj.type === STRUCTURE
+		(obj.type === DROID && obj.droidType !== DROID_CONSTRUCT) || obj.type === STRUCTURE
 	));
 
 	if (!targets.length)
@@ -170,16 +184,9 @@ function vaporizeTarget()
 	else
 	{
 		const MIN_DROID_COST = 150;
-		const dr = targets.filter((obj) => (obj.type === DROID && obj.droidType !== DROID_CONSTRUCT && !isVTOL(obj) && (obj.cost >= MIN_DROID_COST || obj.experience > 0)));
+		const dr = targets.filter((obj) => (obj.type === DROID && !isVTOL(obj) && (obj.cost >= MIN_DROID_COST || obj.experience > 0)));
 		const vt = targets.filter((obj) => (obj.type === DROID && isVTOL(obj) && (obj.cost >= MIN_DROID_COST || obj.experience > 0)));
 		const st = targets.filter((obj) => (obj.type === STRUCTURE && obj.stattype !== WALL && obj.status === BUILT));
-
-		// Explode trucks immediately to significantly reduce chances of gaming the lassat.
-		const trucks = targets.filter((obj) => (obj.type === DROID && obj.droidType === DROID_CONSTRUCT));
-		for (let i = 0, len = trucks.length; i < len; ++i)
-		{
-			camSafeRemoveObject(trucks[i], true);
-		}
 
 		if (dr.length)
 		{
@@ -189,7 +196,7 @@ function vaporizeTarget()
 		{
 			target = vt[0]; //don't care about VTOLs as much
 		}
-		if (st.length && !camRand(2)) //chance to focus on a structure
+		if (st.length && (!camDef(target) || !camRand(2))) //chance to focus on a structure
 		{
 			target = st[0];
 		}
@@ -329,6 +336,7 @@ function checkTime()
 
 		phantomFactorySpawn();
 		queue("vaporizeTarget", camSecondsToMilliseconds(2));
+		setTimer("destroyTrucksInBlastZone", camSecondsToMilliseconds(9));
 		setTimer("vaporizeTarget", camSecondsToMilliseconds(10));
 		setTimer("phantomFactorySpawn", camChangeOnDiff(camMinutesToMilliseconds(5)));
 		if (difficulty >= INSANE)

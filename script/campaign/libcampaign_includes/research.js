@@ -33,13 +33,11 @@ function camEnableRes(researchIds, playerId)
 function camCompleteRequiredResearch(researchIds, playerId)
 {
 	dump("\n*Player " + playerId + " requesting accelerated research.");
-
 	for (let i = 0, l = researchIds.length; i < l; ++i)
 	{
 		const __RESEARCH_ID = researchIds[i];
 		dump("Searching for required research of item: " + __RESEARCH_ID);
 		let reqRes = findResearch(__RESEARCH_ID, playerId).reverse();
-
 		if (reqRes.length === 0)
 		{
 			//HACK: autorepair like upgrades don't work after mission transition.
@@ -49,7 +47,6 @@ function camCompleteRequiredResearch(researchIds, playerId)
 			}
 			continue;
 		}
-
 		reqRes = camRemoveDuplicates(reqRes);
 		for (let s = 0, r = reqRes.length; s < r; ++s)
 		{

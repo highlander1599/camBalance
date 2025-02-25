@@ -72,14 +72,14 @@ camAreaEvent("vtolRemoveZone", function(droid)
 	resetLabel("vtolRemoveZone", CAM_NEXUS);
 });
 
-function wave2()
+function insaneWave2()
 {
 	const list = [cTempl.nxlscouv, cTempl.nxlscouv];
 	const ext = {limit: [3, 3], alternate: true, altIdx: 0};
 	camSetVtolData(CAM_NEXUS, mis_vtolSpawnPositions, "vtolRemoveZone", list, camMinutesToMilliseconds(4), CAM_REINFORCE_CONDITION_ARTIFACTS, ext);
 }
 
-function wave3()
+function insaneWave3()
 {
 	const list = [cTempl.nxmtherv, cTempl.nxmtherv];
 	const ext = {limit: [2, 2], alternate: true, altIdx: 0};
@@ -100,8 +100,8 @@ function insaneVtolAttack()
 		const list = [cTempl.nxmheapv, cTempl.nxmheapv];
 		const ext = {limit: [2, 2], alternate: true, altIdx: 0};
 		camSetVtolData(CAM_NEXUS, mis_vtolSpawnPositions, "vtolRemoveZone", list, camMinutesToMilliseconds(4), CAM_REINFORCE_CONDITION_ARTIFACTS, ext);
-		queue("wave2", camChangeOnDiff(camSecondsToMilliseconds(30)));
-		queue("wave3", camChangeOnDiff(camSecondsToMilliseconds(60)));
+		queue("insaneWave2", camChangeOnDiff(camSecondsToMilliseconds(30)));
+		queue("insaneWave3", camChangeOnDiff(camSecondsToMilliseconds(60)));
 	}
 }
 

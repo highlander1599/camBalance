@@ -22,7 +22,7 @@ function camNextLevel(nextLevel)
 			{
 				bonus = 90; //Small bonus compared to the regular Hard extraction value.
 			}
-			else if (difficulty === INSANE)
+			else if (difficulty >= INSANE)
 			{
 				bonus = 70; //Same value for oil extraction.
 			}
@@ -483,7 +483,7 @@ function __camSetupConsoleForVictoryConditions()
 
 function __camShowBetaHint()
 {
-	return ((camDiscoverCampaign() === __CAM_BETA_CAMPAIGN_NUMBER) && (difficulty === HARD || difficulty === INSANE));
+	return ((camDiscoverCampaign() === __CAM_BETA_CAMPAIGN_NUMBER) && (difficulty >= HARD));
 }
 
 function __camShowBetaHintEarly()

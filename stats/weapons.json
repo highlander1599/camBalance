@@ -3142,7 +3142,7 @@
 		"name": "Pepperpot",
 		"numExplosions": 2,
 		"radius": 64,
-		"radiusDamage": 50,
+		"radiusDamage": 60,
 		"radiusLife": 10,
 		"recoilValue": 150,
 		"shortHit": 40,

@@ -95,6 +95,7 @@ function phantomFactorySpawn()
 	let location;
 	const extraUnits = [cTempl.nxmsens, cTempl.nxmsens, cTempl.nxmsamh, cTempl.nxmsamh];
 	const UNIT_LIMIT_FOR_SPAWN = 40;
+	const ALLOW_INSANE_SPAWNS = camAllowInsaneSpawns();
 
 	switch (camRand(3))
 	{
@@ -114,9 +115,9 @@ function phantomFactorySpawn()
 			units = {units: [cTempl.nxhgauss, cTempl.nxmpulseh, cTempl.nxmlinkh], appended: extraUnits};
 			location = "phantomFacWest";
 	}
-	if (difficulty >= INSANE)
+	if ((difficulty >= INSANE) || ALLOW_INSANE_SPAWNS)
 	{
-		if (camRand(100) < 20)
+		if (ALLOW_INSANE_SPAWNS && (camRand(100) < 20))
 		{
 			units = {units: [cTempl.nxhgauss, cTempl.nxmpulseh, cTempl.nxmscouh], appended: extraUnits};
 			location = "phantomFacSouth";
@@ -148,6 +149,13 @@ function insaneTransporterAttack()
 // Explode trucks to significantly reduce chances of gaming the lassat.
 function destroyTrucksInBlastZone()
 {
+	const IGNORE_LIMIT = 240;
+	if (Math.floor(mapLimit) > IGNORE_LIMIT)
+	{
+		// Lassat is only a few tiles away from the silos and player doesn't have much room left.
+		removeTimer("destroyTrucksInBlastZone");
+		return;
+	}
 	const objects = enumArea(0, MIS_Y_SCROLL_LIMIT, mapWidth, Math.floor(mapLimit), CAM_HUMAN_PLAYER, false);
 	for (let i = 0, len = objects.length; i < len; ++i)
 	{
@@ -327,11 +335,11 @@ function checkTime()
 		camPlayVideos({video: "MB3_AD2_MSG2", type: CAMP_MSG});
 		if (camClassicMode() && tweakOptions.camClassic_balance32)
 		{
-			setMissionTime(camMinutesToSeconds(80)); // To accommodate the research bug of 3.2 balance.
+			camSetMissionTimer(camMinutesToSeconds(80)); // To accommodate the research bug of 3.2 balance.
 		}
 		else
 		{
-			setMissionTime(camHoursToSeconds(1));
+			camSetMissionTimer(camHoursToSeconds(1));
 		}
 
 		phantomFactorySpawn();
@@ -339,7 +347,7 @@ function checkTime()
 		setTimer("destroyTrucksInBlastZone", camSecondsToMilliseconds(9));
 		setTimer("vaporizeTarget", camSecondsToMilliseconds(10));
 		setTimer("phantomFactorySpawn", camChangeOnDiff(camMinutesToMilliseconds(5)));
-		if (difficulty >= INSANE)
+		if (camAllowInsaneSpawns())
 		{
 			setTimer("insaneTransporterAttack", camMinutesToMilliseconds(3));
 		}

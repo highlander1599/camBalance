@@ -37,6 +37,10 @@
 //;;   * `repair` Health percentage to fall back to repair facility, if any.
 //;;   * `regroup` If set to `true`, the group will not move forward unless it has at least `count` droids in its biggest cluster.
 //;;     If `count` is set to `-1`, at least ⅔ of group's droids should be in the biggest cluster.
+//;;   * `patrolType` Type of patrol behavior. Defaults to `CAM_PATROL_RANDOM` where the group randomly chooses a patrol position.
+//;;     `CAM_PATROL_CYCLE` forces the group to loop through the entire list of patrol positions one after the other.
+//;;   * `reactToAttack` Defaults to false and can be used to break the group out of patrol and
+//;;      into a `CAM_ORDER_ATTACK` state, if the group is attacked.
 //;; * `CAM_ORDER_COMPROMISE` Same as `CAM_ORDER_ATTACK`, just stay near the last (or only)
 //;;   attack position instead of looking for the player around the whole map. Useful for offworld missions,
 //;;   with player's LZ as the final position. The following data object fields are available:
@@ -557,16 +561,40 @@ function __camTacticsTickForGroup(group)
 			{
 				if (gameTime - gi.lastmove > gi.data.interval)
 				{
-					// find random new position to visit
-					const list = [];
-					for (let j = 0, len2 = gi.data.pos.length; j < len2; ++j)
+					if (!camDef(gi.data.patrolType) || (gi.data.patrolType === CAM_PATROL_RANDOM))
 					{
-						if (j !== gi.lastspot)
+						// find random new position to visit
+						const list = [];
+						for (let j = 0, len2 = gi.data.pos.length; j < len2; ++j)
 						{
-							list.push(j);
+							if (j !== gi.lastspot)
+							{
+								list.push(j);
+							}
+						}
+						gi.lastspot = list[camRand(list.length)];
+					}
+					else if (gi.data.patrolType === CAM_PATROL_CYCLE)
+					{
+						// Cycles through the whole patrol list linearly, starting back again at the beginning.
+						if (gi.lastmove === 0)
+						{
+							gi.lastspot = 0;
+						}
+						else
+						{
+							let currPos = 0;
+							for (let j = 0, len2 = gi.data.pos.length; j < len2; ++j)
+							{
+								if (gi.data.pos[j] === gi.data.pos[gi.lastspot])
+								{
+									currPos = j;
+									break;
+								}
+							}
+							gi.lastspot = ((currPos + 1) < gi.data.pos.length) ? (currPos + 1) : 0;
 						}
 					}
-					gi.lastspot = list[camRand(list.length)];
 					gi.lastmove = gameTime;
 				}
 			}

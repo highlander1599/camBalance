@@ -14,8 +14,10 @@ function camNextLevel(nextLevel)
 {
 	if (tweakOptions.timerPowerBonus && __camNeedBonusTime)
 	{
-		const __POWER_TIME_REMAINING = getMissionTime();
-		if (__POWER_TIME_REMAINING > 0)
+		const __POWER_TIME_INFINITE = camMinutesToSeconds(10); // A small and flat reward if using Infinite Time option.
+		const __POWER_TIME_REMAINING = (tweakOptions.infiniteTime) ? __POWER_TIME_INFINITE : getMissionTime();
+		const __TIME_UNDERFLOW = __POWER_TIME_REMAINING >= 86400; // Ended mission right when the timer ran out.
+		if ((__POWER_TIME_REMAINING > 0) && !__TIME_UNDERFLOW)
 		{
 			let bonus = 110;
 			if (difficulty === HARD)
@@ -179,6 +181,12 @@ function __camGameLostCB()
 
 function __camGameLost()
 {
+	if (__camLevelEnded)
+	{
+		// Prevent losing after winning if they player managed to precisely time
+		// their win right around when the mission timer ran out.
+		return;
+	}
 	camCallOnce("__camGameLostCB");
 }
 
@@ -276,8 +284,8 @@ function __camPlayerDead()
 			}
 		});
 		dead = droidCount <= 0 && !__HAVE_FACTORIES;
-		//Finish Beta-end early if they have no units and factories on Easy/Normal.
-		if (dead && (difficulty <= MEDIUM) && (__camNextLevel === cam_levels.gamma1))
+		//Finish Beta-end early if they have no units and factories on lower difficulties.
+		if (dead && (difficulty <= HARD) && (__camNextLevel === cam_levels.gamma1))
 		{
 			cam_eventMissionTimeout(); //Early victory trigger
 			return false;
@@ -483,7 +491,7 @@ function __camSetupConsoleForVictoryConditions()
 
 function __camShowBetaHint()
 {
-	return ((camDiscoverCampaign() === __CAM_BETA_CAMPAIGN_NUMBER) && (difficulty >= HARD));
+	return ((camDiscoverCampaign() === __CAM_BETA_CAMPAIGN_NUMBER) && (difficulty >= INSANE));
 }
 
 function __camShowBetaHintEarly()
@@ -500,6 +508,10 @@ function __camShowBetaHintEarly()
 
 function __camShowVictoryConditions()
 {
+	if (camDef(tweakOptions.victoryHints) && !tweakOptions.victoryHints)
+	{
+		return; // Disabled.
+	}
 	if (!camDef(__camNextLevel))
 	{
 		return; // fastplay / tutorial. Should be a better identifier for this.
@@ -508,7 +520,7 @@ function __camShowVictoryConditions()
 	{
 		if (__camShowBetaHint())
 		{
-			console(_("Hard / Insane difficulty hint:"));
+			console(_("Insane difficulty hint:"));
 			console(_("Fortify a strong base across the map to protect yourself from the Collective"));
 		}
 		return; // do not need this on these missions.

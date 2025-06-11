@@ -191,12 +191,12 @@ function eventStartLevel()
 		camCompleteRequiredResearch(mis_newParadigmRes, CAM_NEW_PARADIGM);
 	}
 
-	setMissionTime(camChangeOnDiff(camMinutesToSeconds(30)));
+	camSetMissionTimer(camChangeOnDiff(camMinutesToSeconds(30)));
 	camPlayVideos({video: "MB1CA_MSG", type: CAMP_MSG});
 
 	// first transport after 10 seconds
 	queue("startTransporterAttack", camSecondsToMilliseconds(10));
-	if (difficulty >= INSANE)
+	if (camAllowInsaneSpawns())
 	{
 		setTimer("insaneReinforcementSpawn", camMinutesToMilliseconds(1.5));
 	}

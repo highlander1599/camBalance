@@ -37,7 +37,7 @@ function videoTrigger()
 {
 	camSetExtraObjectiveMessage(_("Rescue the civilians from The Collective before too many are captured"));
 
-	setMissionTime(getMissionTime() + camChangeOnDiff(camMinutesToSeconds(30)));
+	camSetMissionTimer(getMissionTime() + camChangeOnDiff(camMinutesToSeconds(30)));
 	setTimer("civilianOrders", camSecondsToMilliseconds(2));
 	setTimer("captureCivilians", camChangeOnDiff(camSecondsToMilliseconds(10)));
 
@@ -92,7 +92,7 @@ function insaneTransporterAttack()
 	const units = [cTempl.cohct, cTempl.commrl, cTempl.comhpv, cTempl.comtathh];
 	const limits = {minimum: 10, maxRandom: 0};
 	const location = camGenerateRandomMapCoordinate(getObject("startPosition"), CAM_GENERIC_LAND_STAT, DISTANCE_FROM_POS);
-	camSendGenericSpawn(CAM_REINFORCE_TRANSPORT, CAM_THE_COLLECTIVE, CAM_REINFORCE_CONDITION_UNITS, location, units, limits.minimum, limits.maxRandom);
+	camSendGenericSpawn(CAM_REINFORCE_TRANSPORT, CAM_THE_COLLECTIVE, CAM_REINFORCE_CONDITION_ARTIFACTS, location, units, limits.minimum, limits.maxRandom);
 }
 
 function enableFactories()
@@ -344,7 +344,7 @@ function eventStartLevel()
 		});
 	}
 
-	setMissionTime(camChangeOnDiff(camHoursToSeconds(2)));
+	camSetMissionTimer(camChangeOnDiff(camHoursToSeconds(2)));
 
 	setAlliance(CAM_THE_COLLECTIVE, CAM_SCAV_7, true);
 	setAlliance(CAM_HUMAN_PLAYER, CAM_SCAV_7, true);
@@ -453,7 +453,7 @@ function eventStartLevel()
 
 	queue("activateGroups", camChangeOnDiff(camMinutesToMilliseconds(8)));
 	setTimer("truckDefense", camChangeOnDiff(camMinutesToMilliseconds(3)));
-	if (difficulty >= INSANE)
+	if (camAllowInsaneSpawns())
 	{
 		setTimer("insaneTransporterAttack", camMinutesToMilliseconds(4));
 		setTimer("insaneReinforcementSpawn", camMinutesToMilliseconds(5));

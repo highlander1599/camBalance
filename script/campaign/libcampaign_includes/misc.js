@@ -322,6 +322,23 @@ function camChangeOnDiff(numericValue)
 	return Math.floor(numericValue * modifier);
 }
 
+//;; ## camAllowInsaneSpawns()
+//;;
+//;; Allow additional Insane difficulty (or higher) spawns and behavior.
+//;;
+//;; @returns {boolean}
+//;;
+function camAllowInsaneSpawns()
+{
+	if (!camDef(tweakOptions.insanePlus) || !camDef(tweakOptions.insanePlusLowDiff))
+	{
+		return false;
+	}
+	const __INSANE_SPAWNS = ((difficulty >= INSANE) && tweakOptions.insanePlus);
+	const __LOWER_DIFF_SPAWNS = ((difficulty < INSANE) && tweakOptions.insanePlusLowDiff);
+	return (__INSANE_SPAWNS || __LOWER_DIFF_SPAWNS);
+}
+
 //;; ## camIsSystemDroid(gameObject)
 //;;
 //;; Determine if the passed in object is a non-weapon based droid.
@@ -442,7 +459,7 @@ function camBreakAlliances()
 
 //;; ## camGenerateRandomMapEdgeCoordinate(reachPosition [, propulsion [, distFromReach]])
 //;;
-//;; Returns a random coordinate anywhere on the edge of the map that reachs a position.
+//;; Returns a random coordinate anywhere on the edge of the map that reaches a position.
 //;; `reachPosition` may be undefined if you just want a random edge coordinate.
 //;;
 //;; @param {Object} reachPosition
@@ -580,25 +597,28 @@ function camGenerateRandomMapCoordinate(reachPosition, propulsion, distFromReach
 		}
 		pos = randomPos;
 		// Scan for nearby pits/hills so transporters don't put units inside inaccessible areas.
-		for (let x = -2; x <= 2; ++x)
+		if (avoidNearbyCliffs)
 		{
-			for (let y = -2; y <= 2; ++y)
+			for (let x = -2; x <= 2; ++x)
 			{
-				if (!propulsionCanReach(propulsion, reachPosition.x, reachPosition.y, pos.x + x, pos.y + y))
+				for (let y = -2; y <= 2; ++y)
 				{
-					nearPitOrCliff = true;
+					if (!propulsionCanReach(propulsion, reachPosition.x, reachPosition.y, pos.x + x, pos.y + y))
+					{
+						nearPitOrCliff = true;
+						break;
+					}
+				}
+				if (nearPitOrCliff)
+				{
 					break;
 				}
-			}
-			if (nearPitOrCliff)
-			{
-				break;
 			}
 		}
 		if ((attempts > __MAX_ATTEMPTS) ||
 			((camDist(pos, reachPosition) >= distFromReach) &&
 			propulsionCanReach(propulsion, reachPosition.x, reachPosition.y, pos.x, pos.y) &&
-			(!avoidNearbyCliffs || (avoidNearbyCliffs && !nearPitOrCliff)) &&
+			(!avoidNearbyCliffs || !nearPitOrCliff) &&
 			!enumRange(pos.x, pos.y, scanObjectRadius, ALL_PLAYERS, false).length))
 		{
 			breakOut = true;

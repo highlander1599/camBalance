@@ -69,7 +69,7 @@ camAreaEvent("hillTriggerZone", function(droid)
 
 function wave2()
 {
-	const CONDITION = ((difficulty >= INSANE) ? undefined : "NXCommandCenter");
+	const CONDITION = ((camAllowInsaneSpawns()) ? undefined : "NXCommandCenter");
 	const list = [cTempl.nxlscouv, cTempl.nxlscouv];
 	const ext = {limit: [2, 2], alternate: true, altIdx: 0};
 	camSetVtolData(CAM_NEXUS, "vtolAppearPos", "vtolRemoveZone", list, camChangeOnDiff(camMinutesToMilliseconds(5)), CONDITION, ext);
@@ -77,7 +77,7 @@ function wave2()
 
 function wave3()
 {
-	const CONDITION = ((difficulty >= INSANE) ? undefined : "NXCommandCenter");
+	const CONDITION = ((camAllowInsaneSpawns()) ? undefined : "NXCommandCenter");
 	const list = [cTempl.nxlneedv, cTempl.nxlneedv];
 	const ext = {limit: [3, 3], alternate: true, altIdx: 0};
 	camSetVtolData(CAM_NEXUS, "vtolAppearPos", "vtolRemoveZone", list, camChangeOnDiff(camMinutesToMilliseconds(5)), CONDITION, ext);
@@ -86,7 +86,7 @@ function wave3()
 //Setup Nexus VTOL hit and runners.
 function vtolAttack()
 {
-	const CONDITION = ((difficulty >= INSANE) ? undefined : "NXCommandCenter");
+	const CONDITION = ((camAllowInsaneSpawns()) ? undefined : "NXCommandCenter");
 	if (camClassicMode())
 	{
 		const list = [cTempl.nxlscouv, cTempl.nxmtherv];
@@ -219,14 +219,14 @@ function setupNextMission()
 		camPlayVideos([cam_sounds.missile.launch.missileLaunchAborted, {video: "MB3_1B_MSG", type: CAMP_MSG}, {video: "MB3_1B_MSG2", type: MISS_MSG}]);
 
 		setScrollLimits(0, 0, 64, 64); //Reveal the whole map.
-		setMissionTime(camChangeOnDiff(camMinutesToSeconds((tweakOptions.classicTimers) ? 25 : 30)));
+		camSetMissionTimer(camChangeOnDiff(camMinutesToSeconds((tweakOptions.classicTimers) ? 25 : 30)));
 
 		hackRemoveMessage("CM31_TAR_UPLINK", PROX_MSG, CAM_HUMAN_PLAYER);
 		hackAddMessage("CM31_HIDE_LOC", PROX_MSG, CAM_HUMAN_PLAYER);
 
 		setReinforcementTime(-1);
 		removeTimer("setupNextMission");
-		if (difficulty >= INSANE)
+		if (camAllowInsaneSpawns())
 		{
 			queue("insaneReinforcementSpawn", camSecondsToMilliseconds(5));
 			setTimer("insaneReinforcementSpawn", camMinutesToMilliseconds(2.5));
@@ -237,6 +237,11 @@ function setupNextMission()
 //Play countdown sounds. Elements are shifted out of the missile launch/detonation arrays as they play.
 function getCountdown()
 {
+	if (camDef(tweakOptions.infiniteTime) && tweakOptions.infiniteTime)
+	{
+		return; //Skip this with infinite time as a little optimization.
+	}
+
 	const ACCEPTABLE_TIME_DIFF = 2;
 	const SILOS_DESTROYED = missileSilosDestroyed();
 	const countdownObject = SILOS_DESTROYED ? detonateInfo : launchInfo;
@@ -452,7 +457,7 @@ function eventStartLevel()
 	queue("hoverAttack", camChangeOnDiff(camMinutesToMilliseconds(4)));
 	queue("vtolAttack", camChangeOnDiff(camMinutesToMilliseconds(5)));
 	queue("enableAllFactories", camChangeOnDiff(camMinutesToMilliseconds(5)));
-	if (difficulty >= INSANE)
+	if (camAllowInsaneSpawns())
 	{
 		setTimer("insaneTransporterAttack", camMinutesToMilliseconds(4));
 	}

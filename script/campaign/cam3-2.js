@@ -68,7 +68,7 @@ camAreaEvent("phantomFacTrigger", function(droid)
 	camPlayVideos([cam_sounds.incoming.incomingIntelligenceReport, {video: "MB3_2_MSG3", type: CAMP_MSG}]); //Warn about VTOLs.
 	queue("enableReinforcements", camSecondsToMilliseconds(5));
 	queue("vtolAttack", camChangeOnDiff(camMinutesToMilliseconds(2)));
-	if (difficulty >= INSANE)
+	if (camAllowInsaneSpawns())
 	{
 		queue("insaneTransporterAttack", camSecondsToMilliseconds(20));
 		setTimer("insaneTransporterAttack", camMinutesToMilliseconds(4.5));
@@ -134,9 +134,10 @@ function sendEdgeMapDroids(droidCount, location, list)
 function insaneTransporterAttack()
 {
 	const DISTANCE_FROM_POS = 30;
+	const OBJ_SCAN_RADIUS = 1;
 	const units = [cTempl.nxcyrail, cTempl.nxcyscou, cTempl.nxcylas, cTempl.nxmscouh, cTempl.nxlflash, cTempl.nxmrailh];
 	const limits = {minimum: 8, maxRandom: 2};
-	const location = camGenerateRandomMapCoordinate(getObject("startPosition"), CAM_GENERIC_LAND_STAT, DISTANCE_FROM_POS);
+	const location = camGenerateRandomMapCoordinate(getObject("startPosition"), CAM_GENERIC_LAND_STAT, DISTANCE_FROM_POS, OBJ_SCAN_RADIUS, false);
 	camSendGenericSpawn(CAM_REINFORCE_TRANSPORT, CAM_NEXUS, CAM_REINFORCE_CONDITION_NONE, location, units, limits.minimum, limits.maxRandom);
 }
 
@@ -211,7 +212,7 @@ function setupPatrolGroups()
 
 function wave2()
 {
-	const CONDITION = ((difficulty >= INSANE) ? undefined : "NXvtolStrikeTower");
+	const CONDITION = ((camAllowInsaneSpawns()) ? undefined : "NXvtolStrikeTower");
 	const list = [cTempl.nxlscouv, cTempl.nxlscouv];
 	const ext = {limit: [3, 3], alternate: true, altIdx: 0};
 	camSetVtolData(CAM_NEXUS, "vtolAppearPos", "vtolRemoveZone", list, camChangeOnDiff(camMinutesToMilliseconds(3)), CONDITION, ext);
@@ -219,7 +220,7 @@ function wave2()
 
 function wave3()
 {
-	const CONDITION = ((difficulty >= INSANE) ? undefined : "NXvtolStrikeTower");
+	const CONDITION = ((camAllowInsaneSpawns()) ? undefined : "NXvtolStrikeTower");
 	const list = [cTempl.nxlneedv, cTempl.nxlneedv];
 	const ext = {limit: [3, 3], alternate: true, altIdx: 0};
 	camSetVtolData(CAM_NEXUS, "vtolAppearPos", "vtolRemoveZone", list, camChangeOnDiff(camMinutesToMilliseconds(3)), CONDITION, ext);
@@ -228,7 +229,7 @@ function wave3()
 //Setup Nexus VTOL hit and runners.
 function vtolAttack()
 {
-	const CONDITION = ((difficulty >= INSANE) ? undefined : "NXvtolStrikeTower");
+	const CONDITION = ((camAllowInsaneSpawns()) ? undefined : "NXvtolStrikeTower");
 	if (camClassicMode())
 	{
 		const list = [cTempl.nxlscouv, cTempl.nxlscouv, cTempl.nxmtherv];

@@ -64,7 +64,7 @@ function camEnemyBaseEliminated_NXWestBase()
 
 function wave2()
 {
-	const CONDITION = ((difficulty >= INSANE) ? CAM_REINFORCE_CONDITION_ARTIFACTS : "NXCommandCenter");
+	const CONDITION = ((camAllowInsaneSpawns()) ? CAM_REINFORCE_CONDITION_ARTIFACTS : "NXCommandCenter");
 	const list = [cTempl.nxlscouv, cTempl.nxlscouv];
 	const ext = {limit: [3, 3], alternate: true, altIdx: 0};
 	camSetVtolData(CAM_NEXUS, "vtolAppearPos", "vtolRemoveZone", list, camChangeOnDiff(camMinutesToMilliseconds(3.5)), CONDITION, ext);
@@ -72,7 +72,7 @@ function wave2()
 
 function wave3()
 {
-	const CONDITION = ((difficulty >= INSANE) ? CAM_REINFORCE_CONDITION_ARTIFACTS : "NXCommandCenter");
+	const CONDITION = ((camAllowInsaneSpawns()) ? CAM_REINFORCE_CONDITION_ARTIFACTS : "NXCommandCenter");
 	const list = [cTempl.nxlneedv, cTempl.nxlneedv];
 	const ext = {limit: [4, 4], alternate: true, altIdx: 0};
 	camSetVtolData(CAM_NEXUS, "vtolAppearPos", "vtolRemoveZone", list, camChangeOnDiff(camMinutesToMilliseconds(3.5)), CONDITION, ext);
@@ -81,7 +81,7 @@ function wave3()
 //Setup Nexus VTOL hit and runners.
 function vtolAttack()
 {
-	const CONDITION = ((difficulty >= INSANE) ? CAM_REINFORCE_CONDITION_ARTIFACTS : "NXCommandCenter");
+	const CONDITION = ((camAllowInsaneSpawns()) ? CAM_REINFORCE_CONDITION_ARTIFACTS : "NXCommandCenter");
 	if (camClassicMode())
 	{
 		const list = [cTempl.nxlscouv, cTempl.nxmheapv, cTempl.nxmtherv, cTempl.nxlscouv];
@@ -268,7 +268,7 @@ function trapSprung()
 	camPlayVideos({video: "MB3_B_MSG3", type: CAMP_MSG});
 	hackRemoveMessage("CM3B_GAMMABASE", PROX_MSG, CAM_HUMAN_PLAYER);
 
-	setMissionTime(camChangeOnDiff(camMinutesToSeconds(90)));
+	camSetMissionTimer(camChangeOnDiff(camMinutesToSeconds(90)));
 	camCallOnce("activateNexusGroups");
 	enableAllFactories();
 
@@ -279,7 +279,7 @@ function trapSprung()
 	setTimer("sendNXTransporter", camChangeOnDiff(camMinutesToMilliseconds(3)));
 	setTimer("sendNXlandReinforcements", camChangeOnDiff(camMinutesToMilliseconds(4)));
 	setTimer("truckDefense", camChangeOnDiff(camMinutesToMilliseconds(4.5)));
-	if (difficulty >= INSANE)
+	if (camAllowInsaneSpawns())
 	{
 		setTimer("insaneReinforcementSpawn", camMinutesToMilliseconds(6));
 	}
@@ -316,7 +316,7 @@ function eventStartLevel()
 	const lz = getObject("landingZone");
 
 	camSetStandardWinLossConditions(CAM_VICTORY_STANDARD, cam_levels.gamma4.pre);
-	setMissionTime(camChangeOnDiff(camMinutesToSeconds(30))); // For the rescue mission.
+	camSetMissionTimer(camChangeOnDiff(camMinutesToSeconds(30))); // For the rescue mission.
 
 	centreView(startPos.x, startPos.y);
 	setNoGoArea(lz.x, lz.y, lz.x2, lz.y2, CAM_HUMAN_PLAYER);

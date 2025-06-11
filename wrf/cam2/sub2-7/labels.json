@@ -63,6 +63,22 @@
 		"label": "vtolAppearPos2",
 		"pos": [6400, 128]
 	},
+	"position_16": {
+		"label": "insaneSpawnPos1",
+		"pos": [4864, 7808]
+	},
+	"position_17": {
+		"label": "insaneSpawnPos2",
+		"pos": [7808, 4736]
+	},
+	"position_18": {
+		"label": "insaneSpawnPos3",
+		"pos": [6784, 256]
+	},
+	"position_19": {
+		"label": "insaneSpawnPos4",
+		"pos": [256, 256]
+	},
 
 	"area_0": {
 		"label": "landingZone",

@@ -146,7 +146,7 @@ function cam_eventStartLevel()
 	setTimer("__camShowVictoryConditions", camMinutesToMilliseconds(5));
 	setTimer("__camTacticsTick", camSecondsToMilliseconds(0.1));
 	queue("__camShowBetaHintEarly", camSecondsToMilliseconds(4));
-	queue("__camGrantSpecialResearch", camSecondsToMilliseconds(6));
+	queue("__camGrantSpecialResearch", camSecondsToMilliseconds(0.5));
 	queue("__camEnableGuideTopics", camSecondsToMilliseconds(0.1)); // delayed to handle when mission scripts add research
 }
 
@@ -339,10 +339,11 @@ function cam_eventAttacked(victim, attacker)
 			if (camDef(__camGroupInfo[victim.group]))
 			{
 				__camGroupInfo[victim.group].lastHit = gameTime;
-				//Increased Nexus intelligence if struck on cam3-4
-				if (__camNextLevel === CAM_GAMMA_OUT)
+				if (__camGroupInfo[victim.group].order === CAM_ORDER_PATROL)
 				{
-					if (__camGroupInfo[victim.group].order === CAM_ORDER_PATROL)
+					if (camDef(__camGroupInfo[victim.group].data) &&
+						camDef(__camGroupInfo[victim.group].data.reactToAttack) &&
+						__camGroupInfo[victim.group].data.reactToAttack)
 					{
 						__camGroupInfo[victim.group].order = CAM_ORDER_ATTACK;
 					}

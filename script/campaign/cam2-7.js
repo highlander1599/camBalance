@@ -153,10 +153,9 @@ function insaneVtolAttack()
 
 function insaneReinforcementSpawn()
 {
-	const DISTANCE_FROM_POS = 30;
 	const units = [cTempl.cohhvch, cTempl.comagh, cTempl.cohach, cTempl.comltath];
-	const limits = {minimum: 4, maxRandom: 2};
-	const location = camGenerateRandomMapEdgeCoordinate(getObject("startPosition"), CAM_GENERIC_WATER_STAT, DISTANCE_FROM_POS);
+	const limits = {minimum: 4, maxRandom: 4};
+	const location = ["insaneSpawnPos1", "insaneSpawnPos2", "insaneSpawnPos3", "insaneSpawnPos4"];
 	camSendGenericSpawn(CAM_REINFORCE_GROUND, CAM_THE_COLLECTIVE, CAM_REINFORCE_CONDITION_ARTIFACTS, location, units, limits.minimum, limits.maxRandom);
 }
 
@@ -164,18 +163,18 @@ function insaneTransporterAttack()
 {
 	const DISTANCE_FROM_POS = 30;
 	const units = [cTempl.cohact, cTempl.comrotmh, cTempl.cohhpv, cTempl.comhltat];
-	const limits = {minimum: 4, maxRandom: 2};
+	const limits = {minimum: 4, maxRandom: 4};
 	const location = camGenerateRandomMapCoordinate(getObject("startPosition"), CAM_GENERIC_LAND_STAT, DISTANCE_FROM_POS);
 	camSendGenericSpawn(CAM_REINFORCE_TRANSPORT, CAM_THE_COLLECTIVE, CAM_REINFORCE_CONDITION_ARTIFACTS, location, units, limits.minimum, limits.maxRandom);
 }
 
 function insaneSetupSpawns()
 {
-	if (difficulty >= INSANE)
+	if (camAllowInsaneSpawns())
 	{
 		queue("insaneVtolAttack", camMinutesToMilliseconds(2));
-		setTimer("insaneReinforcementSpawn", camMinutesToMilliseconds(5.5));
-		setTimer("insaneTransporterAttack", camMinutesToMilliseconds(6.5));
+		setTimer("insaneReinforcementSpawn", camMinutesToMilliseconds(4.5));
+		setTimer("insaneTransporterAttack", camMinutesToMilliseconds(5.5));
 	}
 }
 

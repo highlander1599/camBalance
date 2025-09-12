@@ -457,12 +457,12 @@ function camBreakAlliances()
 	}
 }
 
-//;; ## camIsWaterPropulsion(name)
+//;; ## camIsWaterPropulsion(propulsion)
 //;;
 //;; Check if a propulsion can traverse water tiles. Until the Stats object can tell us this
 //;; information, it simply uses a very basic name check against the default hover propulsions.
 //;;
-//;; @param {String} name
+//;; @param {String} propulsion
 //;; @returns {Boolean}
 //;;
 function camIsWaterPropulsion(propulsion)

@@ -522,17 +522,21 @@ function camNearInaccessibleAreas(start, destination, propulsion, distance)
 	return false;
 }
 
-//;; ## camGenerateRandomMapEdgeCoordinate(reachPosition [, propulsion [, distFromReach]])
+//;; ## camGenerateRandomMapEdgeCoordinate(reachPosition [, propulsion [, distFromReach [, scanObjectRadius]]])
 //;;
 //;; Returns a random coordinate anywhere on the edge of the map that reaches a position.
-//;; `reachPosition` may be undefined if you just want a random edge coordinate.
+//;; `reachPosition` may be undefined if you just want a random edge coordinate, without object scans.
+//;; Which can be useful for spawning transporter entry/exit points or VTOL spawn positions.
+//;; `scanObjectRadius` may be defined to scan possible spawn points for nearby objects,
+//;; and should be above one tile if there are large skyscrapers at the edges of some maps.
 //;;
 //;; @param {Object} reachPosition
 //;; @param {String} propulsion
 //;; @param {Number} distFromReach
+//;; @param {Number} scanObjectRadius
 //;; @returns {Object}
 //;;
-function camGenerateRandomMapEdgeCoordinate(reachPosition, propulsion, distFromReach)
+function camGenerateRandomMapEdgeCoordinate(reachPosition, propulsion, distFromReach, scanObjectRadius)
 {
 	if (!camDef(propulsion))
 	{
@@ -545,6 +549,7 @@ function camGenerateRandomMapEdgeCoordinate(reachPosition, propulsion, distFromR
 	const limits = getScrollLimits();
 	const __MAX_ATTEMPTS = 10000;
 	const __DEFINED_POS = (camDef(reachPosition) && reachPosition);
+	const __DEFINED_SCAN = (camDef(scanObjectRadius) && scanObjectRadius);
 	const __OFFSET = 3; // Gives transporters enough space to turn around near map edges.
 	const __SCAN_DIST = 1;
 	let attempts = 0;
@@ -590,10 +595,10 @@ function camGenerateRandomMapEdgeCoordinate(reachPosition, propulsion, distFromR
 		}
 		loc = location;
 		if ((attempts > __MAX_ATTEMPTS) ||
-			((!__DEFINED_POS ||
-			(__DEFINED_POS &&
-			(camDist(reachPosition.x, reachPosition.y, loc.x, loc.y) >= distFromReach) &&
-			!camNearInaccessibleAreas(loc, reachPosition, propulsion, __SCAN_DIST)))))
+			(!__DEFINED_POS ||
+			((camDist(reachPosition.x, reachPosition.y, loc.x, loc.y) >= distFromReach) &&
+			(!__DEFINED_SCAN || !enumRange(loc.x, loc.y, scanObjectRadius, ALL_PLAYERS, false).length) &&
+			!camNearInaccessibleAreas(loc, reachPosition, propulsion, __SCAN_DIST))))
 		{
 			breakOut = true;
 		}

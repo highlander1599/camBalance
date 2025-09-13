@@ -506,7 +506,7 @@ function camNearInaccessibleAreas(start, destination, propulsion, distance)
 		for (let y = -distance; y <= distance; ++y)
 		{
 			const tmpStart = {x: start.x + x, y: start.y + y};
-			if ((tmpStart.x < 0) || (tmpStart.y < 0) || (tmpStart.x > mapWidth) || (tmpStart.y > mapHeight))
+			if ((tmpStart.x < 0) || (tmpStart.y < 0) || (tmpStart.x >= mapWidth) || (tmpStart.y >= mapHeight))
 			{
 				continue; // We don't care about being outside the map here.
 			}

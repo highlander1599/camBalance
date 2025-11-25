@@ -1724,7 +1724,7 @@
 			"blbrlook.PIE"
 		],
 		"thermal": 5,
-		"type": "DEFENSE",
+		"type": "CORNER WALL",
 		"width": 1
 	},
 	"NEXUSCWall": {

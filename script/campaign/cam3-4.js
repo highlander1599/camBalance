@@ -55,7 +55,7 @@ camAreaEvent("factoryTriggerS", function() {
 function insaneSetupSpawnGroupWest()
 {
 	camManageGroup(camMakeGroup("insaneNXNorthWestGroup"), CAM_ORDER_ATTACK, {
-		regroup: true,
+		regroup: false,
 		morale: 90,
 		fallback: camMakePos("healthRetreatPos")
 	});
@@ -64,7 +64,7 @@ function insaneSetupSpawnGroupWest()
 function insaneSetupSpawnGroupSouth()
 {
 	camManageGroup(camMakeGroup("insaneNXSouthEastGroup"), CAM_ORDER_ATTACK, {
-		regroup: true,
+		regroup: false,
 		morale: 90,
 		fallback: camMakePos("healthRetreatPos")
 	});

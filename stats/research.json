@@ -9427,11 +9427,11 @@
 	},
 	"R-Wpn-Mortar-ROF06": {
 		"iconID": "IMAGE_RES_WEAPONTECH",
-		"id": "R-Wpn-Mortar-ROF05",
-		"name": "Mortar Fast Loader Mk2",
+		"id": "R-Wpn-Mortar-ROF06",
+		"name": "Mortar Fast Loader Mk3",
 		"requiredResearch": [
 			"R-Wpn-Mortar-ROF05",
-			"R-Wpn-Cannon-ROF04"
+			"R-Wpn-Cannon-ROF05"
 		],
 		"researchPoints": 10000,
 		"researchPower": 312,

@@ -84,7 +84,7 @@ function insaneReinforcementSpawn()
 {
 	const list = [cTempl.npcybr, cTempl.npmrlsh, cTempl.npcybc, cTempl.nphmgt, cTempl.npmorb];
 	const limits = {minimum: 10, maxRandom: 2};
-	const extraUnits = [cTempl.nphct, cTempl.npmrlsh, cTempl.comsens];
+	const extraUnits = [cTempl.nphct, cTempl.npmrlsh, cTempl.npmsens];
 	const units = {units: list, appended: extraUnits};
 	const location = ["insaneWestSpawnPos", "insaneEastSpawnPos", "insaneValleySpawnPos"];
 	camSendGenericSpawn(CAM_REINFORCE_GROUND, CAM_NEW_PARADIGM, CAM_REINFORCE_CONDITION_UNITS, location, units, limits.minimum, limits.maxRandom);

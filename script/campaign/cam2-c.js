@@ -97,12 +97,13 @@ function insaneTransporterAttack()
 
 function insaneAttackRandom()
 {
+	const SCAN_DISTANCE = 2;
 	const DISTANCE_FROM_POS = 40;
 	const list = [cTempl.npcybr, cTempl.npcybc, cTempl.comorb, cTempl.comhpv, cTempl.comhpv, cTempl.comatt, cTempl.comatt];
 	const extraUnits = [cTempl.cohct, cTempl.cohct, cTempl.comsens, cTempl.comsens];
 	const units = {units: list, appended: extraUnits};
 	const limits = {minimum: 10, maxRandom: 4};
-	const location = camMakePos(camGenerateRandomMapCoordinate(getObject("startPosition"), CAM_GENERIC_LAND_STAT, DISTANCE_FROM_POS));
+	const location = camMakePos(camGenerateRandomMapEdgeCoordinate(getObject("startPosition"), CAM_GENERIC_LAND_STAT, DISTANCE_FROM_POS, SCAN_DISTANCE));
 	camSendGenericSpawn(CAM_REINFORCE_GROUND, CAM_THE_COLLECTIVE, CAM_REINFORCE_CONDITION_ARTIFACTS, location, units, limits.minimum, limits.maxRandom);
 }
 

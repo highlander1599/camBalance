@@ -49,7 +49,7 @@ function extraVictoryCondition()
 function checkForGroundForces()
 {
 	const __REGULAR_SPAWN_CONDITION = ((index < 2) && (switchLZ === MIS_TOTAL_PER_INDEX));
-	const __INSANE_SPAWN_CONDITION = (camAllowInsaneSpawns() && !(sentTransports.total % 2));
+	const __INSANE_SPAWN_CONDITION = (camAllowInsaneSpawns() && (sentTransports.total % 2 === 0));
 
 	if (__REGULAR_SPAWN_CONDITION || __INSANE_SPAWN_CONDITION)
 	{

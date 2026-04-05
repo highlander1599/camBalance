@@ -9592,14 +9592,14 @@
 				"filterParameter": "ImpactClass",
 				"filterValue": "GAUSS",
 				"parameter": "FirePause",
-				"value": -10
+				"value": -20
 			},
 			{
 				"class": "Weapon",
 				"filterParameter": "ImpactClass",
 				"filterValue": "GAUSS",
 				"parameter": "ReloadTime",
-				"value": -10
+				"value": -20
 			}
 		],
 		"statID": "RailGun1Mk1",
